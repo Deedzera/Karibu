@@ -1,0 +1,285 @@
+/* ============================================
+   KARIBU — Welcome / Onboarding Walkthrough
+   Full-screen swipeable slides
+   ============================================ */
+
+/* ---- Full-Screen Container ---- */
+.welcome-page {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-body);
+  z-index: 1000;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+/* ---- Slides Wrapper ---- */
+.welcome-slides {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  cursor: grab;
+}
+
+.welcome-slides.grabbing {
+  cursor: grabbing;
+  transition: none;
+}
+
+/* ---- Individual Slide ---- */
+.welcome-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Background image with overlay */
+.welcome-slide-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.3) saturate(1.3);
+  transform: scale(1.05);
+  transition: transform 8s ease-out;
+}
+
+.welcome-slide.active .welcome-slide-bg {
+  transform: scale(1);
+}
+
+.welcome-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 18, 25, 0.4) 0%,
+    rgba(11, 18, 25, 0.2) 30%,
+    rgba(11, 18, 25, 0.5) 70%,
+    rgba(11, 18, 25, 0.9) 100%
+  );
+}
+
+/* ---- Slide Content ---- */
+.welcome-slide-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 600px;
+  padding: var(--space-xl);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s 0.2s var(--ease-out),
+              transform 0.6s 0.2s var(--ease-out);
+}
+
+.welcome-slide.active .welcome-slide-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.welcome-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-xl);
+  font-size: 2rem;
+  background: rgba(232, 145, 58, 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(232, 145, 58, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.welcome-slide-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: var(--weight-bold);
+  color: #fff;
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-md);
+}
+
+.welcome-slide-description {
+  font-size: clamp(0.9375rem, 2vw, 1.125rem);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: var(--leading-relaxed);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Accent highlight */
+.welcome-highlight {
+  color: var(--accent);
+  font-weight: var(--weight-semibold);
+}
+
+/* ---- Bottom Navigation ---- */
+.welcome-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-xl) var(--space-xl) var(--space-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  background: linear-gradient(0deg, rgba(11,18,25,0.8) 0%, transparent 100%);
+}
+
+/* Dots */
+.welcome-dots {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.welcome-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.welcome-dot.active {
+  width: 36px;
+  background: var(--accent);
+}
+
+/* Skip button */
+.welcome-skip {
+  font-size: var(--font-sm);
+  font-weight: var(--weight-medium);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: color var(--duration-fast);
+  padding: var(--space-xs) var(--space-md);
+  border: none;
+  background: none;
+}
+
+.welcome-skip:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Next / Get Started button */
+.welcome-next {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-xl);
+  font-size: var(--font-base);
+  font-weight: var(--weight-semibold);
+  color: #fff;
+  background: var(--accent-gradient);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+  box-shadow: var(--shadow-accent);
+  min-height: 48px;
+  background-size: 200% 200%;
+}
+
+.welcome-next:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px var(--accent-glow);
+  background-position: 100% 0;
+}
+
+/* ---- Karibu Logo ---- */
+.welcome-logo {
+  position: absolute;
+  top: var(--space-xl);
+  left: var(--space-xl);
+  z-index: 10;
+  font-size: var(--font-xl);
+  font-weight: var(--weight-black);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--warning-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+}
+
+/* ---- Floating Decorations ---- */
+.welcome-decoration {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.welcome-decoration-1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -80px;
+  background: radial-gradient(circle, rgba(232,145,58,0.08) 0%, transparent 70%);
+  animation: floatDecoration 20s ease-in-out infinite;
+}
+
+.welcome-decoration-2 {
+  width: 200px;
+  height: 200px;
+  bottom: 15%;
+  left: -60px;
+  background: radial-gradient(circle, rgba(42,122,181,0.08) 0%, transparent 70%);
+  animation: floatDecoration 25s ease-in-out infinite reverse;
+}
+
+@keyframes floatDecoration {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -30px) scale(1.1); }
+  66% { transform: translate(-10px, 20px) scale(0.95); }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .welcome-nav {
+    padding: var(--space-lg) var(--space-md) var(--space-xl);
+  }
+
+  .welcome-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 1.5rem;
+  }
+
+  .welcome-slide-content {
+    padding: var(--space-lg);
+    padding-bottom: 120px;
+  }
+
+  .welcome-logo {
+    top: var(--space-lg);
+    left: var(--space-md);
+    font-size: var(--font-lg);
+  }
+}
+
+/* ---- Page Entry Animation ---- */
+.welcome-page {
+  animation: welcomeFadeIn 0.8s ease-out;
+}
+
+@keyframes welcomeFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

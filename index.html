@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Karibu — Marketplace de Importação Colaborativa | Namíbia <i class="ph ph-arrow-right"></i> Angola
+    </title>
+    <meta
+      name="description"
+      content="Importa produtos da Namíbia para Angola com segurança, preços competitivos e rastreio completo. Pagamento em Escrow, fornecedores verificados e hubs físicos de consolidação."
+    />
+    <meta name="theme-color" content="#0B1219" />
+    <link rel="icon" href="/public/images/favicon.svg" type="image/svg+xml" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/pages/home.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+      <div class="header-inner">
+        <a href="/" class="header-logo">
+          <span class="header-logo-text">Karibu</span>
+          <span class="header-logo-tag">Importação Colaborativa</span>
+        </a>
+
+        <nav class="header-nav" id="desktopNav">
+          <a href="/" class="active">Início</a>
+          <a href="/pages/catalogue.html">Catálogo</a>
+          <a href="#como-funciona">Como Funciona</a>
+          <a href="#carrinhos">Carrinhos Activos</a>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            class="header-icon-btn"
+            id="notificationsBtn"
+            aria-label="Notificações"
+          >
+            <i class="ph ph-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+          <a href="/pages/login.html" class="btn btn-primary btn-sm">Entrar</a>
+          <button class="header-menu-toggle" id="menuToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MOBILE MENU ========== -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-panel">
+        <div class="mobile-menu-header">
+          <span class="header-logo-text" style="font-size: 1.3rem">Karibu</span>
+          <button class="mobile-menu-close modal-close" id="menuClose">
+            ✕
+          </button>
+        </div>
+        <nav class="mobile-menu-nav">
+          <a href="/" class="active"><i class="ph ph-house"></i> Início</a>
+          <a href="/pages/catalogue.html"><i class="ph ph-shopping-bag"></i> Catálogo</a>
+          <a href="#como-funciona"><i class="ph ph-gear"></i> Como Funciona</a>
+          <a href="#carrinhos"><i class="ph ph-shopping-cart"></i> Carrinhos Activos</a>
+          <div class="mobile-menu-divider"></div>
+          <a href="/pages/login.html"><i class="ph ph-key"></i> Iniciar Sessão</a>
+          <a href="/pages/register.html"><i class="ph ph-notebook"></i> Criar Conta</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ========== MAIN ========== -->
+    <main class="page">
+      <!-- ---- HERO ---- -->
+      <section class="hero section">
+        <div class="container">
+          <div class="hero-content anim-on-scroll">
+            <span class="hero-badge"><i class="ph ph-globe"></i> Rota Namíbia <i class="ph ph-arrow-right"></i> Angola</span>
+            <h1>
+              Importações seguras,<br />
+              <span class="highlight">preços imbatíveis.</span>
+            </h1>
+            <p class="hero-subtitle">
+              Fornecedores verificados competem para te oferecer o melhor preço.
+              Pagamento protegido em Escrow. Entrega rastreada via hubs físicos.
+            </p>
+            <div class="hero-actions">
+              <a href="#carrinhos" class="btn btn-primary btn-lg btn-pulse">
+                <i class="ph ph-shopping-cart"></i> Ver Carrinhos Activos
+              </a>
+              <a href="#como-funciona" class="btn btn-secondary btn-lg">
+                Como Funciona?
+              </a>
+            </div>
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <div class="hero-stat-value">150+</div>
+                <div class="hero-stat-label">Fornecedores Verificados</div>
+              </div>
+              <div class="hero-stat">
+                <div class="hero-stat-value">8</div>
+                <div class="hero-stat-label">Províncias Activas</div>
+              </div>
+              <div class="hero-stat">
+                <div class="hero-stat-value">97%</div>
+                <div class="hero-stat-label">Entregas no Prazo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---- ACTIVE CARTS ---- -->
+      <section class="active-carts section" id="carrinhos">
+        <div class="container">
+          <div class="section-title anim-on-scroll">
+            <h2><i class="ph ph-shopping-cart"></i> Carrinhos Activos</h2>
+            <p>
+              Aproveita as janelas de importação abertas. Quando o cronómetro
+              chega a zero, os fornecedores começam a competir pelas tuas
+              cotações.
+            </p>
+          </div>
+
+          <div class="cart-cards">
+            <!-- Cart Card 1 -->
+            <div class="cart-card anim-on-scroll">
+              <div class="cart-card-header">
+                <div class="cart-card-route">
+                  <span class="cart-card-route-from"><img src="https://flagcdn.com/w20/na.png" width="20" alt="Namíbia" style="display:inline-block;vertical-align:middle;"> Windhoek</span>
+                  <span class="cart-card-route-arrow"><i class="ph ph-arrow-right"></i></span>
+                  <span class="cart-card-route-to"><img src="https://flagcdn.com/w20/ao.png" width="20" alt="Angola" style="display:inline-block;vertical-align:middle;"> Luanda</span>
+                </div>
+                <span class="cart-card-status">Aberto</span>
+              </div>
+
+              <div class="cart-card-countdown">
+                <div class="countdown-wrapper">
+                  <div class="countdown-route">Fecha em:</div>
+                  <div class="countdown" data-countdown="2026-03-15T18:00:00">
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-days>00</span>
+                      <span class="countdown-label">Dias</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-hours>00</span>
+                      <span class="countdown-label">Hrs</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-minutes>00</span>
+                      <span class="countdown-label">Min</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-seconds>00</span>
+                      <span class="countdown-label">Seg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cart-card-meta">
+                <span class="cart-card-meta-item">
+                  <span class="cart-card-meta-icon"><i class="ph ph-package"></i></span>
+                  12 pedidos
+                </span>
+                <span class="cart-card-meta-item">
+                  <span class="cart-card-meta-icon"><i class="ph ph-users"></i></span>
+                  8 fornecedores
+                </span>
+              </div>
+
+              <div class="cart-card-products">
+                <div class="cart-card-products-title">Produtos em procura</div>
+                <div class="cart-card-product-list">
+                  <span class="cart-card-product-tag">Smartphones</span>
+                  <span class="cart-card-product-tag">Laptops</span>
+                  <span class="cart-card-product-tag">TVs</span>
+                  <span class="cart-card-product-tag">+5</span>
+                </div>
+              </div>
+
+              <a
+                href="/categoria/todos?cart=windhoek-luanda"
+                class="btn btn-primary btn-block"
+              >
+                Fazer Pedido Neste Carrinho
+              </a>
+            </div>
+
+            <!-- Cart Card 2 -->
+            <div class="cart-card anim-on-scroll">
+              <div class="cart-card-header">
+                <div class="cart-card-route">
+                  <span class="cart-card-route-from"><img src="https://flagcdn.com/w20/na.png" width="20" alt="Namíbia" style="display:inline-block;vertical-align:middle;"> Windhoek</span>
+                  <span class="cart-card-route-arrow"><i class="ph ph-arrow-right"></i></span>
+                  <span class="cart-card-route-to"><img src="https://flagcdn.com/w20/ao.png" width="20" alt="Angola" style="display:inline-block;vertical-align:middle;"> Lubango</span>
+                </div>
+                <span class="cart-card-status">Aberto</span>
+              </div>
+
+              <div class="cart-card-countdown">
+                <div class="countdown-wrapper">
+                  <div class="countdown-route">Fecha em:</div>
+                  <div class="countdown" data-countdown="2026-03-18T12:00:00">
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-days>00</span>
+                      <span class="countdown-label">Dias</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-hours>00</span>
+                      <span class="countdown-label">Hrs</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-minutes>00</span>
+                      <span class="countdown-label">Min</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-seconds>00</span>
+                      <span class="countdown-label">Seg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cart-card-meta">
+                <span class="cart-card-meta-item">
+                  <span class="cart-card-meta-icon"><i class="ph ph-package"></i></span>
+                  7 pedidos
+                </span>
+                <span class="cart-card-meta-item">
+                  <span class="cart-card-meta-icon"><i class="ph ph-users"></i></span>
+                  5 fornecedores
+                </span>
+              </div>
+
+              <div class="cart-card-products">
+                <div class="cart-card-products-title">Produtos em procura</div>
+                <div class="cart-card-product-list">
+                  <span class="cart-card-product-tag">Electrodomésticos</span>
+                  <span class="cart-card-product-tag">Peças Auto</span>
+                  <span class="cart-card-product-tag">+3</span>
+                </div>
+              </div>
+
+              <a
+                href="/categoria/todos?cart=windhoek-lubango"
+                class="btn btn-primary btn-block"
+              >
+                Fazer Pedido Neste Carrinho
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---- HOW IT WORKS ---- -->
+      <section class="how-it-works section" id="como-funciona">
+        <div class="container">
+          <div class="section-title centered anim-on-scroll">
+            <h2>Como Funciona o Karibu?</h2>
+            <p>3 passos simples para importar com segurança</p>
+          </div>
+
+          <div class="steps anim-on-scroll">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Escolhe e Pede</h4>
+                <p>
+                  Selecciona o produto e faz um pedido de cotação dentro de um
+                  carrinho activo. Fornecedores verificados competem para te dar
+                  o melhor preço.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Compara e Paga</h4>
+                <p>
+                  Recebe propostas com preço, prazo e fotos reais. Escolhe a
+                  melhor e paga com segurança — o dinheiro fica protegido em
+                  Escrow.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Recebe no Hub ou em Casa</h4>
+                <p>
+                  O produto é verificado no nosso Hub físico. Levanta no Hub
+                  gratuitamente ou recebe ao domicílio com rastreio em tempo
+                  real.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---- CATEGORIES ---- -->
+      <section class="section">
+        <div class="container">
+          <div class="section-title anim-on-scroll">
+            <h2>Categorias Populares</h2>
+            <p>O que os angolanos mais importam da Namíbia</p>
+          </div>
+
+          <div class="categories-scroll anim-on-scroll">
+            <a href="/categoria/smartphones" class="category-pill">
+              <span class="category-pill-icon"><i class="ph ph-device-mobile"></i></span>
+              <span class="category-pill-name">Smartphones</span>
+            </a>
+            <a href="/categoria/laptops" class="category-pill">
+              <span class="category-pill-icon"><i class="ph ph-laptop"></i></span>
+              <span class="category-pill-name">Laptops</span>
+            </a>
+            <a href="/categoria/televisoes" class="category-pill">
+              <span class="category-pill-icon"><i class="ph ph-television"></i></span>
+              <span class="category-pill-name">Televisões</span>
+            </a>
+            <a href="/categoria/electrodomesticos" class="category-pill">
+              <span class="category-pill-icon"><i class="ph ph-house"></i></span>
+              <span class="category-pill-name">Electrodomésticos</span>
+            </a>
+            <a href="/categoria/pecas-auto" class="category-pill">
+              <span class="category-pill-icon"><i class="ph ph-car"></i></span>
+              <span class="category-pill-name">Peças Auto</span>
+            </a>
+            <a href="/categoria/construcao" class="category-pill">
+              <span class="category-pill-icon"><i class="ph ph-hammer"></i></span>
+              <span class="category-pill-name">Construção</span>
+            </a>
+            <a href="/categoria/moda" class="category-pill">
+              <span class="category-pill-icon"><i class="ph ph-dress"></i></span>
+              <span class="category-pill-name">Moda</span>
+            </a>
+            <a href="/categoria/gaming" class="category-pill">
+              <span class="category-pill-icon"><i class="ph ph-game-controller"></i></span>
+              <span class="category-pill-name">Gaming</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---- FEATURED PRODUCTS ---- -->
+      <section class="featured-products section">
+        <div class="container">
+          <div class="section-title anim-on-scroll">
+            <h2>Produtos em Destaque</h2>
+            <p>Mais pedidos neste ciclo de carrinhos</p>
+          </div>
+
+          <div class="grid anim-on-scroll">
+            <!-- Product 1 -->
+            <a href="/produto/iphone-14-pro" class="product-card">
+              <div class="product-card-image">
+                <div
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 3rem;
+                  "
+                >
+                  <i class="ph ph-device-mobile"></i>
+                </div>
+                <span class="product-card-badge badge badge-urgent"
+                  ><i class="ph-fill ph-fire" style="color: var(--danger)"></i> Alto Procura</span
+                >
+              </div>
+              <div class="product-card-body">
+                <h3 class="product-card-title">iPhone 14 Pro Max 256GB</h3>
+                <div class="product-card-price">145.000 – 185.000 Kz</div>
+                <div class="product-card-meta">
+                  <span class="product-card-suppliers"><i class="ph ph-users"></i> 5 fornecedores</span>
+                  <span class="product-card-countdown"><i class="ph ph-timer"></i> 5d 18h</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Product 2 -->
+            <a href="/produto/samsung-galaxy-s23" class="product-card">
+              <div class="product-card-image">
+                <div
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 3rem;
+                  "
+                >
+                  <i class="ph ph-device-mobile"></i>
+                </div>
+                <span class="product-card-badge badge badge-opportunity"
+                  ><i class="ph-fill ph-diamond" style="color: var(--info)"></i> Oportunidade</span
+                >
+              </div>
+              <div class="product-card-body">
+                <h3 class="product-card-title">Samsung Galaxy S23 Ultra</h3>
+                <div class="product-card-price">170.000 – 210.000 Kz</div>
+                <div class="product-card-meta">
+                  <span class="product-card-suppliers"><i class="ph ph-users"></i> 3 fornecedores</span>
+                  <span class="product-card-countdown"><i class="ph ph-timer"></i> 5d 18h</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Product 3 -->
+            <a href="/produto/lg-tv-55" class="product-card">
+              <div class="product-card-image">
+                <div
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 3rem;
+                  "
+                >
+                  <i class="ph ph-television"></i>
+                </div>
+                <span class="product-card-badge badge badge-exclusive"
+                  ><i class="ph-fill ph-sparkle" style="color: var(--warning)"></i> Exclusivo</span
+                >
+              </div>
+              <div class="product-card-body">
+                <h3 class="product-card-title">LG Smart TV 55" 4K UHD</h3>
+                <div class="product-card-price">250.000 – 310.000 Kz</div>
+                <div class="product-card-meta">
+                  <span class="product-card-suppliers"><i class="ph ph-users"></i> 2 fornecedores</span>
+                  <span class="product-card-countdown"><i class="ph ph-timer"></i> 8d 12h</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Product 4 -->
+            <a href="/produto/ps5-console" class="product-card">
+              <div class="product-card-image">
+                <div
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 3rem;
+                  "
+                >
+                  <i class="ph ph-game-controller"></i>
+                </div>
+              </div>
+              <div class="product-card-body">
+                <h3 class="product-card-title">PlayStation 5 + 2 Jogos</h3>
+                <div class="product-card-price">195.000 – 240.000 Kz</div>
+                <div class="product-card-meta">
+                  <span class="product-card-suppliers"><i class="ph ph-users"></i> 4 fornecedores</span>
+                  <span class="product-card-countdown"><i class="ph ph-timer"></i> 5d 18h</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div style="text-align: center; margin-top: var(--space-xl)">
+            <a href="/categoria/todos" class="btn btn-secondary"
+              >Ver Todos os Produtos <i class="ph ph-arrow-right"></i></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ---- TRUST SECTION ---- -->
+      <section class="trust-section section" id="confianca">
+        <div class="container">
+          <div class="section-title centered anim-on-scroll">
+            <h2>Porque Confiar no Karibu?</h2>
+            <p>Protecção completa em cada passo da tua importação</p>
+          </div>
+
+          <div class="trust-badges anim-on-scroll">
+            <div class="trust-badge">
+              <div class="trust-badge-icon"><i class="ph ph-lock-key"></i></div>
+              <div class="trust-badge-content">
+                <h4>Pagamento em Escrow</h4>
+                <p>
+                  O teu dinheiro fica protegido. O fornecedor só recebe quando
+                  confirmares que recebeste o produto.
+                </p>
+              </div>
+            </div>
+            <div class="trust-badge">
+              <div class="trust-badge-icon"><i class="ph-fill ph-check-circle" style="color: var(--success)"></i></div>
+              <div class="trust-badge-content">
+                <h4>Fornecedores Verificados</h4>
+                <p>
+                  Todos passam por verificação de identidade e histórico.
+                  Ratings públicos e transparentes.
+                </p>
+              </div>
+            </div>
+            <div class="trust-badge">
+              <div class="trust-badge-icon"><i class="ph ph-package"></i></div>
+              <div class="trust-badge-content">
+                <h4>Hub Físico de Consolidação</h4>
+                <p>
+                  O produto é inspeccionado num ponto físico real antes de te
+                  chegar. Sem surpresas.
+                </p>
+              </div>
+            </div>
+            <div class="trust-badge">
+              <div class="trust-badge-icon"><i class="ph ph-arrows-clockwise"></i></div>
+              <div class="trust-badge-content">
+                <h4>Garantia de Devolução</h4>
+                <p>
+                  Produto com problema? Abre uma disputa e o teu pagamento fica
+                  retido até à resolução.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---- TESTIMONIALS ---- -->
+      <section class="section">
+        <div class="container">
+          <div class="section-title centered anim-on-scroll">
+            <h2>O Que Dizem os Nossos Utilizadores</h2>
+            <p>Compradores e fornecedores satisfeitos em toda Angola</p>
+          </div>
+
+          <div class="testimonials-grid anim-on-scroll">
+            <div class="testimonial">
+              <div class="testimonial-stars"><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i></div>
+              <p class="testimonial-text">
+                "Comprei um iPhone 14 e paguei menos 30% do que encontrava em
+                Luanda. O Escrow deu-me toda a confiança."
+              </p>
+              <div class="testimonial-author">
+                <strong>Ana C.</strong> — Luanda
+              </div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-stars"><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i></div>
+              <p class="testimonial-text">
+                "Como fornecedor, o Karibu trouxe-me clientes que nunca teria
+                alcançado. O sistema de cotação é justo e transparente."
+              </p>
+              <div class="testimonial-author">
+                <strong>Carlos M.</strong> — Fornecedor, Windhoek
+              </div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-stars"><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph ph-star"></i></div>
+              <p class="testimonial-text">
+                "Levantei no Hub do Lubango em 6 dias. A embalagem estava
+                perfeita. O rastreio todo pelo telemóvel."
+              </p>
+              <div class="testimonial-author">
+                <strong>José F.</strong> — Lubango
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---- FINAL CTA ---- -->
+      <section class="final-cta">
+        <div class="container anim-on-scroll">
+          <h2>
+            Pronto para importar<br />com
+            <span
+              class="highlight"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--accent),
+                  var(--warning-light)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+              "
+              >confiança</span
+            >?
+          </h2>
+          <p>
+            Junta-te a milhares de angolanos que já importam de forma segura,
+            rastreável e a preços competitivos.
+          </p>
+          <div class="hero-actions">
+            <a href="/pages/register.html" class="btn btn-primary btn-lg btn-pulse"
+              >Criar Conta Grátis</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-brand-name">Karibu</div>
+            <p>
+              Marketplace de importação colaborativa que profissionaliza a rota
+              comercial Namíbia <i class="ph ph-arrow-right"></i> Angola com segurança, transparência e preços
+              competitivos.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h5>Plataforma</h5>
+            <ul>
+              <li><a href="/categoria/todos">Catálogo</a></li>
+              <li><a href="#carrinhos">Carrinhos Activos</a></li>
+              <li><a href="#como-funciona">Como Funciona</a></li>
+              <li>
+                <a href="/fornecedor/registar">Ser Fornecedor</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Suporte</h5>
+            <ul>
+              <li><a href="#">Central de Ajuda</a></li>
+              <li><a href="#">Disputas e Reclamações</a></li>
+              <li><a href="#">Contactar Suporte</a></li>
+              <li><a href="#">Regras da Plataforma</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Empresa</h5>
+            <ul>
+              <li><a href="#">Sobre o Karibu</a></li>
+              <li><a href="#">Termos de Serviço</a></li>
+              <li><a href="#">Política de Privacidade</a></li>
+              <li><a href="#">Parceiros e Hubs</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Karibu. Todos os direitos reservados. Luanda, Angola.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="WhatsApp"><i class="ph ph-chat-circle-text"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+            <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========== MOBILE BOTTOM NAV ========== -->
+    <nav class="bottom-nav" id="bottomNav">
+      <div class="bottom-nav-inner">
+        <a href="/" class="bottom-nav-item active">
+          <span class="nav-icon"><i class="ph ph-house"></i></span>
+          <span class="nav-label">Início</span>
+        </a>
+        <a href="/categoria/todos" class="bottom-nav-item">
+          <span class="nav-icon"><i class="ph ph-magnifying-glass"></i></span>
+          <span class="nav-label">Catálogo</span>
+        </a>
+        <a href="#carrinhos" class="bottom-nav-item">
+          <span class="nav-icon"><i class="ph ph-shopping-cart"></i></span>
+          <span class="nav-label">Carrinhos</span>
+          <span class="nav-badge">2</span>
+        </a>
+        <a href="/comprador/painel" class="bottom-nav-item">
+          <span class="nav-icon"><i class="ph ph-clipboard-text"></i></span>
+          <span class="nav-label">Pedidos</span>
+        </a>
+        <a href="/login" class="bottom-nav-item">
+          <span class="nav-icon"><i class="ph ph-user"></i></span>
+          <span class="nav-label">Conta</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="/js/components/countdown.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>

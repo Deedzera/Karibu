@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo — Karibu Marketplace</title>
+    <meta
+      name="description"
+      content="Explora milhares de produtos disponíveis para importação da Namíbia. Smartphones, laptops, electrodomésticos e mais, com preços competitivos."
+    />
+    <meta name="theme-color" content="#0B1219" />
+    <link rel="icon" href="/public/images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/pages/catalogue.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="header-logo">
+          <span class="header-logo-text">Karibu</span>
+          <span class="header-logo-tag">Importação Colaborativa</span>
+        </a>
+        <nav class="header-nav">
+          <a href="/">Início</a>
+          <a href="/categoria/todos" class="active">Catálogo</a>
+          <a href="/#como-funciona">Como Funciona</a>
+          <a href="/#carrinhos">Carrinhos Activos</a>
+        </nav>
+        <div class="header-actions">
+          <button class="header-icon-btn" aria-label="Notificações">
+            <i class="ph ph-bell"></i><span class="notification-dot"></span>
+          </button>
+          <a href="/login" class="btn btn-primary btn-sm">Entrar</a>
+          <button class="header-menu-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MOBILE MENU ========== -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-panel">
+        <div class="mobile-menu-header">
+          <span class="header-logo-text" style="font-size: 1.3rem">Karibu</span>
+          <button class="mobile-menu-close modal-close"><i class="ph ph-x"></i></button>
+        </div>
+        <nav class="mobile-menu-nav">
+          <a href="/"><i class="ph ph-house"></i> Início</a>
+          <a href="/categoria/todos" class="active"><i class="ph ph-shopping-bag"></i> Catálogo</a>
+          <a href="/#como-funciona"><i class="ph ph-gear"></i> Como Funciona</a>
+          <a href="/#carrinhos"><i class="ph ph-shopping-cart"></i> Carrinhos Activos</a>
+          <div class="mobile-menu-divider"></div>
+          <a href="/login"><i class="ph ph-key"></i> Iniciar Sessão</a>
+          <a href="/registar"><i class="ph ph-notebook"></i> Criar Conta</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ========== MAIN ========== -->
+    <main class="catalogue">
+      <div class="container">
+        <!-- Search -->
+        <div class="catalogue-search">
+          <div class="search-wrapper">
+            <span class="search-icon"><i class="ph ph-magnifying-glass"></i></span>
+            <input
+              type="text"
+              class="search-input"
+              id="searchInput"
+              placeholder="Procurar produtos... Ex: iPhone, TV, PlayStation"
+              oninput="toggleClear(this)"
+            />
+            <button
+              class="search-clear"
+              id="searchClear"
+              onclick="clearSearch()"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="category-tabs">
+          <a href="#" class="category-tab active">
+            <i class="ph ph-shopping-bag"></i> Todos <span class="category-tab-count">48</span>
+          </a>
+          <a href="#" class="category-tab">
+            <i class="ph ph-device-mobile"></i> Smartphones <span class="category-tab-count">14</span>
+          </a>
+          <a href="#" class="category-tab">
+            <i class="ph ph-laptop"></i> Laptops <span class="category-tab-count">8</span>
+          </a>
+          <a href="#" class="category-tab">
+            <i class="ph ph-television"></i> Televisões <span class="category-tab-count">6</span>
+          </a>
+          <a href="#" class="category-tab">
+            <i class="ph ph-house"></i> Electrodomésticos <span class="category-tab-count">7</span>
+          </a>
+          <a href="#" class="category-tab">
+            <i class="ph ph-car"></i> Peças Auto <span class="category-tab-count">5</span>
+          </a>
+          <a href="#" class="category-tab">
+            <i class="ph ph-hammer"></i> Construção <span class="category-tab-count">4</span>
+          </a>
+          <a href="#" class="category-tab">
+            <i class="ph ph-game-controller"></i> Gaming <span class="category-tab-count">4</span>
+          </a>
+        </div>
+
+        <!-- Mobile Filter Bar -->
+        <div class="mobile-filter-bar">
+          <button class="filter-btn" onclick="openFilterModal()">
+            <i class="ph ph-gear"></i> Filtros
+          </button>
+          <select class="sort-select" id="mobileSortSelect">
+            <option value="popular">Mais Populares</option>
+            <option value="price-low">Menor Preço</option>
+            <option value="price-high">Maior Preço</option>
+            <option value="newest">Mais Recentes</option>
+            <option value="suppliers">Mais Fornecedores</option>
+          </select>
+        </div>
+
+        <div class="catalogue-layout">
+          <!-- ===== FILTERS SIDEBAR (Desktop) ===== -->
+          <aside class="filters-sidebar">
+            <!-- Price Range -->
+            <div class="filter-group">
+              <div class="filter-group-title"><i class="ph ph-money"></i> Preço (Kz)</div>
+              <div class="filter-price-range">
+                <input
+                  type="text"
+                  class="filter-price-input"
+                  placeholder="Mín"
+                  value=""
+                />
+                <span class="filter-price-separator">—</span>
+                <input
+                  type="text"
+                  class="filter-price-input"
+                  placeholder="Máx"
+                  value=""
+                />
+              </div>
+            </div>
+
+            <!-- Condition -->
+            <div class="filter-group">
+              <div class="filter-group-title"><i class="ph ph-package"></i> Condição</div>
+              <div class="filter-options">
+                <label class="filter-option">
+                  <input type="checkbox" checked /> Novo e Selado
+                  <span class="filter-option-count">31</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" /> Novo (Caixa Aberta)
+                  <span class="filter-option-count">10</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" /> Recondicionado
+                  <span class="filter-option-count">7</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Delivery Route -->
+            <div class="filter-group">
+              <div class="filter-group-title"><i class="ph ph-truck"></i> Rota de Entrega</div>
+              <div class="filter-options">
+                <label class="filter-option">
+                  <input type="checkbox" checked /> Windhoek <i class="ph ph-arrow-right"></i> Luanda
+                  <span class="filter-option-count">28</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" checked /> Windhoek <i class="ph ph-arrow-right"></i> Lubango
+                  <span class="filter-option-count">15</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" /> Windhoek <i class="ph ph-arrow-right"></i> Benguela
+                  <span class="filter-option-count">5</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Suppliers -->
+            <div class="filter-group">
+              <div class="filter-group-title"><i class="ph ph-users"></i> Fornecedores</div>
+              <div class="filter-options">
+                <label class="filter-option">
+                  <input type="checkbox" /> Apenas verificados <i class="ph ph-check"></i>
+                  <span class="filter-option-count">42</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" /> Com rating ≥ 4.5
+                  <span class="filter-option-count">36</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Cart Status -->
+            <div class="filter-group">
+              <div class="filter-group-title"><i class="ph ph-shopping-cart"></i> Carrinho</div>
+              <div class="filter-options">
+                <label class="filter-option">
+                  <input type="checkbox" /> Com carrinho activo
+                  <span class="filter-option-count">25</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" /> Fecha em &lt; 48h
+                  <span class="filter-option-count">8</span>
+                </label>
+              </div>
+            </div>
+          </aside>
+
+          <!-- ===== PRODUCTS AREA ===== -->
+          <div class="catalogue-products">
+            <!-- Results Header -->
+            <div class="results-header">
+              <span class="results-count">
+                A mostrar <strong>48 produtos</strong> em todas as categorias
+              </span>
+              <div class="results-sort">
+                <select class="sort-select" id="desktopSortSelect">
+                  <option value="popular">Mais Populares</option>
+                  <option value="price-low">Menor Preço</option>
+                  <option value="price-high">Maior Preço</option>
+                  <option value="newest">Mais Recentes</option>
+                  <option value="suppliers">Mais Fornecedores</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid">
+              <a href="/produto/demo" class="product-card">
+                <div class="product-card-image">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 3rem;
+                    "
+                  >
+                    <i class="ph ph-device-mobile"></i>
+                  </div>
+                  <span class="product-card-badge badge badge-urgent"
+                    ><i class="ph-fill ph-fire" style="color: var(--danger)"></i> Alta Procura</span
+                  >
+                </div>
+                <div class="product-card-body">
+                  <h3 class="product-card-title">iPhone 14 Pro Max 256GB</h3>
+                  <div class="product-card-price">145.000 – 185.000 Kz</div>
+                  <div class="product-card-meta">
+                    <span class="product-card-suppliers"><i class="ph ph-users"></i> 5</span>
+                    <span class="product-card-countdown"><i class="ph ph-timer"></i> 5d 18h</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="/produto/demo" class="product-card">
+                <div class="product-card-image">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 3rem;
+                    "
+                  >
+                    <i class="ph ph-device-mobile"></i>
+                  </div>
+                  <span class="product-card-badge badge badge-opportunity"
+                    ><i class="ph-fill ph-diamond" style="color: var(--info)"></i> Oportunidade</span
+                  >
+                </div>
+                <div class="product-card-body">
+                  <h3 class="product-card-title">Samsung Galaxy S23 Ultra</h3>
+                  <div class="product-card-price">170.000 – 210.000 Kz</div>
+                  <div class="product-card-meta">
+                    <span class="product-card-suppliers"><i class="ph ph-users"></i> 3</span>
+                    <span class="product-card-countdown"><i class="ph ph-timer"></i> 5d 18h</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="/produto/demo" class="product-card">
+                <div class="product-card-image">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 3rem;
+                    "
+                  >
+                    <i class="ph ph-television"></i>
+                  </div>
+                  <span class="product-card-badge badge badge-exclusive"
+                    ><i class="ph-fill ph-sparkle" style="color: var(--warning)"></i> Exclusivo</span
+                  >
+                </div>
+                <div class="product-card-body">
+                  <h3 class="product-card-title">LG Smart TV 55" 4K UHD</h3>
+                  <div class="product-card-price">250.000 – 310.000 Kz</div>
+                  <div class="product-card-meta">
+                    <span class="product-card-suppliers"><i class="ph ph-users"></i> 2</span>
+                    <span class="product-card-countdown"><i class="ph ph-timer"></i> 8d 12h</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="/produto/demo" class="product-card">
+                <div class="product-card-image">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 3rem;
+                    "
+                  >
+                    <i class="ph ph-game-controller"></i>
+                  </div>
+                </div>
+                <div class="product-card-body">
+                  <h3 class="product-card-title">PlayStation 5 + 2 Jogos</h3>
+                  <div class="product-card-price">195.000 – 240.000 Kz</div>
+                  <div class="product-card-meta">
+                    <span class="product-card-suppliers"><i class="ph ph-users"></i> 4</span>
+                    <span class="product-card-countdown"><i class="ph ph-timer"></i> 5d 18h</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="/produto/demo" class="product-card">
+                <div class="product-card-image">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 3rem;
+                    "
+                  >
+                    <i class="ph ph-laptop"></i>
+                  </div>
+                  <span class="product-card-badge badge badge-urgent"
+                    ><i class="ph-fill ph-fire" style="color: var(--danger)"></i> Alta Procura</span
+                  >
+                </div>
+                <div class="product-card-body">
+                  <h3 class="product-card-title">MacBook Air M2 256GB</h3>
+                  <div class="product-card-price">380.000 – 450.000 Kz</div>
+                  <div class="product-card-meta">
+                    <span class="product-card-suppliers"><i class="ph ph-users"></i> 3</span>
+                    <span class="product-card-countdown"><i class="ph ph-timer"></i> 5d 18h</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="/produto/demo" class="product-card">
+                <div class="product-card-image">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 3rem;
+                    "
+                  >
+                    <i class="ph ph-house"></i>
+                  </div>
+                </div>
+                <div class="product-card-body">
+                  <h3 class="product-card-title">Microondas Samsung 28L</h3>
+                  <div class="product-card-price">45.000 – 65.000 Kz</div>
+                  <div class="product-card-meta">
+                    <span class="product-card-suppliers"><i class="ph ph-users"></i> 6</span>
+                    <span class="product-card-countdown"><i class="ph ph-timer"></i> 8d 12h</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="/produto/demo" class="product-card">
+                <div class="product-card-image">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 3rem;
+                    "
+                  >
+                    <i class="ph ph-device-mobile"></i>
+                  </div>
+                  <span class="product-card-badge badge badge-competitive"
+                    ><i class="ph-fill ph-lightning" style="color: var(--warning)"></i> Competitivo</span
+                  >
+                </div>
+                <div class="product-card-body">
+                  <h3 class="product-card-title">iPhone 13 128GB</h3>
+                  <div class="product-card-price">95.000 – 125.000 Kz</div>
+                  <div class="product-card-meta">
+                    <span class="product-card-suppliers"><i class="ph ph-users"></i> 7</span>
+                    <span class="product-card-countdown"><i class="ph ph-timer"></i> 5d 18h</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="/produto/demo" class="product-card">
+                <div class="product-card-image">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 3rem;
+                    "
+                  >
+                    <i class="ph ph-car"></i>
+                  </div>
+                </div>
+                <div class="product-card-body">
+                  <h3 class="product-card-title">Amortecedores Toyota Hilux</h3>
+                  <div class="product-card-price">35.000 – 55.000 Kz</div>
+                  <div class="product-card-meta">
+                    <span class="product-card-suppliers"><i class="ph ph-users"></i> 2</span>
+                    <span class="product-card-countdown"><i class="ph ph-timer"></i> 8d 12h</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="/produto/demo" class="product-card">
+                <div class="product-card-image">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 3rem;
+                    "
+                  >
+                    <i class="ph ph-laptop"></i>
+                  </div>
+                  <span class="product-card-badge badge badge-opportunity"
+                    ><i class="ph-fill ph-diamond" style="color: var(--info)"></i> Oportunidade</span
+                  >
+                </div>
+                <div class="product-card-body">
+                  <h3 class="product-card-title">Lenovo ThinkPad T14 i5</h3>
+                  <div class="product-card-price">290.000 – 340.000 Kz</div>
+                  <div class="product-card-meta">
+                    <span class="product-card-suppliers"><i class="ph ph-users"></i> 4</span>
+                    <span class="product-card-countdown"><i class="ph ph-timer"></i> 5d 18h</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="/produto/demo" class="product-card">
+                <div class="product-card-image">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 3rem;
+                    "
+                  >
+                    <i class="ph ph-hammer"></i>
+                  </div>
+                </div>
+                <div class="product-card-body">
+                  <h3 class="product-card-title">Kit Ferramentas Bosch Pro</h3>
+                  <div class="product-card-price">85.000 – 110.000 Kz</div>
+                  <div class="product-card-meta">
+                    <span class="product-card-suppliers"><i class="ph ph-users"></i> 3</span>
+                    <span class="product-card-countdown"><i class="ph ph-timer"></i> 8d 12h</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="/produto/demo" class="product-card">
+                <div class="product-card-image">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 3rem;
+                    "
+                  >
+                    <i class="ph ph-television"></i>
+                  </div>
+                </div>
+                <div class="product-card-body">
+                  <h3 class="product-card-title">Samsung QLED 65" 4K</h3>
+                  <div class="product-card-price">420.000 – 520.000 Kz</div>
+                  <div class="product-card-meta">
+                    <span class="product-card-suppliers"><i class="ph ph-users"></i> 2</span>
+                    <span class="product-card-countdown"><i class="ph ph-timer"></i> 8d 12h</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="/produto/demo" class="product-card">
+                <div class="product-card-image">
+                  <div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 3rem;
+                    "
+                  >
+                    <i class="ph ph-game-controller"></i>
+                  </div>
+                  <span class="product-card-badge badge badge-exclusive"
+                    ><i class="ph-fill ph-sparkle" style="color: var(--warning)"></i> Exclusivo</span
+                  >
+                </div>
+                <div class="product-card-body">
+                  <h3 class="product-card-title">Xbox Series X 1TB</h3>
+                  <div class="product-card-price">180.000 – 220.000 Kz</div>
+                  <div class="product-card-meta">
+                    <span class="product-card-suppliers"><i class="ph ph-users"></i> 3</span>
+                    <span class="product-card-countdown"><i class="ph ph-timer"></i> 5d 18h</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+              <button class="pagination-btn disabled"><i class="ph ph-caret-left"></i></button>
+              <button class="pagination-btn active">1</button>
+              <button class="pagination-btn">2</button>
+              <button class="pagination-btn">3</button>
+              <span class="pagination-dots">…</span>
+              <button class="pagination-btn">8</button>
+              <button class="pagination-btn"><i class="ph ph-caret-right"></i></button>
+            </div>
+          </div>
+          <!-- /catalogue-products -->
+        </div>
+        <!-- /catalogue-layout -->
+      </div>
+    </main>
+
+    <!-- ========== FILTER MODAL (Mobile) ========== -->
+    <div class="modal-backdrop" id="filterModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 class="modal-title">Filtros</h3>
+          <button class="modal-close" onclick="closeFilterModal()"><i class="ph ph-x"></i></button>
+        </div>
+
+        <div class="filter-modal-content">
+          <div class="filter-group">
+            <div class="filter-group-title"><i class="ph ph-money"></i> Preço (Kz)</div>
+            <div class="filter-price-range">
+              <input type="text" class="filter-price-input" placeholder="Mín" />
+              <span class="filter-price-separator">—</span>
+              <input type="text" class="filter-price-input" placeholder="Máx" />
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <div class="filter-group-title"><i class="ph ph-package"></i> Condição</div>
+            <div class="filter-options">
+              <label class="filter-option"
+                ><input type="checkbox" checked /> Novo e Selado</label
+              >
+              <label class="filter-option"
+                ><input type="checkbox" /> Novo (Caixa Aberta)</label
+              >
+              <label class="filter-option"
+                ><input type="checkbox" /> Recondicionado</label
+              >
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <div class="filter-group-title"><i class="ph ph-truck"></i> Rota de Entrega</div>
+            <div class="filter-options">
+              <label class="filter-option"
+                ><input type="checkbox" checked /> Windhoek <i class="ph ph-arrow-right"></i> Luanda</label
+              >
+              <label class="filter-option"
+                ><input type="checkbox" checked /> Windhoek <i class="ph ph-arrow-right"></i> Lubango</label
+              >
+              <label class="filter-option"
+                ><input type="checkbox" /> Windhoek <i class="ph ph-arrow-right"></i> Benguela</label
+              >
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <div class="filter-group-title"><i class="ph ph-users"></i> Fornecedores</div>
+            <div class="filter-options">
+              <label class="filter-option"
+                ><input type="checkbox" /> Apenas verificados <i class="ph ph-check"></i></label
+              >
+              <label class="filter-option"
+                ><input type="checkbox" /> Rating ≥ 4.5</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: var(--space-lg);
+            display: flex;
+            gap: var(--space-sm);
+          "
+        >
+          <button class="btn btn-ghost btn-block" onclick="closeFilterModal()">
+            Limpar
+          </button>
+          <button
+            class="btn btn-primary btn-block"
+            onclick="closeFilterModal()"
+          >
+            Aplicar Filtros
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-brand-name">Karibu</div>
+            <p>
+              Marketplace de importação colaborativa. Rota Namíbia <i class="ph ph-arrow-right"></i> Angola.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h5>Plataforma</h5>
+            <ul>
+              <li><a href="/categoria/todos">Catálogo</a></li>
+              <li><a href="/#carrinhos">Carrinhos Activos</a></li>
+              <li><a href="/#como-funciona">Como Funciona</a></li>
+              <li>
+                <a href="/fornecedor/registar">Ser Fornecedor</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Suporte</h5>
+            <ul>
+              <li><a href="#">Central de Ajuda</a></li>
+              <li><a href="#">Disputas</a></li>
+              <li><a href="#">Contactar</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Empresa</h5>
+            <ul>
+              <li><a href="#">Sobre</a></li>
+              <li><a href="#">Termos</a></li>
+              <li><a href="#">Privacidade</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Karibu. Todos os direitos reservados.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="WhatsApp"><i class="ph ph-chat-circle-text"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+            <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========== MOBILE BOTTOM NAV ========== -->
+    <nav class="bottom-nav">
+      <div class="bottom-nav-inner">
+        <a href="/" class="bottom-nav-item"
+          ><span class="nav-icon"><i class="ph ph-house"></i></span
+          ><span class="nav-label">Início</span></a
+        >
+        <a href="/categoria/todos" class="bottom-nav-item active"
+          ><span class="nav-icon"><i class="ph ph-magnifying-glass"></i></span
+          ><span class="nav-label">Catálogo</span></a
+        >
+        <a href="/#carrinhos" class="bottom-nav-item"
+          ><span class="nav-icon"><i class="ph ph-shopping-cart"></i></span
+          ><span class="nav-label">Carrinhos</span
+          ><span class="nav-badge">2</span></a
+        >
+        <a href="/comprador/painel" class="bottom-nav-item"
+          ><span class="nav-icon"><i class="ph ph-clipboard-text"></i></span
+          ><span class="nav-label">Pedidos</span></a
+        >
+        <a href="/login" class="bottom-nav-item"
+          ><span class="nav-icon"><i class="ph ph-user"></i></span
+          ><span class="nav-label">Conta</span></a
+        >
+      </div>
+    </nav>
+
+    <script src="/js/app.js"></script>
+    <script>
+      // Search clear button
+      function toggleClear(input) {
+        const clear = document.getElementById("searchClear");
+        clear.classList.toggle("visible", input.value.length > 0);
+      }
+      function clearSearch() {
+        const input = document.getElementById("searchInput");
+        input.value = "";
+        document.getElementById("searchClear").classList.remove("visible");
+        input.focus();
+      }
+
+      // Category tabs
+      document.querySelectorAll(".category-tab").forEach((tab) => {
+        tab.addEventListener("click", function (e) {
+          e.preventDefault();
+          document
+            .querySelectorAll(".category-tab")
+            .forEach((t) => t.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      // Filter modal (mobile)
+      function openFilterModal() {
+        document.getElementById("filterModal").classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+      function closeFilterModal() {
+        document.getElementById("filterModal").classList.remove("active");
+        document.body.style.overflow = "";
+      }
+      document
+        .getElementById("filterModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeFilterModal();
+        });
+    </script>
+  </body>
+</html>

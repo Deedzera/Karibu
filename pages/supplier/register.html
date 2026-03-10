@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal de Fornecedores — Inscrição | Karibu</title>
+    <meta
+      name="description"
+      content="Inscreve-te como fornecedor verificado no Karibu. Acede a milhares de compradores angolanos e recebe pedidos de cotação directamente."
+    />
+    <meta name="theme-color" content="#0B1219" />
+    <link rel="icon" href="/public/images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/pages/auth.css" />
+    <style>
+      /* Supplier-specific overrides */
+      .supplier-hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-xs);
+        padding: 6px 16px;
+        background: rgba(45, 155, 91, 0.1);
+        border: 1px solid rgba(45, 155, 91, 0.25);
+        border-radius: var(--radius-full);
+        font-size: var(--font-xs);
+        font-weight: var(--weight-semibold);
+        color: var(--success-light);
+        margin-bottom: var(--space-md);
+        letter-spacing: 0.5px;
+      }
+
+      .supplier-benefits {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-sm);
+        margin-top: var(--space-lg);
+      }
+      .supplier-benefit {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-xs);
+        padding: var(--space-sm);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius-md);
+        font-size: var(--font-xs);
+        color: rgba(255, 255, 255, 0.7);
+        line-height: var(--leading-relaxed);
+      }
+      .supplier-benefit-icon {
+        font-size: 1.2rem;
+        flex-shrink: 0;
+        margin-top: 1px;
+        color: var(--success-light);
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md);
+      }
+      @media (max-width: 480px) {
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .supplier-benefits {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .file-upload {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-sm);
+        padding: var(--space-lg);
+        background: var(--bg-input);
+        border: 2px dashed var(--border);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: all var(--duration-fast);
+        text-align: center;
+      }
+      .file-upload:hover {
+        border-color: var(--accent);
+        background: rgba(232, 145, 58, 0.04);
+      }
+      .file-upload-icon {
+        font-size: 2rem;
+        opacity: 0.6;
+      }
+      .file-upload-text {
+        font-size: var(--font-sm);
+        color: var(--text-secondary);
+      }
+      .file-upload-hint {
+        font-size: var(--font-xs);
+        color: var(--text-tertiary);
+      }
+      .file-upload input[type="file"] {
+        display: none;
+      }
+
+      .verification-notice {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        padding: var(--space-md);
+        background: rgba(59, 142, 207, 0.08);
+        border: 1px solid rgba(59, 142, 207, 0.2);
+        border-radius: var(--radius-md);
+        font-size: var(--font-sm);
+        color: var(--text-secondary);
+        line-height: var(--leading-relaxed);
+        margin-bottom: var(--space-md);
+      }
+      .verification-notice strong {
+        color: var(--text-primary);
+      }
+
+      /* Make wizard body taller for more fields */
+      .wizard-body {
+        min-height: 320px;
+      }
+    </style>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <div class="auth-split">
+      <!-- ===== LEFT: Showcase Panel ===== -->
+      <aside class="auth-showcase" id="authShowcase">
+        <div class="showcase-particles">
+          <div class="showcase-particle"></div>
+          <div class="showcase-particle"></div>
+          <div class="showcase-particle"></div>
+          <div class="showcase-particle"></div>
+        </div>
+
+        <div class="showcase-slides" id="showcaseSlides">
+          <div class="showcase-slide active">
+            <div
+              class="showcase-slide-bg"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80&quot;);
+              "
+            ></div>
+            <div class="showcase-slide-overlay"></div>
+            <div class="showcase-content">
+              <span class="showcase-logo"
+                ><a href="/index.html">Karibu</a></span
+              >
+              <h2 class="showcase-tagline">
+                Expande o teu negócio para Angola
+              </h2>
+              <p class="showcase-description">
+                Milhares de compradores angolanos à espera dos teus produtos.
+                Torna-te fornecedor verificado e recebe pedidos directamente.
+              </p>
+              <div class="supplier-benefits">
+                <div class="supplier-benefit">
+                  <span class="supplier-benefit-icon"
+                    ><i class="ph ph-chart-bar"></i
+                  ></span>
+                  <span>Pedidos de cotação de compradores reais</span>
+                </div>
+                <div class="supplier-benefit">
+                  <span class="supplier-benefit-icon"
+                    ><i class="ph ph-money"></i
+                  ></span>
+                  <span>Pagamento via Escrow seguro</span>
+                </div>
+                <div class="supplier-benefit">
+                  <span class="supplier-benefit-icon"
+                    ><i class="ph ph-rocket"></i
+                  ></span>
+                  <span>Logística via Hubs Karibu</span>
+                </div>
+                <div class="supplier-benefit">
+                  <span class="supplier-benefit-icon"
+                    ><i class="ph ph-trend-up"></i
+                  ></span>
+                  <span>Dashboard de vendas e métricas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase-slide">
+            <div
+              class="showcase-slide-bg"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=1200&q=80&quot;);
+              "
+            ></div>
+            <div class="showcase-slide-overlay"></div>
+            <div class="showcase-content">
+              <span class="showcase-logo"
+                ><a href="/index.html">Karibu</a></span
+              >
+              <h2 class="showcase-tagline">Pagamento garantido, sem riscos</h2>
+              <p class="showcase-description">
+                Sistema Escrow protege cada transacção. Só liberamos o pagamento
+                quando o comprador confirma a recepção.
+              </p>
+            </div>
+          </div>
+
+          <div class="showcase-slide">
+            <div
+              class="showcase-slide-bg"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80&quot;);
+              "
+            ></div>
+            <div class="showcase-slide-overlay"></div>
+            <div class="showcase-content">
+              <span class="showcase-logo"
+                ><a href="/index.html">Karibu</a></span
+              >
+              <h2 class="showcase-tagline">Verificação KYC em 48 horas</h2>
+              <p class="showcase-description">
+                Processo rápido e transparente. Após aprovação, começas a
+                receber pedidos imediatamente.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-dots" id="showcaseDots">
+          <button class="showcase-dot active" data-slide="0"></button>
+          <button class="showcase-dot" data-slide="1"></button>
+          <button class="showcase-dot" data-slide="2"></button>
+        </div>
+      </aside>
+
+      <!-- ===== MOBILE HEADER ===== -->
+      <div class="auth-mobile-header">
+        <div
+          class="auth-mobile-header-bg"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80&quot;);
+          "
+        ></div>
+        <div class="auth-mobile-header-overlay"></div>
+        <div class="auth-mobile-header-content">
+          <a href="/" class="auth-logo">Karibu</a>
+          <p class="auth-mobile-tagline">Portal de Fornecedores Verificados</p>
+        </div>
+      </div>
+
+      <!-- ===== RIGHT: Supplier Registration Wizard ===== -->
+      <main class="auth-form-panel dense-layout">
+        <div class="auth-container anim-fade-in" style="max-width: 480px">
+          <div class="auth-header">
+            <a href="/" class="auth-logo">Karibu</a>
+            <span class="supplier-hero-badge"
+              ><i class="ph ph-briefcase"></i> Portal de Fornecedores</span
+            >
+            <h1 class="auth-title">Torna-te Fornecedor</h1>
+            <p class="auth-subtitle">Inscrição gratuita · Verificação em 48h</p>
+          </div>
+
+          <div class="auth-card">
+            <!-- Progress Bar -->
+            <div class="wizard-progress">
+              <div class="wizard-progress-bar-wrapper">
+                <div
+                  class="wizard-progress-bar-fill"
+                  id="wizardProgressFill"
+                  style="width: 25%"
+                ></div>
+              </div>
+              <div class="wizard-steps" id="wizardSteps">
+                <div class="wizard-step-indicator active" data-step="0">
+                  <div class="wizard-step-circle">1</div>
+                  <span class="wizard-step-label">Pessoal</span>
+                </div>
+                <div class="wizard-step-indicator" data-step="1">
+                  <div class="wizard-step-circle">2</div>
+                  <span class="wizard-step-label">Negócio</span>
+                </div>
+                <div class="wizard-step-indicator" data-step="2">
+                  <div class="wizard-step-circle">3</div>
+                  <span class="wizard-step-label">Documentos</span>
+                </div>
+                <div class="wizard-step-indicator" data-step="3">
+                  <div class="wizard-step-circle">4</div>
+                  <span class="wizard-step-label">Segurança</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Wizard Body -->
+            <form id="supplierForm" onsubmit="handleSupplierRegister(event)">
+              <div class="wizard-body" id="wizardBody">
+                <!-- Step 1: Personal Info -->
+                <div class="wizard-step-content active" data-step="0">
+                  <div class="wizard-step-heading">
+                    <h3>
+                      <i
+                        class="ph ph-user-circle"
+                        style="
+                          color: var(--accent);
+                          margin-right: var(--space-xs);
+                        "
+                      ></i>
+                      Dados Pessoais
+                    </h3>
+                    <p>Informações básicas sobre ti como representante.</p>
+                  </div>
+                  <div class="auth-form">
+                    <div class="form-group">
+                      <label class="form-label" for="fullName"
+                        >Nome completo</label
+                      >
+                      <div class="input-icon-wrapper">
+                        <span class="input-icon"
+                          ><i class="ph ph-user"></i
+                        ></span>
+                        <input
+                          type="text"
+                          class="form-input"
+                          id="fullName"
+                          placeholder="O teu nome completo"
+                          required
+                          autocomplete="name"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <div class="input-icon-wrapper">
+                          <span class="input-icon"
+                            ><i class="ph ph-envelope-simple"></i
+                          ></span>
+                          <input
+                            type="email"
+                            class="form-input"
+                            id="email"
+                            placeholder="email@exemplo.com"
+                            required
+                            autocomplete="email"
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="phone">Telemóvel</label>
+                        <div class="input-icon-wrapper">
+                          <span class="input-icon"
+                            ><i class="ph ph-device-mobile"></i
+                          ></span>
+                          <input
+                            type="tel"
+                            class="form-input"
+                            id="phone"
+                            placeholder="+264 XX XXX XXXX"
+                            required
+                            autocomplete="tel"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Step 2: Business Info -->
+                <div class="wizard-step-content" data-step="1">
+                  <div class="wizard-step-heading">
+                    <h3>
+                      <i
+                        class="ph ph-buildings"
+                        style="
+                          color: var(--accent);
+                          margin-right: var(--space-xs);
+                        "
+                      ></i>
+                      Dados do Negócio
+                    </h3>
+                    <p>Detalhes sobre a tua empresa e área de actuação.</p>
+                  </div>
+                  <div class="auth-form">
+                    <div class="form-group">
+                      <label class="form-label" for="businessName"
+                        >Nome da Empresa / Negócio</label
+                      >
+                      <div class="input-icon-wrapper">
+                        <span class="input-icon"
+                          ><i class="ph ph-buildings"></i
+                        ></span>
+                        <input
+                          type="text"
+                          class="form-input"
+                          id="businessName"
+                          placeholder="Nome comercial ou razão social"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label class="form-label" for="nif"
+                          >NIF / Registo Comercial</label
+                        >
+                        <div class="input-icon-wrapper">
+                          <span class="input-icon"
+                            ><i class="ph ph-file-text"></i
+                          ></span>
+                          <input
+                            type="text"
+                            class="form-input"
+                            id="nif"
+                            placeholder="Número fiscal"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="country"
+                          >País de Operação</label
+                        >
+                        <select class="form-input" id="country" required>
+                          <option value="" disabled selected>Selecciona</option>
+                          <option value="namibia">Namíbia</option>
+                          <option value="africa-do-sul">África do Sul</option>
+                          <option value="botsuana">Botsuana</option>
+                          <option value="outro">Outro</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" for="city">Cidade</label>
+                      <div class="input-icon-wrapper">
+                        <span class="input-icon"
+                          ><i class="ph ph-map-pin"></i
+                        ></span>
+                        <input
+                          type="text"
+                          class="form-input"
+                          id="city"
+                          placeholder="Ex: Windhoek, Johannesburg..."
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label class="form-label" for="categories"
+                          >Categoria Principal</label
+                        >
+                        <select class="form-input" id="categories" required>
+                          <option value="" disabled selected>Selecciona</option>
+                          <option value="smartphones">
+                            Smartphones e Telecomunicações
+                          </option>
+                          <option value="laptops">Laptops e Informática</option>
+                          <option value="televisoes">Televisões e Áudio</option>
+                          <option value="electrodomesticos">
+                            Electrodomésticos
+                          </option>
+                          <option value="pecas-auto">Peças Automóveis</option>
+                          <option value="construcao">
+                            Materiais de Construção
+                          </option>
+                          <option value="moda">Moda e Acessórios</option>
+                          <option value="gaming">
+                            Gaming e Entretenimento
+                          </option>
+                          <option value="outro">Outra</option>
+                        </select>
+                        <span class="form-hint"
+                          >Poderás adicionar mais após aprovação.</span
+                        >
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="experience"
+                          >Experiência</label
+                        >
+                        <select class="form-input" id="experience" required>
+                          <option value="" disabled selected>
+                            Há quanto tempo?
+                          </option>
+                          <option value="menos-1">Menos de 1 ano</option>
+                          <option value="1-3">1 a 3 anos</option>
+                          <option value="3-5">3 a 5 anos</option>
+                          <option value="mais-5">Mais de 5 anos</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Step 3: Documents -->
+                <div class="wizard-step-content" data-step="2">
+                  <div class="wizard-step-heading">
+                    <h3>
+                      <i
+                        class="ph ph-paperclip"
+                        style="
+                          color: var(--accent);
+                          margin-right: var(--space-xs);
+                        "
+                      ></i>
+                      Documentação
+                    </h3>
+                    <p>
+                      Carrega os documentos necessários para verificação KYC.
+                    </p>
+                  </div>
+                  <div class="auth-form">
+                    <div class="form-group">
+                      <label class="form-label"
+                        >Documento de Identidade (BI ou Passaporte)</label
+                      >
+                      <label class="file-upload" for="docId">
+                        <span class="file-upload-icon"
+                          ><i class="ph ph-identification-card"></i
+                        ></span>
+                        <span class="file-upload-text"
+                          >Clica para carregar documento</span
+                        >
+                        <span class="file-upload-hint"
+                          >PDF, JPG ou PNG — máx. 5MB</span
+                        >
+                        <input
+                          type="file"
+                          id="docId"
+                          accept=".pdf,.jpg,.jpeg,.png"
+                          required
+                        />
+                      </label>
+                      <span id="docIdName" class="form-hint"></span>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label"
+                        >Comprovativo de Registo Comercial (opcional)</label
+                      >
+                      <label class="file-upload" for="docBusiness">
+                        <span class="file-upload-icon"
+                          ><i class="ph ph-file-text"></i
+                        ></span>
+                        <span class="file-upload-text"
+                          >Clica para carregar documento</span
+                        >
+                        <span class="file-upload-hint"
+                          >PDF, JPG ou PNG — máx. 5MB</span
+                        >
+                        <input
+                          type="file"
+                          id="docBusiness"
+                          accept=".pdf,.jpg,.jpeg,.png"
+                        />
+                      </label>
+                      <span id="docBusinessName" class="form-hint"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Step 4: Security -->
+                <div class="wizard-step-content" data-step="3">
+                  <div class="wizard-step-heading">
+                    <h3>
+                      <i
+                        class="ph ph-shield-check"
+                        style="
+                          color: var(--accent);
+                          margin-right: var(--space-xs);
+                        "
+                      ></i>
+                      Segurança e Termos
+                    </h3>
+                    <p>Protege a tua conta e aceita os termos.</p>
+                  </div>
+                  <div class="auth-form">
+                    <div class="form-group">
+                      <label class="form-label" for="supplierPassword"
+                        >Palavra-passe</label
+                      >
+                      <div class="input-icon-wrapper">
+                        <span class="input-icon"
+                          ><i class="ph ph-lock-key"></i
+                        ></span>
+                        <input
+                          type="password"
+                          class="form-input"
+                          id="supplierPassword"
+                          placeholder="Mín. 8 caracteres"
+                          required
+                          minlength="8"
+                          autocomplete="new-password"
+                          oninput="checkPasswordStrength(this.value)"
+                        />
+                        <button
+                          type="button"
+                          class="input-toggle-password"
+                          onclick="togglePassword('supplierPassword', this)"
+                        >
+                          <i class="ph ph-eye"></i>
+                        </button>
+                      </div>
+                      <div class="password-strength">
+                        <div class="password-strength-bar" id="str1"></div>
+                        <div class="password-strength-bar" id="str2"></div>
+                        <div class="password-strength-bar" id="str3"></div>
+                        <div class="password-strength-bar" id="str4"></div>
+                      </div>
+                      <span
+                        class="password-strength-text form-hint"
+                        id="strText"
+                      ></span>
+                    </div>
+
+                    <div class="verification-notice">
+                      <span style="font-size: 1.3rem; flex-shrink: 0"
+                        ><i class="ph-fill ph-info"></i
+                      ></span>
+                      <div>
+                        <strong>Processo de verificação</strong><br />
+                        Após a submissão, a tua candidatura será analisada pela
+                        equipa Karibu em até <strong>48 horas úteis</strong>.
+                        Receberás uma notificação por email e SMS com o
+                        resultado.
+                      </div>
+                    </div>
+
+                    <label class="checkbox-wrapper">
+                      <input
+                        type="checkbox"
+                        id="acceptTermsSupplier"
+                        required
+                      />
+                      <span class="checkbox-label">
+                        Li e aceito os
+                        <a href="#">Termos de Serviço para Fornecedores</a>, a
+                        <a href="#">Política de Privacidade</a> e as
+                        <a href="#">Regras da Plataforma</a>.
+                      </span>
+                    </label>
+
+                    <label class="checkbox-wrapper">
+                      <input type="checkbox" id="confirmTruth" required />
+                      <span class="checkbox-label">
+                        Confirmo que as informações fornecidas são verdadeiras e
+                        que o meu negócio opera de forma legal.
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Navigation -->
+              <div class="wizard-nav" id="wizardNav">
+                <button
+                  type="button"
+                  class="btn-back"
+                  id="wizardBack"
+                  style="visibility: hidden"
+                  onclick="wizardPrev()"
+                >
+                  <i class="ph ph-arrow-left"></i> Voltar
+                </button>
+                <button
+                  type="button"
+                  class="btn-next"
+                  id="wizardNext"
+                  onclick="wizardNextStep()"
+                >
+                  Continuar <i class="ph ph-arrow-right"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="auth-bottom-layout">
+          <div class="auth-footer">
+            <span class="footer-link-group">
+              Já tens conta de fornecedor?
+              <a href="/pages/login.html">Iniciar Sessão</a>
+            </span>
+            <span
+              class="footer-divider"
+              style="opacity: 0.3; margin: 0 var(--space-sm)"
+              >|</span
+            >
+            <span class="footer-link-group">
+              És comprador? <a href="/pages/register.html">Criar conta</a>
+            </span>
+          </div>
+
+          <div class="auth-trust-bar">
+            <span class="auth-trust-item"
+              ><i class="ph ph-lock-key"></i> Dados protegidos</span
+            >
+            <span class="auth-trust-item"
+              ><i class="ph ph-money"></i> Pagamento Escrow</span
+            >
+            <span class="auth-trust-item"
+              ><i
+                class="ph-fill ph-check-circle"
+                style="color: var(--success)"
+              ></i>
+              Verificação KYC</span
+            >
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      /* ============================================
+         Supplier Registration Wizard
+         ============================================ */
+      (function () {
+        "use strict";
+
+        const TOTAL_STEPS = 4;
+        let currentStep = 0;
+
+        const body = document.getElementById("wizardBody");
+        const steps = body.querySelectorAll(".wizard-step-content");
+        const indicators = document.querySelectorAll(".wizard-step-indicator");
+        const progressFill = document.getElementById("wizardProgressFill");
+        const backBtn = document.getElementById("wizardBack");
+        const nextBtn = document.getElementById("wizardNext");
+
+        function updateUI() {
+          const pct = ((currentStep + 1) / TOTAL_STEPS) * 100;
+          progressFill.style.width = pct + "%";
+
+          indicators.forEach(function (ind, i) {
+            ind.classList.remove("active", "completed");
+            if (i < currentStep) ind.classList.add("completed");
+            if (i === currentStep) ind.classList.add("active");
+            var circle = ind.querySelector(".wizard-step-circle");
+            circle.innerHTML =
+              i < currentStep ? '<i class="ph ph-check"></i>' : i + 1;
+          });
+
+          backBtn.style.visibility = currentStep === 0 ? "hidden" : "visible";
+
+          if (currentStep === TOTAL_STEPS - 1) {
+            nextBtn.innerHTML =
+              'Submeter Candidatura <i class="ph ph-paper-plane-tilt"></i>';
+            nextBtn.setAttribute("type", "submit");
+          } else {
+            nextBtn.innerHTML = 'Continuar <i class="ph ph-arrow-right"></i>';
+            nextBtn.setAttribute("type", "button");
+          }
+        }
+
+        function showStep(index, direction) {
+          if (index === currentStep) return;
+          var prevStep = steps[currentStep];
+          var nextStepEl = steps[index];
+          var exitDir = direction === "forward" ? "-60px" : "60px";
+          var enterDir = direction === "forward" ? "60px" : "-60px";
+
+          prevStep.style.transition =
+            "opacity 0.25s ease, transform 0.25s ease";
+          prevStep.style.transform = "translateX(" + exitDir + ")";
+          prevStep.style.opacity = "0";
+
+          setTimeout(function () {
+            prevStep.classList.remove("active");
+            prevStep.style.transition = "";
+            prevStep.style.transform = "";
+            prevStep.style.opacity = "";
+
+            nextStepEl.style.transition = "none";
+            nextStepEl.style.transform = "translateX(" + enterDir + ")";
+            nextStepEl.style.opacity = "0";
+            nextStepEl.classList.add("active");
+
+            void nextStepEl.offsetWidth;
+
+            nextStepEl.style.transition =
+              "opacity 0.35s ease, transform 0.35s ease";
+            nextStepEl.style.transform = "translateX(0)";
+            nextStepEl.style.opacity = "1";
+
+            currentStep = index;
+            updateUI();
+
+            setTimeout(function () {
+              nextStepEl.style.transition = "";
+              nextStepEl.style.transform = "";
+              nextStepEl.style.opacity = "";
+            }, 400);
+
+            var firstInput = nextStepEl.querySelector("input, select");
+            if (firstInput)
+              setTimeout(function () {
+                firstInput.focus();
+              }, 400);
+          }, 280);
+        }
+
+        function validateCurrentStep() {
+          var step = steps[currentStep];
+          var inputs = step.querySelectorAll(
+            "input[required], select[required]",
+          );
+          var valid = true;
+          inputs.forEach(function (input) {
+            if (input.type === "file") {
+              if (input.files.length === 0) {
+                valid = false;
+                input.closest(".file-upload").style.borderColor =
+                  "var(--danger)";
+                input.closest(".file-upload").style.animation = "none";
+                void input.closest(".file-upload").offsetWidth;
+                input.closest(".file-upload").style.animation =
+                  "shakeInput 0.4s ease-out";
+              } else {
+                input.closest(".file-upload").style.borderColor = "";
+              }
+            } else if (input.type === "checkbox") {
+              if (!input.checked) {
+                valid = false;
+                input.style.animation = "none";
+                void input.offsetWidth;
+                input.style.animation = "shakeInput 0.4s ease-out";
+              }
+            } else if (!input.checkValidity()) {
+              valid = false;
+              input.classList.add("form-input-error");
+              input.style.animation = "none";
+              void input.offsetWidth;
+              input.style.animation = "shakeInput 0.4s ease-out";
+            } else {
+              input.classList.remove("form-input-error");
+            }
+          });
+          return valid;
+        }
+
+        // Shake animation
+        var shakeStyle = document.createElement("style");
+        shakeStyle.textContent =
+          "@keyframes shakeInput { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-6px); } 40% { transform: translateX(6px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(4px); } }";
+        document.head.appendChild(shakeStyle);
+
+        document.querySelectorAll(".form-input").forEach(function (input) {
+          input.addEventListener("input", function () {
+            input.classList.remove("form-input-error");
+          });
+        });
+
+        window.wizardNextStep = function () {
+          if (!validateCurrentStep()) return;
+          if (currentStep < TOTAL_STEPS - 1) {
+            showStep(currentStep + 1, "forward");
+          } else {
+            handleSupplierRegister();
+          }
+        };
+
+        window.wizardPrev = function () {
+          if (currentStep > 0) showStep(currentStep - 1, "backward");
+        };
+
+        window.togglePassword = function (id, btn) {
+          var input = document.getElementById(id);
+          if (input.type === "password") {
+            input.type = "text";
+            btn.innerHTML = '<i class="ph ph-eye-slash"></i>';
+          } else {
+            input.type = "password";
+            btn.innerHTML = '<i class="ph ph-eye"></i>';
+          }
+        };
+
+        window.checkPasswordStrength = function (password) {
+          var bars = [
+            document.getElementById("str1"),
+            document.getElementById("str2"),
+            document.getElementById("str3"),
+            document.getElementById("str4"),
+          ];
+          var text = document.getElementById("strText");
+          var strength = 0;
+          if (password.length >= 8) strength++;
+          if (/[A-Z]/.test(password)) strength++;
+          if (/[0-9]/.test(password)) strength++;
+          if (/[^A-Za-z0-9]/.test(password)) strength++;
+          var levels = ["", "weak", "medium", "strong", "strong"];
+          var labels = ["", "Fraca", "Razoável", "Forte", "Muito Forte"];
+          var colors = [
+            "",
+            "var(--danger)",
+            "var(--warning)",
+            "var(--success)",
+            "var(--success)",
+          ];
+          bars.forEach(function (bar, i) {
+            bar.className = "password-strength-bar";
+            if (i < strength) bar.classList.add(levels[strength]);
+          });
+          text.textContent = password.length > 0 ? labels[strength] : "";
+          text.style.color = colors[strength];
+        };
+
+        window.handleSupplierRegister = function (e) {
+          if (e) e.preventDefault();
+          alert(
+            "Candidatura de fornecedor submetida com sucesso! Serás contactado em até 48h. (Integração Supabase em breve)",
+          );
+        };
+
+        // File upload feedback
+        document
+          .getElementById("docId")
+          .addEventListener("change", function () {
+            document.getElementById("docIdName").innerHTML = this.files[0]
+              ? '<i class="ph ph-paperclip"></i> ' + this.files[0].name
+              : "";
+            if (this.files[0])
+              this.closest(".file-upload").style.borderColor = "var(--success)";
+          });
+        document
+          .getElementById("docBusiness")
+          .addEventListener("change", function () {
+            document.getElementById("docBusinessName").innerHTML = this.files[0]
+              ? '<i class="ph ph-paperclip"></i> ' + this.files[0].name
+              : "";
+            if (this.files[0])
+              this.closest(".file-upload").style.borderColor = "var(--success)";
+          });
+
+        // Keyboard navigation
+        document.addEventListener("keydown", function (e) {
+          if (
+            e.key === "Enter" &&
+            e.target.tagName !== "BUTTON" &&
+            e.target.tagName !== "A"
+          ) {
+            e.preventDefault();
+            window.wizardNextStep();
+          }
+        });
+
+        // Showcase carousel
+        var slides = document.querySelectorAll(".showcase-slide");
+        var dots = document.querySelectorAll(".showcase-dot");
+        if (slides.length) {
+          var slideIndex = 0;
+          var slideInterval;
+          function goToSlide(index) {
+            slides[slideIndex].classList.remove("active");
+            dots[slideIndex].classList.remove("active");
+            slideIndex = (index + slides.length) % slides.length;
+            slides[slideIndex].classList.add("active");
+            dots[slideIndex].classList.add("active");
+          }
+          function startSlideshow() {
+            slideInterval = setInterval(function () {
+              goToSlide(slideIndex + 1);
+            }, 5000);
+          }
+          dots.forEach(function (dot) {
+            dot.addEventListener("click", function () {
+              clearInterval(slideInterval);
+              goToSlide(parseInt(dot.dataset.slide));
+              startSlideshow();
+            });
+          });
+          startSlideshow();
+        }
+
+        updateUI();
+      })();
+    </script>
+  </body>
+</html>

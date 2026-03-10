@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel do Fornecedor — Karibu</title>
+    <meta
+      name="description"
+      content="Gere os teus pedidos, cotações e desempenho no Karibu."
+    />
+    <meta name="theme-color" content="#0B1219" />
+    <link rel="icon" href="/public/images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/pages/dashboard.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="header-logo">
+          <span class="header-logo-text">Karibu</span>
+          <span class="header-logo-tag" style="color: var(--success-light)"
+            >Fornecedor</span
+          >
+        </a>
+        <nav class="header-nav">
+          <a href="/fornecedor/painel" class="active">Painel</a>
+          <a href="#">Cotações</a>
+          <a href="#">Encomendas</a>
+          <a href="#">Catálogo</a>
+        </nav>
+        <div class="header-actions">
+          <button class="header-icon-btn" aria-label="Notificações">
+            <i class="ph ph-bell"></i><span class="notification-dot"></span>
+          </button>
+          <button class="header-icon-btn" aria-label="Perfil"><i class="ph ph-user"></i></button>
+          <button class="header-menu-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MOBILE MENU ========== -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-panel">
+        <div class="mobile-menu-header">
+          <span class="header-logo-text" style="font-size: 1.3rem">Karibu</span>
+          <button class="mobile-menu-close modal-close"><i class="ph ph-x"></i></button>
+        </div>
+        <nav class="mobile-menu-nav">
+          <a href="/fornecedor/painel" class="active"><i class="ph ph-chart-bar"></i> Painel</a>
+          <a href="#"><i class="ph ph-notebook"></i> Cotações</a>
+          <a href="#"><i class="ph ph-package"></i> Encomendas</a>
+          <a href="#"><i class="ph ph-tag"></i> Catálogo</a>
+          <div class="mobile-menu-divider"></div>
+          <a href="#"><i class="ph ph-gear"></i> Definições</a>
+          <a href="/"><i class="ph ph-house"></i> Ir para Marketplace</a>
+          <a href="/login"><i class="ph ph-sign-out"></i> Sair</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ========== MAIN ========== -->
+    <main class="dashboard">
+      <div class="container">
+        <!-- Mobile Nav -->
+        <nav class="dash-mobile-nav">
+          <a href="#" class="dash-mobile-nav-item active"><i class="ph ph-chart-bar"></i> Visão Geral</a>
+          <a href="#" class="dash-mobile-nav-item"
+            ><i class="ph ph-notebook"></i> Cotações <span class="dash-sidebar-badge">3</span></a
+          >
+          <a href="#" class="dash-mobile-nav-item"><i class="ph ph-package"></i> Encomendas</a>
+          <a href="#" class="dash-mobile-nav-item"><i class="ph-fill ph-star" style="color: var(--warning)"></i> Desempenho</a>
+          <a href="#" class="dash-mobile-nav-item"><i class="ph ph-gear"></i> Definições</a>
+        </nav>
+
+        <div class="dashboard-grid">
+          <!-- ===== SIDEBAR (Desktop) ===== -->
+          <aside class="dash-sidebar">
+            <a href="#" class="dash-sidebar-item active">
+              <span class="dash-sidebar-icon"><i class="ph ph-chart-bar"></i></span> Visão Geral
+            </a>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-notebook"></i></span> Cotações
+              <span class="dash-sidebar-badge">3</span>
+            </a>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-package"></i></span> Encomendas Activas
+            </a>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph-fill ph-check-circle" style="color: var(--success)"></i></span> Concluídas
+            </a>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-tag"></i></span> Meu Catálogo
+            </a>
+            <div class="dash-sidebar-divider"></div>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph-fill ph-star" style="color: var(--warning)"></i></span> Desempenho
+            </a>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-money"></i></span> Pagamentos
+            </a>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-gear"></i></span> Definições
+            </a>
+            <div class="dash-sidebar-divider"></div>
+            <a href="/" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-house"></i></span> Ir para Marketplace
+            </a>
+          </aside>
+
+          <!-- ===== CONTENT ===== -->
+          <div class="dash-content">
+            <!-- Greeting -->
+            <div class="dash-header">
+              <div class="dash-greeting">
+                <h1>Bom dia, Carlos <i class="ph-fill ph-hand-waving" style="color: #e8913a"></i></h1>
+                <p>
+                  Tens
+                  <strong style="color: var(--accent)"
+                    >3 novos pedidos de cotação</strong
+                  >
+                  à tua espera.
+                </p>
+              </div>
+              <div class="dash-header-actions">
+                <button class="btn btn-secondary btn-sm"><i class="ph ph-chart-bar"></i> Relatório</button>
+                <button class="btn btn-primary btn-sm">
+                  + Adicionar Produto
+                </button>
+              </div>
+            </div>
+
+            <!-- KPIs -->
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph ph-money"></i></div>
+                <div class="kpi-value">
+                  1.240.000
+                  <small style="font-size: var(--font-xs); font-weight: 400"
+                    >Kz</small
+                  >
+                </div>
+                <div class="kpi-label">Receita Mensal</div>
+                <div class="kpi-change up"><i class="ph ph-trend-up"></i> +18% vs mês anterior</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph ph-package"></i></div>
+                <div class="kpi-value">23</div>
+                <div class="kpi-label">Vendas Concluídas</div>
+                <div class="kpi-change up"><i class="ph ph-trend-up"></i> +5 vs mês anterior</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph ph-notebook"></i></div>
+                <div class="kpi-value">3</div>
+                <div class="kpi-label">Cotações Pendentes</div>
+                <div class="kpi-change" style="color: var(--accent)">
+                  <i class="ph-fill ph-lightning" style="color: var(--warning)"></i> Responde rápido
+                </div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph-fill ph-star" style="color: var(--warning)"></i></div>
+                <div class="kpi-value">4.9</div>
+                <div class="kpi-label">Rating Médio</div>
+                <div class="kpi-change up"><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i> (87 avaliações)</div>
+              </div>
+            </div>
+
+            <!-- ---- NEW QUOTE REQUESTS ---- -->
+            <div class="dash-section">
+              <div class="dash-section-header">
+                <h2 class="dash-section-title"><i class="ph ph-notebook"></i> Pedidos de Cotação Novos</h2>
+                <span class="dash-section-action">Ver todos <i class="ph ph-arrow-right"></i></span>
+              </div>
+
+              <div class="order-list">
+                <!-- Quote 1 -->
+                <div class="quote-request">
+                  <div class="quote-request-header">
+                    <span class="quote-request-product"
+                      >iPhone 14 Pro Max 256GB</span
+                    >
+                    <span class="order-status new">Novo</span>
+                  </div>
+                  <div class="quote-request-details">
+                    <span class="quote-request-detail"><i class="ph ph-user"></i> Ana C. — Luanda</span>
+                    <span class="quote-request-detail"><i class="ph ph-package"></i> Qtd: 1</span>
+                    <span class="quote-request-detail"><i class="ph ph-timer"></i> há 12 min</span>
+                  </div>
+                  <div class="quote-request-notes">
+                    "Preciso de cor preta, desbloqueado de fábrica, com garantia
+                    se possível."
+                  </div>
+                  <div class="quote-request-actions">
+                    <button
+                      class="btn btn-primary btn-sm"
+                      onclick="openQuoteResponse(this)"
+                    >
+                      Enviar Proposta
+                    </button>
+                    <button class="btn btn-ghost btn-sm">Rejeitar</button>
+                  </div>
+                </div>
+
+                <!-- Quote 2 -->
+                <div class="quote-request">
+                  <div class="quote-request-header">
+                    <span class="quote-request-product"
+                      >Samsung Galaxy S23 Ultra</span
+                    >
+                    <span class="order-status new">Novo</span>
+                  </div>
+                  <div class="quote-request-details">
+                    <span class="quote-request-detail"
+                      ><i class="ph ph-user"></i> Pedro L. — Lubango</span
+                    >
+                    <span class="quote-request-detail"><i class="ph ph-package"></i> Qtd: 2</span>
+                    <span class="quote-request-detail"><i class="ph ph-timer"></i> há 45 min</span>
+                  </div>
+                  <div class="quote-request-actions">
+                    <button
+                      class="btn btn-primary btn-sm"
+                      onclick="openQuoteResponse(this)"
+                    >
+                      Enviar Proposta
+                    </button>
+                    <button class="btn btn-ghost btn-sm">Rejeitar</button>
+                  </div>
+                </div>
+
+                <!-- Quote 3 -->
+                <div class="quote-request">
+                  <div class="quote-request-header">
+                    <span class="quote-request-product"
+                      >PlayStation 5 + 2 Jogos</span
+                    >
+                    <span class="order-status urgent"><i class="ph-fill ph-lightning" style="color: var(--warning)"></i> Urgente</span>
+                  </div>
+                  <div class="quote-request-details">
+                    <span class="quote-request-detail"
+                      ><i class="ph ph-user"></i> Maria F. — Huambo</span
+                    >
+                    <span class="quote-request-detail"><i class="ph ph-package"></i> Qtd: 1</span>
+                    <span class="quote-request-detail"><i class="ph ph-timer"></i> há 2h</span>
+                  </div>
+                  <div class="quote-request-notes">
+                    "Preciso antes do Natal angolano (18/03). Pago bem por
+                    entrega rápida."
+                  </div>
+                  <div class="quote-request-actions">
+                    <button
+                      class="btn btn-primary btn-sm"
+                      onclick="openQuoteResponse(this)"
+                    >
+                      Enviar Proposta
+                    </button>
+                    <button class="btn btn-ghost btn-sm">Rejeitar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ---- ACTIVE ORDERS ---- -->
+            <div class="dash-section">
+              <div class="dash-section-header">
+                <h2 class="dash-section-title"><i class="ph ph-package"></i> Encomendas Activas</h2>
+                <span class="dash-section-action">Ver todas <i class="ph ph-arrow-right"></i></span>
+              </div>
+
+              <div class="order-list">
+                <div class="order-row">
+                  <div class="order-icon"><i class="ph ph-device-mobile"></i></div>
+                  <div class="order-info">
+                    <div class="order-title">iPhone 14 Pro Max — #KRB-2847</div>
+                    <div class="order-meta">
+                      <span><i class="ph ph-user"></i> José F.</span>
+                      <span><img src="https://flagcdn.com/w20/ao.png" width="20" alt="Angola" style="display:inline-block;vertical-align:middle;"> Lubango</span>
+                      <span><i class="ph ph-money"></i> 165.000 Kz</span>
+                    </div>
+                  </div>
+                  <span class="order-status active">Em Trânsito</span>
+                  <div class="order-actions">
+                    <button class="btn btn-ghost btn-sm">Detalhes</button>
+                  </div>
+                </div>
+
+                <div class="order-row">
+                  <div class="order-icon"><i class="ph ph-television"></i></div>
+                  <div class="order-info">
+                    <div class="order-title">
+                      LG Smart TV 55" 4K — #KRB-2839
+                    </div>
+                    <div class="order-meta">
+                      <span><i class="ph ph-user"></i> Ana C.</span>
+                      <span><img src="https://flagcdn.com/w20/ao.png" width="20" alt="Angola" style="display:inline-block;vertical-align:middle;"> Luanda</span>
+                      <span><i class="ph ph-money"></i> 280.000 Kz</span>
+                    </div>
+                  </div>
+                  <span class="order-status pending">Aguarda Envio</span>
+                  <div class="order-actions">
+                    <button class="btn btn-primary btn-sm">Enviar</button>
+                  </div>
+                </div>
+
+                <div class="order-row">
+                  <div class="order-icon"><i class="ph ph-laptop"></i></div>
+                  <div class="order-info">
+                    <div class="order-title">MacBook Air M2 — #KRB-2831</div>
+                    <div class="order-meta">
+                      <span><i class="ph ph-user"></i> Carlos R.</span>
+                      <span><img src="https://flagcdn.com/w20/ao.png" width="20" alt="Angola" style="display:inline-block;vertical-align:middle;"> Benguela</span>
+                      <span><i class="ph ph-money"></i> 420.000 Kz</span>
+                    </div>
+                  </div>
+                  <span class="order-status active">No Hub</span>
+                  <div class="order-actions">
+                    <button class="btn btn-ghost btn-sm">Detalhes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ---- TWO COLUMN: Performance + Activity ---- -->
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+              "
+            >
+              <!-- Performance -->
+              <div class="dash-section" style="margin-bottom: 0">
+                <div class="dash-section-header">
+                  <h2 class="dash-section-title"><i class="ph-fill ph-star" style="color: var(--warning)"></i> Desempenho</h2>
+                </div>
+
+                <!-- Score Ring -->
+                <div
+                  class="score-ring-container"
+                  style="margin-bottom: var(--space-lg)"
+                >
+                  <div class="score-ring">
+                    <svg viewBox="0 0 100 100">
+                      <circle class="score-ring-bg" cx="50" cy="50" r="42" />
+                      <circle
+                        class="score-ring-fill"
+                        cx="50"
+                        cy="50"
+                        r="42"
+                        stroke-dasharray="264"
+                        stroke-dashoffset="26"
+                      />
+                    </svg>
+                    <div class="score-ring-value">92</div>
+                  </div>
+                  <div class="score-ring-info">
+                    <div class="score-ring-label">Pontuação do Fornecedor</div>
+                    <div class="score-ring-detail">
+                      Top 5% dos fornecedores Karibu
+                    </div>
+                    <div
+                      class="score-ring-detail"
+                      style="color: var(--success)"
+                    >
+                      <i class="ph ph-trend-up"></i> +3 pontos este mês
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Stats Bars -->
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: var(--space-sm);
+                  "
+                >
+                  <div class="stats-bar">
+                    <span class="stats-bar-label">Taxa de Resposta</span>
+                    <div class="stats-bar-track">
+                      <div
+                        class="stats-bar-fill accent"
+                        style="width: 95%"
+                      ></div>
+                    </div>
+                    <span class="stats-bar-value">95%</span>
+                  </div>
+                  <div class="stats-bar">
+                    <span class="stats-bar-label">Entrega no Prazo</span>
+                    <div class="stats-bar-track">
+                      <div
+                        class="stats-bar-fill success"
+                        style="width: 91%"
+                      ></div>
+                    </div>
+                    <span class="stats-bar-value">91%</span>
+                  </div>
+                  <div class="stats-bar">
+                    <span class="stats-bar-label">Satisfação</span>
+                    <div class="stats-bar-track">
+                      <div
+                        class="stats-bar-fill accent"
+                        style="width: 98%"
+                      ></div>
+                    </div>
+                    <span class="stats-bar-value">98%</span>
+                  </div>
+                  <div class="stats-bar">
+                    <span class="stats-bar-label">Taxa de Disputa</span>
+                    <div class="stats-bar-track">
+                      <div
+                        class="stats-bar-fill success"
+                        style="width: 3%"
+                      ></div>
+                    </div>
+                    <span class="stats-bar-value">3%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Activity Feed -->
+              <div class="dash-section" style="margin-bottom: 0">
+                <div class="dash-section-header">
+                  <h2 class="dash-section-title"><i class="ph ph-clipboard-text"></i> Actividade Recente</h2>
+                </div>
+                <div class="activity-list">
+                  <div class="activity-item">
+                    <span class="activity-dot sale"></span>
+                    <div>
+                      <div class="activity-text">
+                        <strong>Venda concluída:</strong> iPhone 14 Pro — José
+                        F. confirmou entrega
+                      </div>
+                      <div class="activity-time">há 2 horas</div>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <span class="activity-dot quote"></span>
+                    <div>
+                      <div class="activity-text">
+                        <strong>Nova cotação recebida:</strong> PlayStation 5 —
+                        Maria F. de Huambo
+                      </div>
+                      <div class="activity-time">há 2 horas</div>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <span class="activity-dot review"></span>
+                    <div>
+                      <div class="activity-text">
+                        <strong>Nova avaliação <i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i>:</strong> "Excelente
+                        serviço, entrega rápida" — Ana C.
+                      </div>
+                      <div class="activity-time">há 5 horas</div>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <span class="activity-dot system"></span>
+                    <div>
+                      <div class="activity-text">
+                        <strong>Pagamento liberado:</strong> 280.000 Kz
+                        referente à encomenda #KRB-2820
+                      </div>
+                      <div class="activity-time">há 1 dia</div>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <span class="activity-dot sale"></span>
+                    <div>
+                      <div class="activity-text">
+                        <strong>Proposta aceite:</strong> MacBook Air M2 —
+                        Carlos R. aceitou a tua proposta de 420.000 Kz
+                      </div>
+                      <div class="activity-time">há 1 dia</div>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <span class="activity-dot quote"></span>
+                    <div>
+                      <div class="activity-text">
+                        <strong>Cotação expirada:</strong> Samsung TV 65" — sem
+                        resposta em 24h
+                      </div>
+                      <div class="activity-time">há 2 dias</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /dash-content -->
+        </div>
+        <!-- /dashboard-grid -->
+      </div>
+    </main>
+
+    <!-- ========== QUOTE RESPONSE MODAL ========== -->
+    <div class="modal-backdrop" id="quoteResponseModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 class="modal-title">Enviar Proposta</h3>
+          <button class="modal-close" onclick="closeQuoteResponse()"><i class="ph ph-x"></i></button>
+        </div>
+
+        <form class="auth-form" onsubmit="submitQuoteResponse(event)">
+          <div class="form-group">
+            <label class="form-label">Preço (Kz)</label>
+            <input
+              type="number"
+              class="form-input"
+              placeholder="Ex: 165000"
+              required
+            />
+            <span class="form-hint"
+              >Intervalo sugerido: 145.000 – 185.000 Kz</span
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Prazo de Entrega (dias úteis)</label>
+            <select class="form-input" required>
+              <option value="" disabled selected>Selecciona</option>
+              <option value="3-5">3 a 5 dias</option>
+              <option value="5-7">5 a 7 dias</option>
+              <option value="7-10">7 a 10 dias</option>
+              <option value="10+">Mais de 10 dias</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Condição do Produto</label>
+            <select class="form-input" required>
+              <option value="novo-selado">Novo e Selado</option>
+              <option value="novo-aberto">Novo (caixa aberta)</option>
+              <option value="recondicionado">Recondicionado</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Garantia</label>
+            <select class="form-input">
+              <option value="sem">Sem garantia</option>
+              <option value="30">30 dias (Karibu)</option>
+              <option value="90">90 dias (fabricante)</option>
+              <option value="365">1 ano (fabricante)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Notas ao Comprador (opcional)</label>
+            <textarea
+              class="form-input"
+              rows="2"
+              placeholder="Ex: Produto original, importação directa, posso enviar fotos..."
+              style="resize: vertical"
+            ></textarea>
+          </div>
+
+          <div
+            style="
+              padding: var(--space-sm) var(--space-md);
+              background: var(--success-bg);
+              border-radius: var(--radius-md);
+              font-size: var(--font-xs);
+              color: var(--success-light);
+              text-align: center;
+              margin-bottom: var(--space-sm);
+            "
+          >
+            <i class="ph-fill ph-lightbulb" style="color: var(--warning)"></i> Propostas mais competitivas têm 3x mais probabilidade de serem
+            aceites
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">
+            <i class="ph-fill ph-check-circle" style="color: var(--success)"></i> Enviar Proposta
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ========== MOBILE BOTTOM NAV ========== -->
+    <nav class="bottom-nav">
+      <div class="bottom-nav-inner">
+        <a href="/fornecedor/painel" class="bottom-nav-item active"
+          ><span class="nav-icon"><i class="ph ph-chart-bar"></i></span
+          ><span class="nav-label">Painel</span></a
+        >
+        <a href="#" class="bottom-nav-item"
+          ><span class="nav-icon"><i class="ph ph-notebook"></i></span
+          ><span class="nav-label">Cotações</span
+          ><span class="nav-badge">3</span></a
+        >
+        <a href="#" class="bottom-nav-item"
+          ><span class="nav-icon"><i class="ph ph-package"></i></span
+          ><span class="nav-label">Encomendas</span></a
+        >
+        <a href="#" class="bottom-nav-item"
+          ><span class="nav-icon"><i class="ph ph-money"></i></span
+          ><span class="nav-label">Pagamentos</span></a
+        >
+        <a href="#" class="bottom-nav-item"
+          ><span class="nav-icon"><i class="ph ph-gear"></i></span
+          ><span class="nav-label">Mais</span></a
+        >
+      </div>
+    </nav>
+
+    <script src="/js/app.js"></script>
+    <script>
+      // Quote Response Modal
+      function openQuoteResponse(btn) {
+        document.getElementById("quoteResponseModal").classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+      function closeQuoteResponse() {
+        document
+          .getElementById("quoteResponseModal")
+          .classList.remove("active");
+        document.body.style.overflow = "";
+      }
+      document
+        .getElementById("quoteResponseModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeQuoteResponse();
+        });
+
+      function submitQuoteResponse(e) {
+        e.preventDefault();
+        closeQuoteResponse();
+        if (typeof showToast === "function") {
+          showToast(
+            "success",
+            "Proposta Enviada!",
+            "O comprador será notificado e pode aceitar a tua proposta em até 24h.",
+            5000,
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

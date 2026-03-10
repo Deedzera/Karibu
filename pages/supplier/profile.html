@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu Perfil de Fornecedor — Karibu</title>
+    <meta
+      name="description"
+      content="Gere o teu perfil de fornecedor, documentos e definições no Karibu."
+    />
+    <meta name="theme-color" content="#0B1219" />
+    <link rel="icon" href="/public/images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/pages/profile.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="header-logo">
+          <span class="header-logo-text">Karibu</span>
+          <span class="header-logo-tag" style="color: var(--success-light)"
+            >Fornecedor</span
+          >
+        </a>
+        <nav class="header-nav">
+          <a href="/pages/supplier/dashboard.html">Painel</a>
+          <a href="#">Cotações</a>
+          <a href="#">Encomendas</a>
+          <a href="/pages/supplier/profile.html" class="active">Perfil</a>
+        </nav>
+        <div class="header-actions">
+          <button class="header-icon-btn" aria-label="Notificações">
+            <i class="ph ph-bell"></i><span class="notification-dot"></span>
+          </button>
+          <button class="header-icon-btn" aria-label="Perfil">
+            <i class="ph ph-user-circle"></i>
+          </button>
+          <button class="header-menu-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MOBILE MENU ========== -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-panel">
+        <div class="mobile-menu-header">
+          <span class="header-logo-text" style="font-size: 1.3rem">Karibu</span>
+          <button class="mobile-menu-close modal-close">
+            <i class="ph ph-x"></i>
+          </button>
+        </div>
+        <nav class="mobile-menu-nav">
+          <a href="/pages/supplier/dashboard.html"
+            ><i class="ph ph-chart-bar"></i> Painel</a
+          >
+          <a href="#"><i class="ph ph-notebook"></i> Cotações</a>
+          <a href="#"><i class="ph ph-package"></i> Encomendas</a>
+          <a href="/pages/supplier/profile.html" class="active"
+            ><i class="ph ph-user"></i> Perfil</a
+          >
+          <div class="mobile-menu-divider"></div>
+          <a href="/"><i class="ph ph-house"></i> Ir para Marketplace</a>
+          <a href="/pages/login.html"><i class="ph ph-sign-out"></i> Sair</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ========== MAIN ========== -->
+    <main class="profile-page">
+      <div class="container">
+        <div class="profile-layout">
+          <!-- ===== PROFILE CARD (Sidebar) ===== -->
+          <aside class="profile-card">
+            <div
+              class="profile-avatar"
+              style="background: linear-gradient(135deg, #1b4d6e, #2d9b5b)"
+            >
+              CM
+              <span class="profile-avatar-edit"
+                ><i class="ph ph-camera"></i
+              ></span>
+            </div>
+            <h2 class="profile-name">Carlos Mendes</h2>
+            <p class="profile-role">Fornecedor desde Out 2025</p>
+            <span class="profile-verified"
+              ><i class="ph-fill ph-seal-check"></i> Verificado KYC</span
+            >
+            <span class="business-badge" style="margin-bottom: var(--space-md)"
+              ><i class="ph ph-buildings"></i> Mendes Electronics</span
+            >
+
+            <div class="profile-stats">
+              <div class="profile-stat">
+                <div class="profile-stat-value">87</div>
+                <div class="profile-stat-label">Vendas</div>
+              </div>
+              <div class="profile-stat">
+                <div class="profile-stat-value">4.9</div>
+                <div class="profile-stat-label">Rating</div>
+              </div>
+              <div class="profile-stat">
+                <div class="profile-stat-value">92</div>
+                <div class="profile-stat-label">Score</div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- ===== CONTENT ===== -->
+          <div class="profile-content">
+            <!-- Personal Info -->
+            <div class="profile-section">
+              <div class="profile-section-header">
+                <h3 class="profile-section-title">
+                  <i class="ph ph-user"></i> Dados Pessoais
+                </h3>
+                <button class="profile-section-edit">
+                  <i class="ph ph-pencil-simple"></i> Editar
+                </button>
+              </div>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Nome Completo</span>
+                  <span class="info-value">Carlos Mendes</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Email</span>
+                  <span class="info-value"
+                    ><i class="ph ph-envelope-simple"></i>
+                    carlos@mendeselectronics.com</span
+                  >
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Telemóvel</span>
+                  <span class="info-value"
+                    ><i class="ph ph-device-mobile"></i> +264 81 234 5678</span
+                  >
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Cidade</span>
+                  <span class="info-value"
+                    ><i class="ph ph-map-pin"></i> Windhoek, Namíbia</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Business Info -->
+            <div class="profile-section">
+              <div class="profile-section-header">
+                <h3 class="profile-section-title">
+                  <i class="ph ph-buildings"></i> Dados do Negócio
+                </h3>
+                <button class="profile-section-edit">
+                  <i class="ph ph-pencil-simple"></i> Editar
+                </button>
+              </div>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Nome Comercial</span>
+                  <span class="info-value"
+                    ><i class="ph ph-storefront"></i> Mendes Electronics</span
+                  >
+                </div>
+                <div class="info-item">
+                  <span class="info-label">NIF / Registo Comercial</span>
+                  <span class="info-value"
+                    ><i class="ph ph-file-text"></i> NAM-2024-78543</span
+                  >
+                </div>
+                <div class="info-item">
+                  <span class="info-label">País de Operação</span>
+                  <span class="info-value"
+                    ><img
+                      src="https://flagcdn.com/w20/na.png"
+                      width="20"
+                      alt="Namíbia"
+                      style="display: inline-block; vertical-align: middle"
+                    />
+                    Namíbia</span
+                  >
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Experiência</span>
+                  <span class="info-value"
+                    ><i class="ph ph-calendar"></i> 3 a 5 anos</span
+                  >
+                </div>
+              </div>
+
+              <div style="margin-top: var(--space-lg)">
+                <span
+                  class="info-label"
+                  style="display: block; margin-bottom: var(--space-sm)"
+                  >Categorias de Produtos</span
+                >
+                <div class="category-tags">
+                  <span class="category-tag"
+                    ><i class="ph ph-device-mobile"></i> Smartphones</span
+                  >
+                  <span class="category-tag"
+                    ><i class="ph ph-laptop"></i> Laptops</span
+                  >
+                  <span class="category-tag"
+                    ><i class="ph ph-television"></i> Televisões</span
+                  >
+                  <span class="category-tag"
+                    ><i class="ph ph-game-controller"></i> Gaming</span
+                  >
+                  <button
+                    class="btn btn-ghost btn-sm"
+                    style="font-size: var(--font-xs); padding: 4px 12px"
+                  >
+                    <i class="ph ph-plus"></i> Adicionar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Documents -->
+            <div class="profile-section">
+              <div class="profile-section-header">
+                <h3 class="profile-section-title">
+                  <i class="ph ph-folder-open"></i> Documentação
+                </h3>
+                <button class="profile-section-edit">
+                  <i class="ph ph-upload-simple"></i> Carregar
+                </button>
+              </div>
+
+              <div class="doc-row">
+                <span class="doc-icon"
+                  ><i class="ph ph-identification-card"></i
+                ></span>
+                <span class="doc-name">Bilhete de Identidade</span>
+                <span class="doc-status approved"
+                  ><i class="ph-fill ph-check-circle"></i> Aprovado</span
+                >
+              </div>
+
+              <div class="doc-row">
+                <span class="doc-icon"><i class="ph ph-file-text"></i></span>
+                <span class="doc-name">Registo Comercial</span>
+                <span class="doc-status approved"
+                  ><i class="ph-fill ph-check-circle"></i> Aprovado</span
+                >
+              </div>
+
+              <div class="doc-row">
+                <span class="doc-icon"><i class="ph ph-bank"></i></span>
+                <span class="doc-name">Comprovativo Bancário</span>
+                <span class="doc-status pending"
+                  ><i class="ph ph-clock"></i> Pendente</span
+                >
+              </div>
+            </div>
+
+            <!-- Payout Settings -->
+            <div class="profile-section">
+              <div class="profile-section-header">
+                <h3 class="profile-section-title">
+                  <i class="ph ph-money"></i> Pagamentos
+                </h3>
+                <button class="profile-section-edit">
+                  <i class="ph ph-pencil-simple"></i> Editar
+                </button>
+              </div>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Método de Recebimento</span>
+                  <span class="info-value"
+                    ><i class="ph ph-bank"></i> Transferência Bancária</span
+                  >
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Banco</span>
+                  <span class="info-value">First National Bank (FNB)</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Conta</span>
+                  <span class="info-value">**** **** 4521</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Ciclo de Pagamento</span>
+                  <span class="info-value"
+                    ><i class="ph ph-calendar"></i> Semanal
+                    (segunda-feira)</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Notifications -->
+            <div class="profile-section">
+              <div class="profile-section-header">
+                <h3 class="profile-section-title">
+                  <i class="ph ph-bell"></i> Notificações
+                </h3>
+              </div>
+
+              <div class="settings-list">
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-icon"
+                      ><i class="ph ph-notebook"></i
+                    ></span>
+                    <div class="settings-text">
+                      <h4>Novos Pedidos de Cotação</h4>
+                      <p>Alerta imediato por email e SMS</p>
+                    </div>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-icon"
+                      ><i class="ph ph-check-circle"></i
+                    ></span>
+                    <div class="settings-text">
+                      <h4>Proposta Aceite</h4>
+                      <p>
+                        Notificação quando um comprador aceita a tua proposta
+                      </p>
+                    </div>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-icon"
+                      ><i class="ph ph-money"></i
+                    ></span>
+                    <div class="settings-text">
+                      <h4>Pagamentos Liberados</h4>
+                      <p>Quando o pagamento é libertado do Escrow</p>
+                    </div>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-icon"
+                      ><i class="ph-fill ph-star"></i
+                    ></span>
+                    <div class="settings-text">
+                      <h4>Novas Avaliações</h4>
+                      <p>Quando um comprador deixa uma avaliação</p>
+                    </div>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Security -->
+            <div class="profile-section">
+              <div class="profile-section-header">
+                <h3 class="profile-section-title">
+                  <i class="ph ph-lock-key"></i> Segurança
+                </h3>
+              </div>
+
+              <div class="settings-list">
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-icon"><i class="ph ph-key"></i></span>
+                    <div class="settings-text">
+                      <h4>Palavra-passe</h4>
+                      <p>Última alteração há 15 dias</p>
+                    </div>
+                  </div>
+                  <button class="btn btn-ghost btn-sm">Alterar</button>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-icon"
+                      ><i class="ph ph-shield-check"></i
+                    ></span>
+                    <div class="settings-text">
+                      <h4>Verificação em Dois Passos</h4>
+                      <p>Protege a tua conta com SMS ou app autenticador</p>
+                    </div>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" checked />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Danger Zone -->
+            <div class="profile-section danger-zone">
+              <div class="profile-section-header">
+                <h3 class="profile-section-title">
+                  <i
+                    class="ph-fill ph-warning"
+                    style="color: var(--danger)"
+                  ></i>
+                  Zona de Perigo
+                </h3>
+              </div>
+
+              <div class="settings-list">
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-icon" style="color: var(--warning)"
+                      ><i class="ph ph-pause-circle"></i
+                    ></span>
+                    <div class="settings-text">
+                      <h4>Pausar Conta de Fornecedor</h4>
+                      <p>
+                        Deixas de receber novos pedidos de cotação
+                        temporariamente
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    class="btn btn-ghost btn-sm"
+                    style="
+                      color: var(--warning);
+                      border-color: rgba(229, 168, 50, 0.3);
+                    "
+                  >
+                    Pausar
+                  </button>
+                </div>
+
+                <div class="settings-row">
+                  <div class="settings-info">
+                    <span class="settings-icon" style="color: var(--danger)"
+                      ><i class="ph ph-trash"></i
+                    ></span>
+                    <div class="settings-text">
+                      <h4>Eliminar Conta</h4>
+                      <p>Apaga permanentemente a tua conta e todos os dados</p>
+                    </div>
+                  </div>
+                  <button
+                    class="btn btn-ghost btn-sm"
+                    style="
+                      color: var(--danger);
+                      border-color: rgba(217, 75, 75, 0.3);
+                    "
+                  >
+                    Eliminar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /profile-content -->
+        </div>
+        <!-- /profile-layout -->
+      </div>
+    </main>
+
+    <!-- ========== MOBILE BOTTOM NAV ========== -->
+    <nav class="bottom-nav">
+      <div class="bottom-nav-inner">
+        <a href="/pages/supplier/dashboard.html" class="bottom-nav-item"
+          ><span class="nav-icon"><i class="ph ph-chart-bar"></i></span
+          ><span class="nav-label">Painel</span></a
+        >
+        <a href="#" class="bottom-nav-item"
+          ><span class="nav-icon"><i class="ph ph-notebook"></i></span
+          ><span class="nav-label">Cotações</span></a
+        >
+        <a href="#" class="bottom-nav-item"
+          ><span class="nav-icon"><i class="ph ph-package"></i></span
+          ><span class="nav-label">Encomendas</span></a
+        >
+        <a href="#" class="bottom-nav-item"
+          ><span class="nav-icon"><i class="ph ph-money"></i></span
+          ><span class="nav-label">Pagamentos</span></a
+        >
+        <a href="/pages/supplier/profile.html" class="bottom-nav-item active"
+          ><span class="nav-icon"><i class="ph ph-user"></i></span
+          ><span class="nav-label">Perfil</span></a
+        >
+      </div>
+    </nav>
+
+    <script src="/js/app.js"></script>
+  </body>
+</html>

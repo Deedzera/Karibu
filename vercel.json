@@ -1,0 +1,23 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/produto/:slug", "destination": "/pages/product.html" },
+    { "source": "/bem-vindo", "destination": "/pages/welcome.html" },
+    { "source": "/login", "destination": "/pages/login.html" },
+    { "source": "/registar", "destination": "/pages/register.html" },
+    { "source": "/fornecedor/painel", "destination": "/pages/supplier/dashboard.html" },
+    { "source": "/fornecedor/registar", "destination": "/pages/supplier/register.html" },
+    { "source": "/comprador/painel", "destination": "/pages/buyer/dashboard.html" },
+    { "source": "/categoria/:slug", "destination": "/pages/catalogue.html" }
+  ],
+  "headers": [
+    {
+      "source": "/css/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/js/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ]
+}

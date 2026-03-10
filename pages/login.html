@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar Sessão — Karibu</title>
+    <meta
+      name="description"
+      content="Entra na tua conta Karibu para gerir importações, ver propostas e acompanhar entregas."
+    />
+    <meta name="theme-color" content="#0B1219" />
+    <link rel="icon" href="/public/images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/pages/auth.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <div class="auth-split">
+      <!-- ===== LEFT: Showcase Carousel ===== -->
+      <aside class="auth-showcase" id="authShowcase">
+        <div class="showcase-particles">
+          <div class="showcase-particle"></div>
+          <div class="showcase-particle"></div>
+          <div class="showcase-particle"></div>
+          <div class="showcase-particle"></div>
+        </div>
+
+        <div class="showcase-slides" id="showcaseSlides">
+          <!-- Slide 1 -->
+          <div class="showcase-slide active">
+            <div
+              class="showcase-slide-bg"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80&quot;);
+              "
+            ></div>
+            <div class="showcase-slide-overlay"></div>
+            <div class="showcase-content">
+              <span class="showcase-logo"
+                ><a href="/index.html">Karibu</a></span
+              >
+              <h2 class="showcase-tagline">
+                Importa da Namíbia com total segurança
+              </h2>
+              <p class="showcase-description">
+                Junta-te a milhares de empreendedores angolanos que já poupam
+                até 40% nas suas importações.
+              </p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="showcase-slide">
+            <div
+              class="showcase-slide-bg"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80&quot;);
+              "
+            ></div>
+            <div class="showcase-slide-overlay"></div>
+            <div class="showcase-content">
+              <span class="showcase-logo"
+                ><a href="/index.html">Karibu</a></span
+              >
+              <h2 class="showcase-tagline">
+                Preços competitivos, entregas garantidas
+              </h2>
+              <p class="showcase-description">
+                Fornecedores verificados, logística integrada e suporte dedicado
+                ao longo de todo o processo.
+              </p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="showcase-slide">
+            <div
+              class="showcase-slide-bg"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80&quot;);
+              "
+            ></div>
+            <div class="showcase-slide-overlay"></div>
+            <div class="showcase-content">
+              <span class="showcase-logo"
+                ><a href="/index.html">Karibu</a></span
+              >
+              <h2 class="showcase-tagline">
+                Do pedido à entrega, tudo numa plataforma
+              </h2>
+              <p class="showcase-description">
+                Acompanha cada etapa em tempo real, desde a proposta até à
+                entrega na tua porta.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel dots -->
+        <div class="showcase-dots" id="showcaseDots">
+          <button class="showcase-dot active" data-slide="0"></button>
+          <button class="showcase-dot" data-slide="1"></button>
+          <button class="showcase-dot" data-slide="2"></button>
+        </div>
+      </aside>
+
+      <!-- ===== MOBILE HEADER ===== -->
+      <div class="auth-mobile-header">
+        <div
+          class="auth-mobile-header-bg"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80&quot;);
+          "
+        ></div>
+        <div class="auth-mobile-header-overlay"></div>
+        <div class="auth-mobile-header-content">
+          <a href="/" class="auth-logo">Karibu</a>
+          <p class="auth-mobile-tagline">
+            Importa da Namíbia com total segurança
+          </p>
+        </div>
+      </div>
+
+      <!-- ===== RIGHT: Login Form ===== -->
+      <main class="auth-form-panel no-scroll">
+        <div class="auth-container anim-fade-in">
+          <div class="auth-header">
+            <h1 class="auth-title">Bem-vindo de volta</h1>
+            <p class="auth-subtitle">Entra na tua conta para continuar</p>
+          </div>
+
+          <div class="auth-card">
+            <form
+              class="auth-form"
+              id="loginForm"
+              onsubmit="handleLogin(event)"
+            >
+              <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <div class="input-icon-wrapper">
+                  <span class="input-icon">
+                    <i class="ph ph-envelope-simple"></i>
+                  </span>
+                  <input
+                    type="email"
+                    class="form-input"
+                    id="email"
+                    placeholder="o.teu@email.com"
+                    required
+                    autocomplete="email"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="password">Palavra-passe</label>
+                <div class="input-icon-wrapper">
+                  <span class="input-icon">
+                    <i class="ph ph-lock-key"></i>
+                  </span>
+                  <input
+                    type="password"
+                    class="form-input"
+                    id="password"
+                    placeholder="••••••••"
+                    required
+                    autocomplete="current-password"
+                  />
+                  <button
+                    type="button"
+                    class="input-toggle-password"
+                    onclick="togglePassword('password', this)"
+                    aria-label="Mostrar password"
+                  >
+                    <i class="ph ph-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="login-options">
+                <label class="checkbox-wrapper">
+                  <input type="checkbox" checked />
+                  <span class="checkbox-label">Lembrar-me</span>
+                </label>
+                <a href="#" class="forgot-link">Esqueci a password</a>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg btn-block">
+                Iniciar Sessão
+              </button>
+            </form>
+
+            <div class="auth-divider">
+              <span>ou</span>
+            </div>
+
+            <button
+              class="btn btn-secondary btn-block"
+              style="gap: var(--space-sm)"
+            >
+              <i class="ph ph-device-mobile"></i> Entrar com Número de Telefone
+            </button>
+          </div>
+
+          <div class="auth-footer">
+            Não tens conta?
+            <a href="/pages/register.html">Criar Conta Grátis</a>
+          </div>
+
+          <div class="auth-trust-bar">
+            <span class="auth-trust-item">
+              <i class="ph ph-lock-key"></i> Dados protegidos
+            </span>
+            <span class="auth-trust-item">
+              <img
+                src="https://flagcdn.com/w20/ao.png"
+                width="20"
+                alt="Angola"
+                style="display: inline-block; vertical-align: middle"
+              />
+              Empresa angolana
+            </span>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      /* ---- Toggle Password ---- */
+      function togglePassword(id, btn) {
+        const input = document.getElementById(id);
+        if (input.type === "password") {
+          input.type = "text";
+          btn.innerHTML = '<i class="ph ph-eye-slash"></i>';
+        } else {
+          input.type = "password";
+          btn.innerHTML = '<i class="ph ph-eye"></i>';
+        }
+      }
+
+      /* ---- Login Handler ---- */
+      function handleLogin(e) {
+        e.preventDefault();
+        alert("Login simulado com sucesso! (Integração Supabase em breve)");
+      }
+
+      /* ---- Showcase Carousel ---- */
+      (function () {
+        const slides = document.querySelectorAll(".showcase-slide");
+        const dots = document.querySelectorAll(".showcase-dot");
+        if (!slides.length) return;
+
+        let current = 0;
+        let interval;
+
+        function goTo(index) {
+          slides[current].classList.remove("active");
+          dots[current].classList.remove("active");
+          current = (index + slides.length) % slides.length;
+          slides[current].classList.add("active");
+          dots[current].classList.add("active");
+        }
+
+        function next() {
+          goTo(current + 1);
+        }
+
+        function startAutoplay() {
+          interval = setInterval(next, 5000);
+        }
+
+        function resetAutoplay() {
+          clearInterval(interval);
+          startAutoplay();
+        }
+
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            goTo(parseInt(dot.dataset.slide));
+            resetAutoplay();
+          });
+        });
+
+        startAutoplay();
+      })();
+    </script>
+  </body>
+</html>

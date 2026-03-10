@@ -1,0 +1,15 @@
+{
+  "name": "karibu-marketplace",
+  "version": "1.0.0",
+  "description": "Karibu — Marketplace de Importação Colaborativa Namíbia → Angola",
+  "scripts": {
+    "dev": "npx serve . --listen 3000",
+    "start": "npx serve ."
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

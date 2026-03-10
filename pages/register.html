@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Conta — Karibu</title>
+    <meta
+      name="description"
+      content="Cria a tua conta Karibu e começa a importar produtos da Namíbia com segurança e preços competitivos."
+    />
+    <meta name="theme-color" content="#0B1219" />
+    <link rel="icon" href="/public/images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/pages/auth.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <div class="auth-split">
+      <!-- ===== LEFT: Showcase Panel ===== -->
+      <aside class="auth-showcase" id="authShowcase">
+        <div class="showcase-particles">
+          <div class="showcase-particle"></div>
+          <div class="showcase-particle"></div>
+          <div class="showcase-particle"></div>
+          <div class="showcase-particle"></div>
+        </div>
+
+        <div class="showcase-slides" id="showcaseSlides">
+          <div class="showcase-slide active">
+            <div
+              class="showcase-slide-bg"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80&quot;);
+              "
+            ></div>
+            <div class="showcase-slide-overlay"></div>
+            <div class="showcase-content">
+              <span class="showcase-logo"
+                ><a href="/index.html">Karibu</a></span
+              >
+              <h2 class="showcase-tagline">
+                Cria a tua conta em menos de 2 minutos
+              </h2>
+              <p class="showcase-description">
+                Junta-te a milhares de empreendedores que importam da Namíbia
+                com o melhor custo-benefício.
+              </p>
+            </div>
+          </div>
+
+          <div class="showcase-slide">
+            <div
+              class="showcase-slide-bg"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80&quot;);
+              "
+            ></div>
+            <div class="showcase-slide-overlay"></div>
+            <div class="showcase-content">
+              <span class="showcase-logo"
+                ><a href="/index.html">Karibu</a></span
+              >
+              <h2 class="showcase-tagline">
+                Fornecedores verificados, entregas garantidas
+              </h2>
+              <p class="showcase-description">
+                Cada fornecedor passa por um processo rigoroso de verificação
+                antes de aparecer na plataforma.
+              </p>
+            </div>
+          </div>
+
+          <div class="showcase-slide">
+            <div
+              class="showcase-slide-bg"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80&quot;);
+              "
+            ></div>
+            <div class="showcase-slide-overlay"></div>
+            <div class="showcase-content">
+              <span class="showcase-logo"
+                ><a href="/index.html">Karibu</a></span
+              >
+              <h2 class="showcase-tagline">Acompanha tudo em tempo real</h2>
+              <p class="showcase-description">
+                Do pedido à entrega, tens visibilidade total no painel de
+                controlo personalizado.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-dots" id="showcaseDots">
+          <button class="showcase-dot active" data-slide="0"></button>
+          <button class="showcase-dot" data-slide="1"></button>
+          <button class="showcase-dot" data-slide="2"></button>
+        </div>
+      </aside>
+
+      <!-- ===== MOBILE HEADER ===== -->
+      <div class="auth-mobile-header">
+        <div
+          class="auth-mobile-header-bg"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80&quot;);
+          "
+        ></div>
+        <div class="auth-mobile-header-overlay"></div>
+        <div class="auth-mobile-header-content">
+          <a href="/" class="auth-logo">Karibu</a>
+          <p class="auth-mobile-tagline">
+            Cria a tua conta em menos de 2 minutos
+          </p>
+        </div>
+      </div>
+
+      <!-- ===== RIGHT: Registration Wizard ===== -->
+      <main class="auth-form-panel dense-layout">
+        <div class="auth-container anim-fade-in">
+          <div class="auth-header">
+            <a href="/" class="auth-logo">Karibu</a>
+            <h1 class="auth-title">Criar Conta</h1>
+            <p class="auth-subtitle">
+              Começa a importar da Namíbia com segurança
+            </p>
+          </div>
+
+          <div class="auth-card">
+            <!-- Progress Bar -->
+            <div class="wizard-progress">
+              <div class="wizard-progress-bar-wrapper">
+                <div
+                  class="wizard-progress-bar-fill"
+                  id="wizardProgressFill"
+                  style="width: 33%"
+                ></div>
+              </div>
+              <div class="wizard-steps" id="wizardSteps">
+                <div class="wizard-step-indicator active" data-step="0">
+                  <div class="wizard-step-circle">1</div>
+                  <span class="wizard-step-label">Identidade</span>
+                </div>
+                <div class="wizard-step-indicator" data-step="1">
+                  <div class="wizard-step-circle">2</div>
+                  <span class="wizard-step-label">Localização</span>
+                </div>
+                <div class="wizard-step-indicator" data-step="2">
+                  <div class="wizard-step-circle">3</div>
+                  <span class="wizard-step-label">Segurança</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Wizard Body -->
+            <form id="registerForm" onsubmit="handleRegister(event)">
+              <div class="wizard-body" id="wizardBody">
+                <!-- Step 1: Identity -->
+                <div class="wizard-step-content active" data-step="0">
+                  <div class="wizard-step-heading">
+                    <h3>
+                      <i
+                        class="ph ph-user-circle"
+                        style="
+                          color: var(--accent);
+                          margin-right: var(--space-xs);
+                        "
+                      ></i>
+                      Quem és tu?
+                    </h3>
+                    <p>Começa com as informações básicas para a tua conta.</p>
+                  </div>
+                  <div class="auth-form">
+                    <div class="form-group">
+                      <label class="form-label" for="fullName"
+                        >Nome completo</label
+                      >
+                      <div class="input-icon-wrapper">
+                        <span class="input-icon"
+                          ><i class="ph ph-user"></i
+                        ></span>
+                        <input
+                          type="text"
+                          class="form-input"
+                          id="fullName"
+                          placeholder="O teu nome completo"
+                          required
+                          autocomplete="name"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="regEmail">Email</label>
+                      <div class="input-icon-wrapper">
+                        <span class="input-icon"
+                          ><i class="ph ph-envelope-simple"></i
+                        ></span>
+                        <input
+                          type="email"
+                          class="form-input"
+                          id="regEmail"
+                          placeholder="o.teu@email.com"
+                          required
+                          autocomplete="email"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="phone"
+                        >Telemóvel (Angola)</label
+                      >
+                      <div class="input-icon-wrapper">
+                        <span class="input-icon"
+                          ><i class="ph ph-device-mobile"></i
+                        ></span>
+                        <input
+                          type="tel"
+                          class="form-input"
+                          id="phone"
+                          placeholder="+244 9XX XXX XXX"
+                          required
+                          autocomplete="tel"
+                        />
+                      </div>
+                      <span class="form-hint">
+                        Vais receber SMS de verificação e notificações.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Step 2: Location -->
+                <div class="wizard-step-content" data-step="1">
+                  <div class="wizard-step-heading">
+                    <h3>
+                      <i
+                        class="ph ph-map-pin"
+                        style="
+                          color: var(--accent);
+                          margin-right: var(--space-xs);
+                        "
+                      ></i>
+                      Onde estás?
+                    </h3>
+                    <p>
+                      Selecciona a tua província para entregas mais rápidas.
+                    </p>
+                  </div>
+                  <div class="auth-form">
+                    <div class="form-group">
+                      <label class="form-label" for="province">Província</label>
+                      <select class="form-input" id="province" required>
+                        <option value="" disabled selected>
+                          Selecciona a tua província
+                        </option>
+                        <option value="luanda">Luanda</option>
+                        <option value="lubango">Lubango (Huíla)</option>
+                        <option value="benguela">Benguela</option>
+                        <option value="huambo">Huambo</option>
+                        <option value="namibe">Namibe</option>
+                        <option value="cunene">Cunene</option>
+                        <option value="bie">Bié</option>
+                        <option value="sumbe">Sumbe (Kwanza Sul)</option>
+                      </select>
+                      <span class="form-hint">
+                        Actualmente operamos nestas 8 províncias.
+                      </span>
+                    </div>
+
+                    <label
+                      class="checkbox-wrapper"
+                      style="margin-top: var(--space-md)"
+                    >
+                      <input type="checkbox" id="acceptTerms" required />
+                      <span class="checkbox-label">
+                        Li e aceito os <a href="#">Termos de Serviço</a> e a
+                        <a href="#">Política de Privacidade</a> do Karibu.
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Step 3: Security -->
+                <div class="wizard-step-content" data-step="2">
+                  <div class="wizard-step-heading">
+                    <h3>
+                      <i
+                        class="ph ph-shield-check"
+                        style="
+                          color: var(--accent);
+                          margin-right: var(--space-xs);
+                        "
+                      ></i>
+                      Protege a tua conta
+                    </h3>
+                    <p>Cria uma palavra-passe segura para a tua conta.</p>
+                  </div>
+                  <div class="auth-form">
+                    <div class="form-group">
+                      <label class="form-label" for="regPassword"
+                        >Palavra-passe</label
+                      >
+                      <div class="input-icon-wrapper">
+                        <span class="input-icon"
+                          ><i class="ph ph-lock-key"></i
+                        ></span>
+                        <input
+                          type="password"
+                          class="form-input"
+                          id="regPassword"
+                          placeholder="Mín. 8 caracteres"
+                          required
+                          minlength="8"
+                          autocomplete="new-password"
+                          oninput="checkPasswordStrength(this.value)"
+                        />
+                        <button
+                          type="button"
+                          class="input-toggle-password"
+                          onclick="togglePassword('regPassword', this)"
+                        >
+                          <i class="ph ph-eye"></i>
+                        </button>
+                      </div>
+                      <div class="password-strength">
+                        <div class="password-strength-bar" id="str1"></div>
+                        <div class="password-strength-bar" id="str2"></div>
+                        <div class="password-strength-bar" id="str3"></div>
+                        <div class="password-strength-bar" id="str4"></div>
+                      </div>
+                      <span
+                        class="password-strength-text form-hint"
+                        id="strText"
+                      ></span>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="regPasswordConfirm"
+                        >Confirmar palavra-passe</label
+                      >
+                      <div class="input-icon-wrapper">
+                        <span class="input-icon"
+                          ><i class="ph ph-lock-key"></i
+                        ></span>
+                        <input
+                          type="password"
+                          class="form-input"
+                          id="regPasswordConfirm"
+                          placeholder="Repete a palavra-passe"
+                          required
+                          minlength="8"
+                          autocomplete="new-password"
+                        />
+                        <button
+                          type="button"
+                          class="input-toggle-password"
+                          onclick="togglePassword('regPasswordConfirm', this)"
+                        >
+                          <i class="ph ph-eye"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Navigation -->
+              <div class="wizard-nav" id="wizardNav">
+                <button
+                  type="button"
+                  class="btn-back"
+                  id="wizardBack"
+                  style="visibility: hidden"
+                  onclick="wizardPrev()"
+                >
+                  <i class="ph ph-arrow-left"></i> Voltar
+                </button>
+                <button
+                  type="button"
+                  class="btn-next"
+                  id="wizardNext"
+                  onclick="wizardNextStep()"
+                >
+                  Continuar <i class="ph ph-arrow-right"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="auth-bottom-layout">
+          <div class="auth-footer">
+            <span class="footer-link-group">
+              Já tens conta? <a href="/pages/login.html">Iniciar Sessão</a>
+            </span>
+            <span
+              class="footer-divider"
+              style="opacity: 0.3; margin: 0 var(--space-sm)"
+              >|</span
+            >
+            <span class="footer-link-group">
+              És fornecedor?
+              <a href="/pages/supplier/register.html">Portal de Fornecedores</a>
+            </span>
+          </div>
+
+          <div class="auth-trust-bar">
+            <span class="auth-trust-item">
+              <i class="ph ph-lock-key"></i> Dados protegidos
+            </span>
+            <span class="auth-trust-item">
+              <img
+                src="https://flagcdn.com/w20/ao.png"
+                width="20"
+                alt="Angola"
+                style="display: inline-block; vertical-align: middle"
+              />
+              Empresa angolana
+            </span>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="/js/register.js"></script>
+  </body>
+</html>

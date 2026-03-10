@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bem-vindo — Karibu</title>
+    <meta
+      name="description"
+      content="Descobre o Karibu — a plataforma de importação colaborativa da Namíbia para Angola. Importa com segurança, preços competitivos e entregas garantidas."
+    />
+    <meta name="theme-color" content="#0B1219" />
+    <link rel="icon" href="/public/images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <link rel="stylesheet" href="/css/pages/welcome.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <div class="welcome-page">
+      <!-- Logo -->
+      <a href="/" class="welcome-logo">Karibu</a>
+
+      <!-- Floating Decorations -->
+      <div class="welcome-decoration welcome-decoration-1"></div>
+      <div class="welcome-decoration welcome-decoration-2"></div>
+
+      <!-- Slides -->
+      <div class="welcome-slides" id="welcomeSlides">
+        <!-- Slide 1: Welcome -->
+        <div class="welcome-slide active" data-slide="0">
+          <div
+            class="welcome-slide-bg"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80&quot;);
+            "
+          ></div>
+          <div class="welcome-slide-overlay"></div>
+          <div class="welcome-slide-content">
+            <div class="welcome-icon">
+              <i class="ph ph-globe-hemisphere-west"></i>
+            </div>
+            <h2 class="welcome-slide-title">
+              Importa da <span class="welcome-highlight">Namíbia</span> com
+              total segurança
+            </h2>
+            <p class="welcome-slide-description">
+              Karibu liga empreendedores angolanos a fornecedores verificados da
+              Namíbia. Tu pedes, nós tratamos de tudo.
+            </p>
+          </div>
+        </div>
+
+        <!-- Slide 2: Savings -->
+        <div class="welcome-slide" data-slide="1">
+          <div
+            class="welcome-slide-bg"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80&quot;);
+            "
+          ></div>
+          <div class="welcome-slide-overlay"></div>
+          <div class="welcome-slide-content">
+            <div class="welcome-icon">
+              <i class="ph ph-chart-line-down"></i>
+            </div>
+            <h2 class="welcome-slide-title">
+              Poupa até <span class="welcome-highlight">40%</span> nas tuas
+              importações
+            </h2>
+            <p class="welcome-slide-description">
+              Preços competitivos graças à compra colaborativa. Quanto mais
+              compradores se juntam, melhor o preço para todos.
+            </p>
+          </div>
+        </div>
+
+        <!-- Slide 3: Tracking -->
+        <div class="welcome-slide" data-slide="2">
+          <div
+            class="welcome-slide-bg"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80&quot;);
+            "
+          ></div>
+          <div class="welcome-slide-overlay"></div>
+          <div class="welcome-slide-content">
+            <div class="welcome-icon">
+              <i class="ph ph-package"></i>
+            </div>
+            <h2 class="welcome-slide-title">
+              Acompanha tudo em
+              <span class="welcome-highlight">tempo real</span>
+            </h2>
+            <p class="welcome-slide-description">
+              Do pedido à entrega na tua porta. Logística integrada,
+              fornecedores verificados e suporte dedicado.
+            </p>
+          </div>
+        </div>
+
+        <!-- Slide 4: Getting Started -->
+        <div class="welcome-slide" data-slide="3">
+          <div
+            class="welcome-slide-bg"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=80&quot;);
+            "
+          ></div>
+          <div class="welcome-slide-overlay"></div>
+          <div class="welcome-slide-content">
+            <div class="welcome-icon">
+              <i class="ph ph-rocket-launch"></i>
+            </div>
+            <h2 class="welcome-slide-title">
+              Pronto para <span class="welcome-highlight">começar</span>?
+            </h2>
+            <p class="welcome-slide-description">
+              Cria a tua conta gratuitamente e faz a tua primeira importação
+              hoje mesmo. Seguro, simples e rápido.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Navigation -->
+      <nav class="welcome-nav">
+        <button class="welcome-skip" id="welcomeSkip">Saltar</button>
+
+        <div class="welcome-dots">
+          <button class="welcome-dot active" data-slide="0"></button>
+          <button class="welcome-dot" data-slide="1"></button>
+          <button class="welcome-dot" data-slide="2"></button>
+          <button class="welcome-dot" data-slide="3"></button>
+        </div>
+
+        <button class="welcome-next" id="welcomeNext">
+          Seguinte <i class="ph ph-arrow-right"></i>
+        </button>
+      </nav>
+    </div>
+
+    <script src="/js/welcome.js"></script>
+  </body>
+</html>
