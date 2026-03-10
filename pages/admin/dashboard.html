@@ -150,12 +150,12 @@
 
           <!-- ===== CONTENT ===== -->
           <div class="dash-content">
-            <!-- Greeting -->
+            <!-- ===== 1. DASHBOARD HEADER ===== -->
             <div class="dash-header">
               <div class="dash-greeting">
-                <h1>Painel de Controlo Global</h1>
+                <h1>Admin Control Panel</h1>
                 <p>
-                  Bem-vindo à área de administração. Há
+                  Overview of platform performance and marketplace activity. Há
                   <strong style="color: var(--accent)"
                     >5 novos fornecedores</strong
                   >
@@ -163,14 +163,35 @@
                 </p>
               </div>
               <div class="dash-header-actions">
+                <div class="dash-header-badges">
+                  <span class="kpi-badge">
+                    <span class="badge-icon">👤</span>
+                    <span class="badge-value">124</span> Users Hoje
+                  </span>
+                  <span class="kpi-badge">
+                    <span class="badge-icon">💳</span>
+                    <span class="badge-value">38</span> Transacções
+                  </span>
+                  <span
+                    class="kpi-badge"
+                    style="border-color: rgba(217, 75, 75, 0.3)"
+                  >
+                    <span class="badge-icon">⚠️</span>
+                    <span class="badge-value" style="color: var(--danger-light)"
+                      >2</span
+                    >
+                    Alertas
+                  </span>
+                </div>
                 <button class="btn btn-secondary btn-sm">
                   <i class="ph ph-download-simple"></i> Exportar Relatório
                 </button>
               </div>
             </div>
 
-            <!-- Global KPIs -->
+            <!-- ===== 2. KPI CARDS (Enhanced) ===== -->
             <div class="kpi-grid">
+              <!-- Total Users -->
               <div class="kpi-card">
                 <div
                   class="kpi-icon"
@@ -185,9 +206,15 @@
                 <div class="kpi-value">1.284</div>
                 <div class="kpi-label">Utilizadores Totais</div>
                 <div class="kpi-change up">
-                  <i class="ph ph-trend-up"></i> +42 esta semana
+                  <span class="kpi-trend-badge up"
+                    ><i class="ph ph-trend-up"></i> +3.4%</span
+                  >
+                  +42 esta semana
                 </div>
+                <div class="kpi-sparkline" id="sparkline-users"></div>
               </div>
+
+              <!-- Monthly Volume -->
               <div class="kpi-card">
                 <div class="kpi-icon"><i class="ph ph-money"></i></div>
                 <div class="kpi-value">
@@ -198,9 +225,15 @@
                 </div>
                 <div class="kpi-label">Volume Transaccionado (Mês)</div>
                 <div class="kpi-change up">
-                  <i class="ph ph-trend-up"></i> +12% vs mês anterior
+                  <span class="kpi-trend-badge up"
+                    ><i class="ph ph-trend-up"></i> +12%</span
+                  >
+                  vs mês anterior
                 </div>
+                <div class="kpi-sparkline" id="sparkline-volume"></div>
               </div>
+
+              <!-- Monthly Revenue -->
               <div class="kpi-card">
                 <div class="kpi-icon"><i class="ph ph-percent"></i></div>
                 <div class="kpi-value">
@@ -211,9 +244,15 @@
                 </div>
                 <div class="kpi-label">Receita Karibu (Mês)</div>
                 <div class="kpi-change up">
-                  <i class="ph ph-trend-up"></i> +14% vs mês anterior
+                  <span class="kpi-trend-badge up"
+                    ><i class="ph ph-trend-up"></i> +14%</span
+                  >
+                  vs mês anterior
                 </div>
+                <div class="kpi-sparkline" id="sparkline-revenue"></div>
               </div>
+
+              <!-- Active Disputes -->
               <div class="kpi-card">
                 <div
                   class="kpi-icon"
@@ -228,14 +267,119 @@
                 <div class="kpi-value">2</div>
                 <div class="kpi-label">Disputas Activas</div>
                 <div class="kpi-change" style="color: var(--danger)">
-                  <i class="ph-fill ph-fire"></i> Requer atenção
+                  <span class="kpi-trend-badge down"
+                    ><i class="ph-fill ph-fire"></i> −60%</span
+                  >
+                  Requer atenção
+                </div>
+                <div class="kpi-sparkline" id="sparkline-disputes"></div>
+              </div>
+            </div>
+
+            <!-- ===== 3. ANALYTICS CHARTS ===== -->
+            <div class="charts-section admin-section-animate">
+              <div class="dash-section-header">
+                <h2 class="dash-section-title">
+                  <i class="ph ph-chart-line-up"></i> Analytics
+                </h2>
+              </div>
+              <div class="charts-grid">
+                <!-- Chart A: Transaction Volume -->
+                <div class="chart-card">
+                  <div class="chart-card-header">
+                    <span class="chart-card-title">
+                      <i class="ph ph-arrows-left-right"></i> Volume de
+                      Transacções
+                    </span>
+                    <span class="chart-card-period">Últimos 30 dias</span>
+                  </div>
+                  <div class="chart-canvas-wrap">
+                    <canvas id="chartTransactionVolume"></canvas>
+                  </div>
+                </div>
+
+                <!-- Chart B: Revenue Trend -->
+                <div class="chart-card">
+                  <div class="chart-card-header">
+                    <span class="chart-card-title">
+                      <i class="ph ph-currency-circle-dollar"></i> Tendência de
+                      Receita
+                    </span>
+                    <span class="chart-card-period">Últimos 30 dias</span>
+                  </div>
+                  <div class="chart-canvas-wrap">
+                    <canvas id="chartRevenueTrend"></canvas>
+                  </div>
+                </div>
+
+                <!-- Chart C: Marketplace Activity -->
+                <div class="chart-card">
+                  <div class="chart-card-header">
+                    <span class="chart-card-title">
+                      <i class="ph ph-users-three"></i> Actividade do
+                      Marketplace
+                    </span>
+                    <span class="chart-card-period">Este Mês (Semanal)</span>
+                  </div>
+                  <div class="chart-canvas-wrap">
+                    <canvas id="chartMarketplaceActivity"></canvas>
+                  </div>
                 </div>
               </div>
             </div>
 
+            <!-- ===== 4. MARKETPLACE HEALTH WIDGETS ===== -->
+            <div class="health-widgets-grid admin-section-animate">
+              <div class="health-widget">
+                <div class="health-widget-value">186</div>
+                <div class="health-widget-label">Fornecedores Activos</div>
+                <span class="health-widget-trend up">
+                  <i class="ph ph-trend-up"></i> +8 este mês
+                </span>
+              </div>
+              <div class="health-widget">
+                <div class="health-widget-value">
+                  142K
+                  <small style="font-size: var(--font-xs); font-weight: 400"
+                    >Kz</small
+                  >
+                </div>
+                <div class="health-widget-label">Valor Médio por Pedido</div>
+                <span class="health-widget-trend up">
+                  <i class="ph ph-trend-up"></i> +5.2%
+                </span>
+              </div>
+              <div class="health-widget">
+                <div class="health-widget-value">12.4%</div>
+                <div class="health-widget-label">Taxa de Conversão</div>
+                <span class="health-widget-trend up">
+                  <i class="ph ph-trend-up"></i> +1.8%
+                </span>
+              </div>
+              <div class="health-widget">
+                <div class="health-widget-value">23</div>
+                <div class="health-widget-label">Escrow Activos</div>
+                <span class="health-widget-trend down">
+                  <i class="ph ph-trend-down"></i> −3 esta semana
+                </span>
+              </div>
+              <div class="health-widget">
+                <div class="health-widget-value">
+                  2.8M
+                  <small style="font-size: var(--font-xs); font-weight: 400"
+                    >Kz</small
+                  >
+                </div>
+                <div class="health-widget-label">Taxas Plataforma (Mês)</div>
+                <span class="health-widget-trend up">
+                  <i class="ph ph-trend-up"></i> +14%
+                </span>
+              </div>
+            </div>
+
             <div class="admin-card-grid">
-              <!-- ---- PENDING APPROVALS (Suppliers) ---- -->
-              <div class="dash-section">
+              <!-- ===== 5. PENDING APPROVALS (Suppliers) ===== -->
+              <div class="dash-section admin-section-animate">
                 <div class="dash-section-header">
                   <h2 class="dash-section-title">
                     <i class="ph ph-user-circle-plus"></i> Aprovações Pendentes
@@ -246,17 +390,18 @@
                 </div>
 
                 <div
+                  class="admin-table-wrap"
                   style="
                     background: var(--bg-elevated);
                     border: 1px solid var(--border);
                     border-radius: var(--radius-lg);
-                    overflow: hidden;
                   "
                 >
                   <table class="admin-table" style="margin-top: 0">
                     <thead>
                       <tr>
                         <th>Fornecedor</th>
+                        <th>Localização</th>
                         <th>Data</th>
                         <th>Status</th>
                         <th>Acções</th>
@@ -274,9 +419,20 @@
                             </div>
                             <div class="user-details">
                               <span class="user-name">Tech Global Ltd.</span>
-                              <span class="user-type">Windhoek, NAM</span>
+                              <span class="user-type">Empresa</span>
                             </div>
                           </div>
+                        </td>
+                        <td>
+                          <span
+                            style="
+                              color: var(--text-secondary);
+                              font-size: var(--font-sm);
+                            "
+                          >
+                            <i class="ph ph-map-pin" style="opacity: 0.5"></i>
+                            Windhoek, NAM
+                          </span>
                         </td>
                         <td>
                           <span style="color: var(--text-tertiary)"
@@ -296,6 +452,12 @@
                             <button class="action-btn reject" title="Rejeitar">
                               <i class="ph ph-x"></i>
                             </button>
+                            <button
+                              class="action-btn view-profile"
+                              title="Ver Perfil"
+                            >
+                              <i class="ph ph-eye"></i> Perfil
+                            </button>
                           </div>
                         </td>
                       </tr>
@@ -312,9 +474,20 @@
                               <span class="user-name"
                                 >Miguel A. (Individual)</span
                               >
-                              <span class="user-type">Luanda, AO</span>
+                              <span class="user-type">Individual</span>
                             </div>
                           </div>
+                        </td>
+                        <td>
+                          <span
+                            style="
+                              color: var(--text-secondary);
+                              font-size: var(--font-sm);
+                            "
+                          >
+                            <i class="ph ph-map-pin" style="opacity: 0.5"></i>
+                            Luanda, AO
+                          </span>
                         </td>
                         <td>
                           <span style="color: var(--text-tertiary)"
@@ -334,6 +507,65 @@
                             <button class="action-btn reject" title="Rejeitar">
                               <i class="ph ph-x"></i>
                             </button>
+                            <button
+                              class="action-btn view-profile"
+                              title="Ver Perfil"
+                            >
+                              <i class="ph ph-eye"></i> Perfil
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="user-profile-cell">
+                            <div
+                              class="user-avatar"
+                              style="background: #3b8ecf"
+                            >
+                              SF
+                            </div>
+                            <div class="user-details">
+                              <span class="user-name">Solar Farms Namibia</span>
+                              <span class="user-type">Empresa</span>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <span
+                            style="
+                              color: var(--text-secondary);
+                              font-size: var(--font-sm);
+                            "
+                          >
+                            <i class="ph ph-map-pin" style="opacity: 0.5"></i>
+                            Walvis Bay, NAM
+                          </span>
+                        </td>
+                        <td>
+                          <span style="color: var(--text-tertiary)"
+                            >08 Mar, 11:05</span
+                          >
+                        </td>
+                        <td>
+                          <span class="status-badge pending"
+                            ><i class="ph-fill ph-circle"></i> Em Revisão</span
+                          >
+                        </td>
+                        <td>
+                          <div class="table-actions">
+                            <button class="action-btn approve" title="Aprovar">
+                              <i class="ph ph-check"></i>
+                            </button>
+                            <button class="action-btn reject" title="Rejeitar">
+                              <i class="ph ph-x"></i>
+                            </button>
+                            <button
+                              class="action-btn view-profile"
+                              title="Ver Perfil"
+                            >
+                              <i class="ph ph-eye"></i> Perfil
+                            </button>
                           </div>
                         </td>
                       </tr>
@@ -342,8 +574,8 @@
                 </div>
               </div>
 
-              <!-- ---- RECENT TRANSACTIONS (Overview) ---- -->
-              <div class="dash-section">
+              <!-- ===== 6. RECENT TRANSACTIONS (Color-coded) ===== -->
+              <div class="dash-section admin-section-animate">
                 <div class="dash-section-header">
                   <h2 class="dash-section-title">
                     <i class="ph ph-arrows-left-right"></i> Transacções Recentes
@@ -355,9 +587,9 @@
                     <div
                       class="order-icon"
                       style="
-                        background: rgba(167, 139, 250, 0.1);
-                        color: #a78bfa;
-                        border-color: rgba(167, 139, 250, 0.2);
+                        background: rgba(59, 142, 207, 0.1);
+                        color: #3b8ecf;
+                        border-color: rgba(59, 142, 207, 0.2);
                       "
                     >
                       <i class="ph ph-lock-key"></i>
@@ -370,7 +602,7 @@
                         <span><i class="ph ph-money"></i> 165.000 Kz</span>
                       </div>
                     </div>
-                    <span class="order-status active">No Hub</span>
+                    <span class="order-status escrow">Escrow Retido</span>
                   </div>
 
                   <div class="order-row">
@@ -401,9 +633,9 @@
                     <div
                       class="order-icon"
                       style="
-                        background: rgba(232, 145, 58, 0.1);
-                        color: var(--warning);
-                        border-color: rgba(232, 145, 58, 0.2);
+                        background: rgba(217, 75, 75, 0.1);
+                        color: var(--danger-light);
+                        border-color: rgba(217, 75, 75, 0.2);
                       "
                     >
                       <i class="ph ph-warning"></i>
@@ -415,14 +647,129 @@
                         <span>Problema: "Item com defeito"</span>
                       </div>
                     </div>
-                    <span class="order-status urgent">Ação Necessária</span>
+                    <span class="order-status dispute">Disputa Aberta</span>
+                  </div>
+
+                  <div class="order-row">
+                    <div
+                      class="order-icon"
+                      style="
+                        background: rgba(229, 168, 50, 0.1);
+                        color: var(--warning);
+                        border-color: rgba(229, 168, 50, 0.2);
+                      "
+                    >
+                      <i class="ph ph-hourglass-medium"></i>
+                    </div>
+                    <div class="order-info">
+                      <div class="order-title">
+                        Pagamento Pendente — #KRB-2810
+                      </div>
+                      <div class="order-meta">
+                        <span>Comprador: Luísa R.</span>
+                        <span>Fornecedor: Tech Global Ltd.</span>
+                        <span><i class="ph ph-money"></i> 95.000 Kz</span>
+                      </div>
+                    </div>
+                    <span class="order-status pending">Pendente</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- ---- FLAGGED PRODUCTS (Catalog Monitoring) ---- -->
-            <div class="dash-section">
+            <!-- ===== 7. PLATFORM ALERTS ===== -->
+            <div class="dash-section admin-section-animate">
+              <div class="dash-section-header">
+                <h2 class="dash-section-title">
+                  <i class="ph ph-bell-ringing"></i> Alertas da Plataforma
+                </h2>
+                <span class="dash-section-action"
+                  >Ver todos <i class="ph ph-arrow-right"></i
+                ></span>
+              </div>
+
+              <div class="alerts-list">
+                <div class="alert-item">
+                  <span class="alert-dot critical"></span>
+                  <div class="alert-content">
+                    <div class="alert-message">
+                      <strong>Nova disputa aberta</strong> — Pedido #KRB-2815.
+                      Comprador reportou "Item com defeito". Ação necessária.
+                    </div>
+                    <div class="alert-time">Há 25 minutos</div>
+                  </div>
+                </div>
+                <div class="alert-item">
+                  <span class="alert-dot warning"></span>
+                  <div class="alert-content">
+                    <div class="alert-message">
+                      <strong>Transacção de alto valor</strong> — #KRB-2847
+                      (165.000 Kz) sinalizada para revisão de conformidade.
+                    </div>
+                    <div class="alert-time">Há 1 hora</div>
+                  </div>
+                </div>
+                <div class="alert-item">
+                  <span class="alert-dot info"></span>
+                  <div class="alert-content">
+                    <div class="alert-message">
+                      <strong>Verificação pendente</strong> — 5 fornecedores
+                      aguardam aprovação de documentos.
+                    </div>
+                    <div class="alert-time">Há 3 horas</div>
+                  </div>
+                </div>
+                <div class="alert-item">
+                  <span class="alert-dot system"></span>
+                  <div class="alert-content">
+                    <div class="alert-message">
+                      <strong>Manutenção agendada</strong> — Atualização do
+                      sistema de pagamentos prevista para 12 Mar, 02:00.
+                    </div>
+                    <div class="alert-time">Há 5 horas</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== 8. QUICK ACTIONS ===== -->
+            <div class="dash-section admin-section-animate">
+              <div class="dash-section-header">
+                <h2 class="dash-section-title">
+                  <i class="ph ph-lightning"></i> Acções Rápidas
+                </h2>
+              </div>
+
+              <div class="quick-actions-grid">
+                <button class="quick-action-card">
+                  <span class="quick-action-icon"
+                    ><i class="ph ph-user-plus"></i
+                  ></span>
+                  <span class="quick-action-label">Adicionar Fornecedor</span>
+                </button>
+                <button class="quick-action-card">
+                  <span class="quick-action-icon"
+                    ><i class="ph ph-package"></i
+                  ></span>
+                  <span class="quick-action-label">Criar Listagem</span>
+                </button>
+                <button class="quick-action-card">
+                  <span class="quick-action-icon"
+                    ><i class="ph ph-gear-six"></i
+                  ></span>
+                  <span class="quick-action-label">Ajustar Taxas</span>
+                </button>
+                <button class="quick-action-card">
+                  <span class="quick-action-icon"
+                    ><i class="ph ph-scales"></i
+                  ></span>
+                  <span class="quick-action-label">Rever Disputas</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- ===== FLAGGED PRODUCTS ===== -->
+            <div class="dash-section admin-section-animate">
               <div class="dash-section-header">
                 <h2 class="dash-section-title">
                   <i class="ph ph-shopping-bag"></i> Produtos
@@ -431,11 +778,11 @@
               </div>
 
               <div
+                class="admin-table-wrap"
                 style="
                   background: var(--bg-elevated);
                   border: 1px solid var(--border);
                   border-radius: var(--radius-lg);
-                  overflow: hidden;
                 "
               >
                 <table class="admin-table" style="margin-top: 0">
@@ -555,6 +902,8 @@
       </div>
     </nav>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
     <script src="/js/app.js"></script>
+    <script src="/js/admin-dashboard.js"></script>
   </body>
 </html>
