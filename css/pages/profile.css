@@ -1,16 +1,16 @@
 /* ============================================
-   KARIBU — Profile Pages
+   KARIBU — Profile Pages (Redesigned)
    Client & Supplier profile/settings
    ============================================ */
 
 .profile-page {
-  padding-top: calc(64px + var(--space-md));
+  padding-top: calc(64px + var(--space-lg));
   padding-bottom: 80px;
   min-height: 100vh;
 }
 
 @media (min-width: 1024px) {
-  .profile-page { padding-bottom: var(--space-xl); }
+  .profile-page { padding-bottom: var(--space-2xl); }
 }
 
 /* ---- Profile Layout ---- */
@@ -22,7 +22,7 @@
 
 @media (min-width: 1024px) {
   .profile-layout {
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 300px 1fr;
     gap: var(--space-xl);
   }
 }
@@ -31,11 +31,16 @@
 .profile-card {
   background: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   padding: var(--space-xl) var(--space-lg);
   text-align: center;
   position: relative;
   overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.profile-card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
 }
 
 @media (min-width: 1024px) {
@@ -50,42 +55,57 @@
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 80px;
+  height: 90px;
   background: var(--accent-gradient);
-  opacity: 0.15;
+  opacity: 0.12;
+  transition: opacity var(--duration-normal);
+}
+
+.profile-card:hover::before {
+  opacity: 0.18;
 }
 
 .profile-avatar {
-  width: 90px;
-  height: 90px;
+  width: 96px;
+  height: 96px;
   border-radius: var(--radius-full);
   background: var(--accent-gradient);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: var(--weight-extrabold);
   color: #fff;
   margin: 0 auto var(--space-md);
   position: relative;
   z-index: 1;
-  border: 3px solid var(--bg-card);
-  box-shadow: 0 4px 20px rgba(232,145,58,0.25);
+  border: 4px solid var(--bg-card);
+  box-shadow:
+    0 4px 20px rgba(232,145,58,0.25),
+    0 0 0 3px rgba(232,145,58,0.1);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.profile-card:hover .profile-avatar {
+  box-shadow:
+    0 6px 30px rgba(232,145,58,0.35),
+    0 0 0 5px rgba(232,145,58,0.15);
+  transform: scale(1.05);
 }
 
 .profile-avatar-edit {
   position: absolute;
   bottom: 0;
   right: -4px;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   background: var(--bg-card);
   border: 2px solid var(--border-light);
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: all var(--duration-fast);
 }
@@ -94,6 +114,7 @@
   background: var(--accent);
   border-color: var(--accent);
   color: #fff;
+  transform: scale(1.15);
 }
 
 .profile-name {
@@ -114,7 +135,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2xs);
-  padding: 4px 12px;
+  padding: 5px 14px;
   background: rgba(45,155,91,0.1);
   border: 1px solid rgba(45,155,91,0.2);
   border-radius: var(--radius-full);
@@ -122,6 +143,11 @@
   font-weight: var(--weight-semibold);
   color: var(--success-light);
   margin-bottom: var(--space-md);
+  transition: all var(--duration-fast);
+}
+
+.profile-verified:hover {
+  background: rgba(45,155,91,0.15);
 }
 
 .profile-stats {
@@ -134,12 +160,21 @@
 
 .profile-stat {
   text-align: center;
+  padding: var(--space-xs) 0;
+  border-radius: var(--radius-md);
+  transition: background var(--duration-fast);
+}
+
+.profile-stat:hover {
+  background: var(--bg-elevated);
 }
 
 .profile-stat-value {
-  font-size: var(--font-md);
+  font-size: var(--font-lg);
   font-weight: var(--weight-extrabold);
   color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: var(--space-2xs);
 }
 
 .profile-stat-label {
@@ -151,9 +186,14 @@
 .profile-section {
   background: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: var(--space-lg);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
   margin-bottom: var(--space-lg);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.profile-section:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
 .profile-section:last-child {
@@ -164,9 +204,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
   padding-bottom: var(--space-sm);
   border-bottom: 1px solid var(--border-light);
+  position: relative;
+}
+
+.profile-section-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--accent-gradient);
+  border-radius: var(--radius-full);
 }
 
 .profile-section-title {
@@ -184,11 +236,14 @@
   display: flex;
   align-items: center;
   gap: var(--space-2xs);
-  transition: color var(--duration-fast);
+  transition: all var(--duration-fast);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
 }
 
 .profile-section-edit:hover {
   color: var(--accent);
+  background: rgba(232,145,58,0.08);
 }
 
 /* ---- Info Grid ---- */
@@ -208,6 +263,13 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-2xs);
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  transition: background var(--duration-fast);
+}
+
+.info-item:hover {
+  background: var(--bg-elevated);
 }
 
 .info-label {
@@ -227,6 +289,15 @@
   gap: var(--space-xs);
 }
 
+.info-value i {
+  color: var(--text-tertiary);
+  transition: color var(--duration-fast);
+}
+
+.info-item:hover .info-value i {
+  color: var(--accent);
+}
+
 /* ---- Settings Rows ---- */
 .settings-list {
   display: flex;
@@ -238,8 +309,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-md) 0;
+  padding: var(--space-md) var(--space-sm);
   border-bottom: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  transition: background var(--duration-fast);
+}
+
+.settings-row:hover {
+  background: rgba(30, 48, 64, 0.4);
 }
 
 .settings-row:last-child {
@@ -253,15 +330,21 @@
 }
 
 .settings-icon {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--bg-elevated);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   font-size: 1.1rem;
   flex-shrink: 0;
+  transition: all var(--duration-fast);
+}
+
+.settings-row:hover .settings-icon {
+  background: rgba(232,145,58,0.08);
+  color: var(--accent);
 }
 
 .settings-text h4 {
@@ -278,8 +361,8 @@
 /* Toggle switch */
 .toggle-switch {
   position: relative;
-  width: 44px;
-  height: 24px;
+  width: 48px;
+  height: 26px;
   flex-shrink: 0;
 }
 
@@ -295,49 +378,59 @@
   top: 0; left: 0; right: 0; bottom: 0;
   background: var(--border);
   border-radius: var(--radius-full);
-  transition: all var(--duration-fast);
+  transition: all 0.3s var(--ease-out);
 }
 
 .toggle-slider::before {
   content: '';
   position: absolute;
-  height: 18px;
-  width: 18px;
+  height: 20px;
+  width: 20px;
   left: 3px;
   bottom: 3px;
   background: #fff;
   border-radius: 50%;
-  transition: all var(--duration-fast);
+  transition: all 0.3s var(--ease-bounce);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .toggle-switch input:checked + .toggle-slider {
   background: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
 }
 
 .toggle-switch input:checked + .toggle-slider::before {
-  transform: translateX(20px);
+  transform: translateX(22px);
 }
 
 /* ---- Address Card ---- */
 .address-card {
   background: var(--bg-elevated);
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md) var(--space-lg);
   display: flex;
   align-items: flex-start;
-  gap: var(--space-sm);
-  transition: all var(--duration-fast);
+  gap: var(--space-md);
+  transition: all var(--duration-normal) var(--ease-out);
 }
 
 .address-card:hover {
   border-color: var(--border);
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
 }
 
 .address-card-icon {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   flex-shrink: 0;
   margin-top: 2px;
+  color: var(--text-tertiary);
+  transition: color var(--duration-fast);
+}
+
+.address-card:hover .address-card-icon {
+  color: var(--accent);
 }
 
 .address-card-info {
@@ -347,7 +440,7 @@
 .address-card-name {
   font-size: var(--font-sm);
   font-weight: var(--weight-semibold);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .address-card-detail {
@@ -357,7 +450,7 @@
 }
 
 .address-card-default {
-  padding: 2px 8px;
+  padding: 3px 10px;
   border-radius: var(--radius-full);
   background: rgba(232,145,58,0.1);
   border: 1px solid rgba(232,145,58,0.2);
@@ -370,10 +463,24 @@
 /* ---- Danger Zone ---- */
 .danger-zone {
   border-color: rgba(217,75,75,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.danger-zone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top right, rgba(217,75,75,0.04) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .danger-zone .profile-section-title {
   color: var(--danger);
+}
+
+.danger-zone .profile-section-header::after {
+  background: linear-gradient(135deg, var(--danger), var(--danger-light));
 }
 
 /* ---- Supplier Profile Extras ---- */
@@ -381,13 +488,18 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2xs);
-  padding: 4px 12px;
+  padding: 5px 14px;
   background: rgba(59,142,207,0.08);
   border: 1px solid rgba(59,142,207,0.2);
   border-radius: var(--radius-full);
   font-size: var(--font-xs);
   font-weight: var(--weight-semibold);
   color: var(--info);
+  transition: all var(--duration-fast);
+}
+
+.business-badge:hover {
+  background: rgba(59,142,207,0.12);
 }
 
 .category-tags {
@@ -397,7 +509,7 @@
 }
 
 .category-tag {
-  padding: 4px 12px;
+  padding: 5px 14px;
   background: var(--bg-elevated);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-full);
@@ -406,6 +518,13 @@
   display: flex;
   align-items: center;
   gap: var(--space-2xs);
+  transition: all var(--duration-fast);
+}
+
+.category-tag:hover {
+  border-color: var(--border);
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
 }
 
 /* ---- Document Row ---- */
@@ -415,8 +534,15 @@
   gap: var(--space-sm);
   padding: var(--space-sm) var(--space-md);
   background: var(--bg-elevated);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   margin-bottom: var(--space-xs);
+  border: 1px solid transparent;
+  transition: all var(--duration-fast);
+}
+
+.doc-row:hover {
+  border-color: var(--border-light);
+  background: var(--bg-card-hover);
 }
 
 .doc-row:last-child {
@@ -426,6 +552,7 @@
 .doc-icon {
   font-size: 1.2rem;
   flex-shrink: 0;
+  color: var(--text-tertiary);
 }
 
 .doc-name {
@@ -435,7 +562,7 @@
 }
 
 .doc-status {
-  padding: 2px 10px;
+  padding: 3px 12px;
   border-radius: var(--radius-full);
   font-size: 10px;
   font-weight: var(--weight-semibold);
@@ -449,4 +576,5 @@
 .doc-status.pending {
   background: var(--warning-bg);
   color: var(--warning);
+  animation: pulse 2s ease-in-out infinite;
 }
