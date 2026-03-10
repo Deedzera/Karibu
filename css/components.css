@@ -946,46 +946,53 @@ select.form-input {
    15. PRODUCT CARD (for grids)
    ============================================ */
 
+/* ============================================
+   15. PRODUCT CARD (for grids)
+   ============================================ */
+
 .product-card {
   background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  transition: all 0.4s var(--ease-out);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-clip: padding-box;
 }
 
+/* Glowing pseudo-element for subtle inner/outer glow on hover */
 .product-card::before {
   content: '';
   position: absolute;
-  inset: 0;
-  border-radius: var(--radius-xl);
+  inset: -1px;
+  border-radius: calc(var(--radius-xl) + 1px);
+  background: var(--accent-gradient);
   opacity: 0;
-  transition: opacity var(--duration-normal);
-  background: radial-gradient(ellipse at center top, rgba(232,145,58,0.06) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 16px 50px rgba(0,0,0,0.3);
-  border-color: rgba(232,145,58,0.2);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  border-color: transparent;
 }
 
 .product-card:hover::before {
-  opacity: 1;
+  opacity: 0.6;
 }
 
 .product-card-image {
   aspect-ratio: 4/3;
   background: var(--bg-elevated);
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
 .product-card-image > div,
@@ -993,64 +1000,78 @@ select.form-input {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s var(--ease-out);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .product-card:hover .product-card-image > div,
 .product-card:hover .product-card-image img {
-  transform: scale(1.08);
+  transform: scale(1.05); /* Smooth image scale on hover */
 }
 
-.product-card-badge {
+/* View Details CTA Overlay */
+.product-card-overlay {
   position: absolute;
-  top: var(--space-sm);
-  left: var(--space-sm);
-  z-index: 1;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11, 18, 25, 0.7), transparent 60%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--space-md);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+.product-card:hover .product-card-overlay {
+  opacity: 1;
+}
+
+.product-card-cta {
+  color: #fff;
+  font-size: var(--font-sm);
+  font-weight: var(--weight-bold);
+  transform: translateY(15px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover .product-card-cta {
+  transform: translateY(0);
 }
 
 .product-card-body {
   padding: var(--space-md) var(--space-md) var(--space-lg);
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: var(--bg-card);
   z-index: 1;
 }
 
 .product-card-title {
-  font-size: var(--font-base);
+  font-size: var(--font-md);
   font-weight: var(--weight-semibold);
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-2xs);
   color: var(--text-primary);
-  transition: color var(--duration-fast);
-}
-
-.product-card:hover .product-card-title {
-  color: var(--accent);
+  line-height: var(--leading-tight);
 }
 
 .product-card-price {
-  font-size: var(--font-sm);
+  font-size: var(--font-lg);
   color: var(--accent);
-  font-weight: var(--weight-bold);
-  margin-bottom: var(--space-xs);
+  font-weight: var(--weight-extrabold);
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.02em;
+}
+
+.product-card-badge-container {
+  margin-bottom: var(--space-md);
 }
 
 .product-card-meta {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
   font-size: var(--font-xs);
   color: var(--text-tertiary);
-}
-
-.product-card-suppliers {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2xs);
-}
-
-.product-card-countdown {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2xs);
-  color: var(--danger-light);
+  margin-top: auto;
   font-weight: var(--weight-medium);
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
