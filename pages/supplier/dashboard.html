@@ -9,13 +9,13 @@
       content="Gere os teus pedidos, cotações e desempenho no Karibu."
     />
     <meta name="theme-color" content="#0B1219" />
-    <link rel="icon" href="/public/images/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/css/design-system.css" />
     <link rel="stylesheet" href="/css/components.css" />
     <link rel="stylesheet" href="/css/layout.css" />
     <link rel="stylesheet" href="/css/pages/dashboard.css" />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-</head>
+  </head>
   <body>
     <!-- ========== HEADER ========== -->
     <header class="header">
@@ -36,7 +36,9 @@
           <button class="header-icon-btn" aria-label="Notificações">
             <i class="ph ph-bell"></i><span class="notification-dot"></span>
           </button>
-          <button class="header-icon-btn" aria-label="Perfil"><i class="ph ph-user"></i></button>
+          <button class="header-icon-btn" aria-label="Perfil">
+            <i class="ph ph-user"></i>
+          </button>
           <button class="header-menu-toggle" aria-label="Menu">
             <span></span><span></span><span></span>
           </button>
@@ -49,10 +51,14 @@
       <div class="mobile-menu-panel">
         <div class="mobile-menu-header">
           <span class="header-logo-text" style="font-size: 1.3rem">Karibu</span>
-          <button class="mobile-menu-close modal-close"><i class="ph ph-x"></i></button>
+          <button class="mobile-menu-close modal-close">
+            <i class="ph ph-x"></i>
+          </button>
         </div>
         <nav class="mobile-menu-nav">
-          <a href="/fornecedor/painel" class="active"><i class="ph ph-chart-bar"></i> Painel</a>
+          <a href="/fornecedor/painel" class="active"
+            ><i class="ph ph-chart-bar"></i> Painel</a
+          >
           <a href="#"><i class="ph ph-notebook"></i> Cotações</a>
           <a href="#"><i class="ph ph-package"></i> Encomendas</a>
           <a href="#"><i class="ph ph-tag"></i> Catálogo</a>
@@ -69,47 +75,79 @@
       <div class="container">
         <!-- Mobile Nav -->
         <nav class="dash-mobile-nav">
-          <a href="#" class="dash-mobile-nav-item active"><i class="ph ph-chart-bar"></i> Visão Geral</a>
-          <a href="#" class="dash-mobile-nav-item"
-            ><i class="ph ph-notebook"></i> Cotações <span class="dash-sidebar-badge">3</span></a
+          <a href="#" class="dash-mobile-nav-item active"
+            ><i class="ph ph-chart-bar"></i> Visão Geral</a
           >
-          <a href="#" class="dash-mobile-nav-item"><i class="ph ph-package"></i> Encomendas</a>
-          <a href="#" class="dash-mobile-nav-item"><i class="ph-fill ph-star" style="color: var(--warning)"></i> Desempenho</a>
-          <a href="#" class="dash-mobile-nav-item"><i class="ph ph-gear"></i> Definições</a>
+          <a href="#" class="dash-mobile-nav-item"
+            ><i class="ph ph-notebook"></i> Cotações
+            <span class="dash-sidebar-badge">3</span></a
+          >
+          <a href="#" class="dash-mobile-nav-item"
+            ><i class="ph ph-package"></i> Encomendas</a
+          >
+          <a href="#" class="dash-mobile-nav-item"
+            ><i class="ph-fill ph-star" style="color: var(--warning)"></i>
+            Desempenho</a
+          >
+          <a href="#" class="dash-mobile-nav-item"
+            ><i class="ph ph-gear"></i> Definições</a
+          >
         </nav>
 
         <div class="dashboard-grid">
           <!-- ===== SIDEBAR (Desktop) ===== -->
           <aside class="dash-sidebar">
             <a href="#" class="dash-sidebar-item active">
-              <span class="dash-sidebar-icon"><i class="ph ph-chart-bar"></i></span> Visão Geral
+              <span class="dash-sidebar-icon"
+                ><i class="ph ph-chart-bar"></i
+              ></span>
+              Visão Geral
             </a>
             <a href="#" class="dash-sidebar-item">
-              <span class="dash-sidebar-icon"><i class="ph ph-notebook"></i></span> Cotações
+              <span class="dash-sidebar-icon"
+                ><i class="ph ph-notebook"></i
+              ></span>
+              Cotações
               <span class="dash-sidebar-badge">3</span>
             </a>
             <a href="#" class="dash-sidebar-item">
-              <span class="dash-sidebar-icon"><i class="ph ph-package"></i></span> Encomendas Activas
+              <span class="dash-sidebar-icon"
+                ><i class="ph ph-package"></i
+              ></span>
+              Encomendas Activas
             </a>
             <a href="#" class="dash-sidebar-item">
-              <span class="dash-sidebar-icon"><i class="ph-fill ph-check-circle" style="color: var(--success)"></i></span> Concluídas
+              <span class="dash-sidebar-icon"
+                ><i
+                  class="ph-fill ph-check-circle"
+                  style="color: var(--success)"
+                ></i
+              ></span>
+              Concluídas
             </a>
             <a href="#" class="dash-sidebar-item">
-              <span class="dash-sidebar-icon"><i class="ph ph-tag"></i></span> Meu Catálogo
+              <span class="dash-sidebar-icon"><i class="ph ph-tag"></i></span>
+              Meu Catálogo
             </a>
             <div class="dash-sidebar-divider"></div>
             <a href="#" class="dash-sidebar-item">
-              <span class="dash-sidebar-icon"><i class="ph-fill ph-star" style="color: var(--warning)"></i></span> Desempenho
+              <span class="dash-sidebar-icon"
+                ><i class="ph-fill ph-star" style="color: var(--warning)"></i
+              ></span>
+              Desempenho
             </a>
             <a href="#" class="dash-sidebar-item">
-              <span class="dash-sidebar-icon"><i class="ph ph-money"></i></span> Pagamentos
+              <span class="dash-sidebar-icon"><i class="ph ph-money"></i></span>
+              Pagamentos
             </a>
             <a href="#" class="dash-sidebar-item">
-              <span class="dash-sidebar-icon"><i class="ph ph-gear"></i></span> Definições
+              <span class="dash-sidebar-icon"><i class="ph ph-gear"></i></span>
+              Definições
             </a>
             <div class="dash-sidebar-divider"></div>
             <a href="/" class="dash-sidebar-item">
-              <span class="dash-sidebar-icon"><i class="ph ph-house"></i></span> Ir para Marketplace
+              <span class="dash-sidebar-icon"><i class="ph ph-house"></i></span>
+              Ir para Marketplace
             </a>
           </aside>
 
@@ -118,7 +156,10 @@
             <!-- Greeting -->
             <div class="dash-header">
               <div class="dash-greeting">
-                <h1>Bom dia, Carlos <i class="ph-fill ph-hand-waving" style="color: #e8913a"></i></h1>
+                <h1>
+                  Bom dia, Carlos
+                  <i class="ph-fill ph-hand-waving" style="color: #e8913a"></i>
+                </h1>
                 <p>
                   Tens
                   <strong style="color: var(--accent)"
@@ -128,7 +169,9 @@
                 </p>
               </div>
               <div class="dash-header-actions">
-                <button class="btn btn-secondary btn-sm"><i class="ph ph-chart-bar"></i> Relatório</button>
+                <button class="btn btn-secondary btn-sm">
+                  <i class="ph ph-chart-bar"></i> Relatório
+                </button>
                 <button class="btn btn-primary btn-sm">
                   + Adicionar Produto
                 </button>
@@ -146,35 +189,56 @@
                   >
                 </div>
                 <div class="kpi-label">Receita Mensal</div>
-                <div class="kpi-change up"><i class="ph ph-trend-up"></i> +18% vs mês anterior</div>
+                <div class="kpi-change up">
+                  <i class="ph ph-trend-up"></i> +18% vs mês anterior
+                </div>
               </div>
               <div class="kpi-card">
                 <div class="kpi-icon"><i class="ph ph-package"></i></div>
                 <div class="kpi-value">23</div>
                 <div class="kpi-label">Vendas Concluídas</div>
-                <div class="kpi-change up"><i class="ph ph-trend-up"></i> +5 vs mês anterior</div>
+                <div class="kpi-change up">
+                  <i class="ph ph-trend-up"></i> +5 vs mês anterior
+                </div>
               </div>
               <div class="kpi-card">
                 <div class="kpi-icon"><i class="ph ph-notebook"></i></div>
                 <div class="kpi-value">3</div>
                 <div class="kpi-label">Cotações Pendentes</div>
                 <div class="kpi-change" style="color: var(--accent)">
-                  <i class="ph-fill ph-lightning" style="color: var(--warning)"></i> Responde rápido
+                  <i
+                    class="ph-fill ph-lightning"
+                    style="color: var(--warning)"
+                  ></i>
+                  Responde rápido
                 </div>
               </div>
               <div class="kpi-card">
-                <div class="kpi-icon"><i class="ph-fill ph-star" style="color: var(--warning)"></i></div>
+                <div class="kpi-icon">
+                  <i class="ph-fill ph-star" style="color: var(--warning)"></i>
+                </div>
                 <div class="kpi-value">4.9</div>
                 <div class="kpi-label">Rating Médio</div>
-                <div class="kpi-change up"><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i> (87 avaliações)</div>
+                <div class="kpi-change up">
+                  <i class="ph-fill ph-star" style="color: var(--warning)"></i
+                  ><i class="ph-fill ph-star" style="color: var(--warning)"></i
+                  ><i class="ph-fill ph-star" style="color: var(--warning)"></i
+                  ><i class="ph-fill ph-star" style="color: var(--warning)"></i
+                  ><i class="ph-fill ph-star" style="color: var(--warning)"></i>
+                  (87 avaliações)
+                </div>
               </div>
             </div>
 
             <!-- ---- NEW QUOTE REQUESTS ---- -->
             <div class="dash-section">
               <div class="dash-section-header">
-                <h2 class="dash-section-title"><i class="ph ph-notebook"></i> Pedidos de Cotação Novos</h2>
-                <span class="dash-section-action">Ver todos <i class="ph ph-arrow-right"></i></span>
+                <h2 class="dash-section-title">
+                  <i class="ph ph-notebook"></i> Pedidos de Cotação Novos
+                </h2>
+                <span class="dash-section-action"
+                  >Ver todos <i class="ph ph-arrow-right"></i
+                ></span>
               </div>
 
               <div class="order-list">
@@ -187,9 +251,15 @@
                     <span class="order-status new">Novo</span>
                   </div>
                   <div class="quote-request-details">
-                    <span class="quote-request-detail"><i class="ph ph-user"></i> Ana C. — Luanda</span>
-                    <span class="quote-request-detail"><i class="ph ph-package"></i> Qtd: 1</span>
-                    <span class="quote-request-detail"><i class="ph ph-timer"></i> há 12 min</span>
+                    <span class="quote-request-detail"
+                      ><i class="ph ph-user"></i> Ana C. — Luanda</span
+                    >
+                    <span class="quote-request-detail"
+                      ><i class="ph ph-package"></i> Qtd: 1</span
+                    >
+                    <span class="quote-request-detail"
+                      ><i class="ph ph-timer"></i> há 12 min</span
+                    >
                   </div>
                   <div class="quote-request-notes">
                     "Preciso de cor preta, desbloqueado de fábrica, com garantia
@@ -218,8 +288,12 @@
                     <span class="quote-request-detail"
                       ><i class="ph ph-user"></i> Pedro L. — Lubango</span
                     >
-                    <span class="quote-request-detail"><i class="ph ph-package"></i> Qtd: 2</span>
-                    <span class="quote-request-detail"><i class="ph ph-timer"></i> há 45 min</span>
+                    <span class="quote-request-detail"
+                      ><i class="ph ph-package"></i> Qtd: 2</span
+                    >
+                    <span class="quote-request-detail"
+                      ><i class="ph ph-timer"></i> há 45 min</span
+                    >
                   </div>
                   <div class="quote-request-actions">
                     <button
@@ -238,14 +312,24 @@
                     <span class="quote-request-product"
                       >PlayStation 5 + 2 Jogos</span
                     >
-                    <span class="order-status urgent"><i class="ph-fill ph-lightning" style="color: var(--warning)"></i> Urgente</span>
+                    <span class="order-status urgent"
+                      ><i
+                        class="ph-fill ph-lightning"
+                        style="color: var(--warning)"
+                      ></i>
+                      Urgente</span
+                    >
                   </div>
                   <div class="quote-request-details">
                     <span class="quote-request-detail"
                       ><i class="ph ph-user"></i> Maria F. — Huambo</span
                     >
-                    <span class="quote-request-detail"><i class="ph ph-package"></i> Qtd: 1</span>
-                    <span class="quote-request-detail"><i class="ph ph-timer"></i> há 2h</span>
+                    <span class="quote-request-detail"
+                      ><i class="ph ph-package"></i> Qtd: 1</span
+                    >
+                    <span class="quote-request-detail"
+                      ><i class="ph ph-timer"></i> há 2h</span
+                    >
                   </div>
                   <div class="quote-request-notes">
                     "Preciso antes do Natal angolano (18/03). Pago bem por
@@ -267,18 +351,32 @@
             <!-- ---- ACTIVE ORDERS ---- -->
             <div class="dash-section">
               <div class="dash-section-header">
-                <h2 class="dash-section-title"><i class="ph ph-package"></i> Encomendas Activas</h2>
-                <span class="dash-section-action">Ver todas <i class="ph ph-arrow-right"></i></span>
+                <h2 class="dash-section-title">
+                  <i class="ph ph-package"></i> Encomendas Activas
+                </h2>
+                <span class="dash-section-action"
+                  >Ver todas <i class="ph ph-arrow-right"></i
+                ></span>
               </div>
 
               <div class="order-list">
                 <div class="order-row">
-                  <div class="order-icon"><i class="ph ph-device-mobile"></i></div>
+                  <div class="order-icon">
+                    <i class="ph ph-device-mobile"></i>
+                  </div>
                   <div class="order-info">
                     <div class="order-title">iPhone 14 Pro Max — #KRB-2847</div>
                     <div class="order-meta">
                       <span><i class="ph ph-user"></i> José F.</span>
-                      <span><img src="https://flagcdn.com/w20/ao.png" width="20" alt="Angola" style="display:inline-block;vertical-align:middle;"> Lubango</span>
+                      <span
+                        ><img
+                          src="https://flagcdn.com/w20/ao.png"
+                          width="20"
+                          alt="Angola"
+                          style="display: inline-block; vertical-align: middle"
+                        />
+                        Lubango</span
+                      >
                       <span><i class="ph ph-money"></i> 165.000 Kz</span>
                     </div>
                   </div>
@@ -296,7 +394,15 @@
                     </div>
                     <div class="order-meta">
                       <span><i class="ph ph-user"></i> Ana C.</span>
-                      <span><img src="https://flagcdn.com/w20/ao.png" width="20" alt="Angola" style="display:inline-block;vertical-align:middle;"> Luanda</span>
+                      <span
+                        ><img
+                          src="https://flagcdn.com/w20/ao.png"
+                          width="20"
+                          alt="Angola"
+                          style="display: inline-block; vertical-align: middle"
+                        />
+                        Luanda</span
+                      >
                       <span><i class="ph ph-money"></i> 280.000 Kz</span>
                     </div>
                   </div>
@@ -312,7 +418,15 @@
                     <div class="order-title">MacBook Air M2 — #KRB-2831</div>
                     <div class="order-meta">
                       <span><i class="ph ph-user"></i> Carlos R.</span>
-                      <span><img src="https://flagcdn.com/w20/ao.png" width="20" alt="Angola" style="display:inline-block;vertical-align:middle;"> Benguela</span>
+                      <span
+                        ><img
+                          src="https://flagcdn.com/w20/ao.png"
+                          width="20"
+                          alt="Angola"
+                          style="display: inline-block; vertical-align: middle"
+                        />
+                        Benguela</span
+                      >
                       <span><i class="ph ph-money"></i> 420.000 Kz</span>
                     </div>
                   </div>
@@ -335,7 +449,13 @@
               <!-- Performance -->
               <div class="dash-section" style="margin-bottom: 0">
                 <div class="dash-section-header">
-                  <h2 class="dash-section-title"><i class="ph-fill ph-star" style="color: var(--warning)"></i> Desempenho</h2>
+                  <h2 class="dash-section-title">
+                    <i
+                      class="ph-fill ph-star"
+                      style="color: var(--warning)"
+                    ></i>
+                    Desempenho
+                  </h2>
                 </div>
 
                 <!-- Score Ring -->
@@ -425,7 +545,9 @@
               <!-- Activity Feed -->
               <div class="dash-section" style="margin-bottom: 0">
                 <div class="dash-section-header">
-                  <h2 class="dash-section-title"><i class="ph ph-clipboard-text"></i> Actividade Recente</h2>
+                  <h2 class="dash-section-title">
+                    <i class="ph ph-clipboard-text"></i> Actividade Recente
+                  </h2>
                 </div>
                 <div class="activity-list">
                   <div class="activity-item">
@@ -452,8 +574,31 @@
                     <span class="activity-dot review"></span>
                     <div>
                       <div class="activity-text">
-                        <strong>Nova avaliação <i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i><i class="ph-fill ph-star" style="color: var(--warning)"></i>:</strong> "Excelente
-                        serviço, entrega rápida" — Ana C.
+                        <strong
+                          >Nova avaliação
+                          <i
+                            class="ph-fill ph-star"
+                            style="color: var(--warning)"
+                          ></i
+                          ><i
+                            class="ph-fill ph-star"
+                            style="color: var(--warning)"
+                          ></i
+                          ><i
+                            class="ph-fill ph-star"
+                            style="color: var(--warning)"
+                          ></i
+                          ><i
+                            class="ph-fill ph-star"
+                            style="color: var(--warning)"
+                          ></i
+                          ><i
+                            class="ph-fill ph-star"
+                            style="color: var(--warning)"
+                          ></i
+                          >:</strong
+                        >
+                        "Excelente serviço, entrega rápida" — Ana C.
                       </div>
                       <div class="activity-time">há 5 horas</div>
                     </div>
@@ -503,7 +648,9 @@
       <div class="modal">
         <div class="modal-header">
           <h3 class="modal-title">Enviar Proposta</h3>
-          <button class="modal-close" onclick="closeQuoteResponse()"><i class="ph ph-x"></i></button>
+          <button class="modal-close" onclick="closeQuoteResponse()">
+            <i class="ph ph-x"></i>
+          </button>
         </div>
 
         <form class="auth-form" onsubmit="submitQuoteResponse(event)">
@@ -571,12 +718,17 @@
               margin-bottom: var(--space-sm);
             "
           >
-            <i class="ph-fill ph-lightbulb" style="color: var(--warning)"></i> Propostas mais competitivas têm 3x mais probabilidade de serem
+            <i class="ph-fill ph-lightbulb" style="color: var(--warning)"></i>
+            Propostas mais competitivas têm 3x mais probabilidade de serem
             aceites
           </div>
 
           <button type="submit" class="btn btn-primary btn-lg btn-block">
-            <i class="ph-fill ph-check-circle" style="color: var(--success)"></i> Enviar Proposta
+            <i
+              class="ph-fill ph-check-circle"
+              style="color: var(--success)"
+            ></i>
+            Enviar Proposta
           </button>
         </form>
       </div>
