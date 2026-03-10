@@ -698,6 +698,94 @@
   }
 }
 
+/* ---- Responsive Table → Card on Mobile ---- */
+@media (max-width: 768px) {
+  .admin-table {
+    min-width: 0;
+  }
+
+  .admin-table thead {
+    display: none;
+  }
+
+  .admin-table tbody tr {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm);
+    margin-bottom: var(--space-sm);
+    gap: var(--space-2xs);
+  }
+
+  .admin-table tbody tr:hover {
+    border-color: var(--border);
+  }
+
+  .admin-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .admin-table td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2xs) 0;
+    border-bottom: none;
+    font-size: var(--font-sm);
+  }
+
+  /* Label from data-label attribute */
+  .admin-table td[data-label]::before {
+    content: attr(data-label);
+    font-size: var(--font-xs);
+    font-weight: var(--weight-semibold);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    flex-shrink: 0;
+    margin-right: var(--space-sm);
+  }
+
+  /* Primary cell (first td): full-width, no label, prominent */
+  .admin-table td:first-child {
+    justify-content: flex-start;
+    padding-bottom: var(--space-xs);
+    margin-bottom: var(--space-2xs);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  /* Actions row: align to end */
+  .admin-table td:last-child {
+    justify-content: flex-end;
+    padding-top: var(--space-xs);
+    margin-top: var(--space-2xs);
+    border-top: 1px solid var(--border-light);
+  }
+
+  .admin-table td:last-child::before {
+    display: none;
+  }
+
+  /* Table wrapper: remove border and scroll behavior */
+  .admin-table-wrapper {
+    overflow-x: visible;
+    border: none;
+    border-radius: 0;
+  }
+
+  /* Table user stacked in card */
+  .table-user {
+    width: 100%;
+  }
+
+  .table-actions {
+    justify-content: flex-end;
+    width: 100%;
+  }
+}
+
 /* ---- Detail Modal ---- */
 .detail-grid {
   display: grid;
