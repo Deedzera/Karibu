@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestão de Produtos — Karibu Admin</title>
+    <meta name="description" content="Gere o catálogo de produtos disponíveis na plataforma Karibu." />
+    <meta name="theme-color" content="#0B1219" />
+    <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/pages/dashboard.css" />
+    <link rel="stylesheet" href="/css/pages/admin.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+      <div class="header-inner">
+        <a href="/pages/admin/dashboard.html" class="header-logo">
+          <span class="header-logo-text">Karibu</span>
+          <span class="header-logo-tag admin-tag">Admin</span>
+        </a>
+        <nav class="header-nav">
+          <a href="/pages/admin/dashboard.html">Painel</a>
+          <a href="/pages/admin/users.html">Utilizadores</a>
+          <a href="/pages/admin/suppliers.html">Fornecedores</a>
+          <a href="/pages/admin/orders.html">Encomendas</a>
+        </nav>
+        <div class="header-actions">
+          <button class="header-icon-btn" aria-label="Notificações">
+            <i class="ph ph-bell"></i><span class="notification-dot"></span>
+          </button>
+          <button class="header-icon-btn" aria-label="Perfil"><i class="ph ph-user-gear"></i></button>
+          <button class="header-menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MOBILE MENU ========== -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-panel">
+        <div class="mobile-menu-header">
+          <span class="header-logo-text" style="font-size: 1.3rem">Karibu</span>
+          <button class="mobile-menu-close modal-close"><i class="ph ph-x"></i></button>
+        </div>
+        <nav class="mobile-menu-nav">
+          <a href="/pages/admin/dashboard.html"><i class="ph ph-chart-pie"></i> Painel</a>
+          <a href="/pages/admin/users.html"><i class="ph ph-users"></i> Utilizadores</a>
+          <a href="/pages/admin/suppliers.html"><i class="ph ph-storefront"></i> Fornecedores</a>
+          <a href="/pages/admin/orders.html"><i class="ph ph-package"></i> Encomendas</a>
+          <a href="/pages/admin/products.html" class="active"><i class="ph ph-tag"></i> Produtos</a>
+          <div class="mobile-menu-divider"></div>
+          <a href="/"><i class="ph ph-house"></i> Ir para Marketplace</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ========== MAIN ========== -->
+    <main class="dashboard">
+      <div class="container">
+        <nav class="dash-mobile-nav">
+          <a href="/pages/admin/dashboard.html" class="dash-mobile-nav-item"><i class="ph ph-chart-pie"></i> Visão Geral</a>
+          <a href="/pages/admin/users.html" class="dash-mobile-nav-item"><i class="ph ph-users"></i> Utilizadores</a>
+          <a href="/pages/admin/suppliers.html" class="dash-mobile-nav-item"><i class="ph ph-storefront"></i> Fornecedores</a>
+          <a href="/pages/admin/orders.html" class="dash-mobile-nav-item"><i class="ph ph-package"></i> Encomendas</a>
+          <a href="/pages/admin/products.html" class="dash-mobile-nav-item active"><i class="ph ph-tag"></i> Produtos</a>
+        </nav>
+
+        <div class="dashboard-grid">
+          <!-- ===== SIDEBAR ===== -->
+          <aside class="dash-sidebar">
+            <a href="/pages/admin/dashboard.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-chart-pie"></i></span> Visão Geral
+            </a>
+            <a href="/pages/admin/users.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-users"></i></span> Utilizadores
+            </a>
+            <a href="/pages/admin/suppliers.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-storefront"></i></span> Fornecedores
+              <span class="dash-sidebar-badge">4</span>
+            </a>
+            <a href="/pages/admin/orders.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-package"></i></span> Encomendas
+            </a>
+            <a href="/pages/admin/products.html" class="dash-sidebar-item active">
+              <span class="dash-sidebar-icon"><i class="ph ph-tag"></i></span> Produtos
+            </a>
+            <div class="dash-sidebar-divider"></div>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-shopping-cart"></i></span> Carrinhos
+            </a>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-scales" style="color: var(--danger)"></i></span> Disputas
+              <span class="dash-sidebar-badge">2</span>
+            </a>
+            <div class="dash-sidebar-divider"></div>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-gear"></i></span> Definições
+            </a>
+            <a href="/" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-house"></i></span> Ir para Marketplace
+            </a>
+          </aside>
+
+          <!-- ===== CONTENT ===== -->
+          <div class="dash-content">
+            <div class="dash-header">
+              <div class="dash-greeting">
+                <h1><i class="ph ph-tag" style="color: var(--accent)"></i> Produtos</h1>
+                <p>Gere o catálogo de produtos do marketplace</p>
+              </div>
+              <div class="dash-header-actions">
+                <button class="btn btn-secondary btn-sm"><i class="ph ph-download-simple"></i> Exportar</button>
+                <button class="btn btn-primary btn-sm" onclick="openModal('addProductModal')">
+                  <i class="ph ph-plus"></i> Adicionar Produto
+                </button>
+              </div>
+            </div>
+
+            <!-- KPIs -->
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph ph-tag"></i></div>
+                <div class="kpi-value">248</div>
+                <div class="kpi-label">Total de Produtos</div>
+                <div class="kpi-change up"><i class="ph ph-trend-up"></i> +15 este mês</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph-fill ph-fire" style="color: var(--danger)"></i></div>
+                <div class="kpi-value">32</div>
+                <div class="kpi-label">Em Destaque</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph ph-chart-line-up" style="color: var(--success)"></i></div>
+                <div class="kpi-value">1.247</div>
+                <div class="kpi-label">Pedidos Este Mês</div>
+                <div class="kpi-change up"><i class="ph ph-trend-up"></i> +24%</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph ph-grid-four" style="color: var(--info)"></i></div>
+                <div class="kpi-value">8</div>
+                <div class="kpi-label">Categorias</div>
+              </div>
+            </div>
+
+            <!-- Search & Filters -->
+            <div class="admin-toolbar">
+              <div class="admin-search">
+                <i class="ph ph-magnifying-glass admin-search-icon"></i>
+                <input type="text" class="admin-search-input" placeholder="Pesquisar produto por nome ou categoria..." />
+              </div>
+              <div class="admin-filters">
+                <select class="admin-filter-select" data-filter="category">
+                  <option value="all">Todas as Categorias</option>
+                  <option value="smartphones">Smartphones</option>
+                  <option value="laptops">Laptops</option>
+                  <option value="televisoes">Televisões</option>
+                  <option value="electrodomesticos">Electrodomésticos</option>
+                  <option value="pecas-auto">Peças Auto</option>
+                  <option value="construcao">Construção</option>
+                  <option value="moda">Moda</option>
+                  <option value="gaming">Gaming</option>
+                </select>
+                <select class="admin-filter-select">
+                  <option value="all">Todos os Status</option>
+                  <option value="activo">Activo</option>
+                  <option value="destaque">Em Destaque</option>
+                  <option value="inactivo">Inactivo</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Products Table -->
+            <div class="dash-section">
+              <div class="admin-table-wrapper">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Produto</th>
+                      <th>Categoria</th>
+                      <th>Faixa de Preço</th>
+                      <th>Pedidos</th>
+                      <th>Fornecedores</th>
+                      <th>Status</th>
+                      <th>Acções</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div style="display: flex; align-items: center; gap: var(--space-sm)">
+                          <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #1a2a3a, #2a3a4a); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+                            <i class="ph ph-device-mobile" style="font-size: 1.2rem"></i>
+                          </div>
+                          <div>
+                            <div style="font-weight: var(--weight-semibold); color: var(--text-primary)">iPhone 14 Pro Max 256GB</div>
+                            <div style="font-size: var(--font-xs); color: var(--text-tertiary)">Apple · SKU-IP14PM</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-category="smartphones">Smartphones</td>
+                      <td>145.000 – 185.000 Kz</td>
+                      <td><strong>87</strong></td>
+                      <td>5</td>
+                      <td>
+                        <span class="admin-status active" style="display: inline-flex; gap: 2px">
+                          <i class="ph-fill ph-fire" style="color: var(--danger-light); font-size: 11px"></i> Destaque
+                        </span>
+                      </td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Editar"><i class="ph ph-pencil-simple"></i></button>
+                          <button class="table-action-btn" title="Remover destaque" onclick="adminAction('remove', 'iPhone 14 Pro Max')"><i class="ph ph-star"></i></button>
+                          <button class="table-action-btn danger" title="Remover" onclick="adminAction('remove', 'iPhone 14 Pro Max')"><i class="ph ph-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="display: flex; align-items: center; gap: var(--space-sm)">
+                          <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #1a2a3a, #2a3a4a); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+                            <i class="ph ph-device-mobile" style="font-size: 1.2rem"></i>
+                          </div>
+                          <div>
+                            <div style="font-weight: var(--weight-semibold); color: var(--text-primary)">Samsung Galaxy S23 Ultra</div>
+                            <div style="font-size: var(--font-xs); color: var(--text-tertiary)">Samsung · SKU-SGS23U</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-category="smartphones">Smartphones</td>
+                      <td>170.000 – 210.000 Kz</td>
+                      <td><strong>63</strong></td>
+                      <td>3</td>
+                      <td>
+                        <span class="admin-status active" style="display: inline-flex; gap: 2px">
+                          <i class="ph-fill ph-fire" style="color: var(--danger-light); font-size: 11px"></i> Destaque
+                        </span>
+                      </td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Editar"><i class="ph ph-pencil-simple"></i></button>
+                          <button class="table-action-btn" title="Remover destaque"><i class="ph ph-star"></i></button>
+                          <button class="table-action-btn danger" title="Remover" onclick="adminAction('remove', 'Samsung Galaxy S23')"><i class="ph ph-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="display: flex; align-items: center; gap: var(--space-sm)">
+                          <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #1a2a3a, #2a3a4a); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+                            <i class="ph ph-television" style="font-size: 1.2rem"></i>
+                          </div>
+                          <div>
+                            <div style="font-weight: var(--weight-semibold); color: var(--text-primary)">LG Smart TV 55" 4K UHD</div>
+                            <div style="font-size: var(--font-xs); color: var(--text-tertiary)">LG · SKU-LGTV55</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-category="televisoes">Televisões</td>
+                      <td>250.000 – 310.000 Kz</td>
+                      <td><strong>41</strong></td>
+                      <td>2</td>
+                      <td><span class="admin-status verified"><i class="ph ph-check"></i> Activo</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Editar"><i class="ph ph-pencil-simple"></i></button>
+                          <button class="table-action-btn" title="Destacar" onclick="adminAction('feature', 'LG Smart TV 55&quot;')"><i class="ph ph-star"></i></button>
+                          <button class="table-action-btn danger" title="Remover" onclick="adminAction('remove', 'LG Smart TV 55&quot;')"><i class="ph ph-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="display: flex; align-items: center; gap: var(--space-sm)">
+                          <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #1a2a3a, #2a3a4a); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+                            <i class="ph ph-game-controller" style="font-size: 1.2rem"></i>
+                          </div>
+                          <div>
+                            <div style="font-weight: var(--weight-semibold); color: var(--text-primary)">PlayStation 5 + 2 Jogos</div>
+                            <div style="font-size: var(--font-xs); color: var(--text-tertiary)">Sony · SKU-PS5BDL</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-category="gaming">Gaming</td>
+                      <td>195.000 – 240.000 Kz</td>
+                      <td><strong>54</strong></td>
+                      <td>4</td>
+                      <td>
+                        <span class="admin-status active" style="display: inline-flex; gap: 2px">
+                          <i class="ph-fill ph-fire" style="color: var(--danger-light); font-size: 11px"></i> Destaque
+                        </span>
+                      </td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Editar"><i class="ph ph-pencil-simple"></i></button>
+                          <button class="table-action-btn" title="Remover destaque"><i class="ph ph-star"></i></button>
+                          <button class="table-action-btn danger" title="Remover" onclick="adminAction('remove', 'PlayStation 5')"><i class="ph ph-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="display: flex; align-items: center; gap: var(--space-sm)">
+                          <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #1a2a3a, #2a3a4a); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+                            <i class="ph ph-laptop" style="font-size: 1.2rem"></i>
+                          </div>
+                          <div>
+                            <div style="font-weight: var(--weight-semibold); color: var(--text-primary)">MacBook Air M2 256GB</div>
+                            <div style="font-size: var(--font-xs); color: var(--text-tertiary)">Apple · SKU-MBA-M2</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-category="laptops">Laptops</td>
+                      <td>380.000 – 450.000 Kz</td>
+                      <td><strong>28</strong></td>
+                      <td>3</td>
+                      <td><span class="admin-status verified"><i class="ph ph-check"></i> Activo</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Editar"><i class="ph ph-pencil-simple"></i></button>
+                          <button class="table-action-btn" title="Destacar" onclick="adminAction('feature', 'MacBook Air M2')"><i class="ph ph-star"></i></button>
+                          <button class="table-action-btn danger" title="Remover" onclick="adminAction('remove', 'MacBook Air M2')"><i class="ph ph-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="display: flex; align-items: center; gap: var(--space-sm)">
+                          <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #1a2a3a, #2a3a4a); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+                            <i class="ph ph-car" style="font-size: 1.2rem"></i>
+                          </div>
+                          <div>
+                            <div style="font-weight: var(--weight-semibold); color: var(--text-primary)">Kit Pastilhas Travão Toyota</div>
+                            <div style="font-size: var(--font-xs); color: var(--text-tertiary)">Toyota · SKU-TKBP01</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-category="pecas-auto">Peças Auto</td>
+                      <td>25.000 – 38.000 Kz</td>
+                      <td><strong>19</strong></td>
+                      <td>2</td>
+                      <td><span class="admin-status verified"><i class="ph ph-check"></i> Activo</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Editar"><i class="ph ph-pencil-simple"></i></button>
+                          <button class="table-action-btn" title="Destacar" onclick="adminAction('feature', 'Kit Pastilhas Travão')"><i class="ph ph-star"></i></button>
+                          <button class="table-action-btn danger" title="Remover" onclick="adminAction('remove', 'Kit Pastilhas Travão')"><i class="ph ph-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div style="display: flex; align-items: center; gap: var(--space-sm)">
+                          <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #1a2a3a, #2a3a4a); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0">
+                            <i class="ph ph-hammer" style="font-size: 1.2rem"></i>
+                          </div>
+                          <div>
+                            <div style="font-weight: var(--weight-semibold); color: var(--text-primary)">Kit Ferramentas Bosch Pro</div>
+                            <div style="font-size: var(--font-xs); color: var(--text-tertiary)">Bosch · SKU-BFKIT</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-category="construcao">Construção</td>
+                      <td>75.000 – 95.000 Kz</td>
+                      <td><strong>14</strong></td>
+                      <td>1</td>
+                      <td><span class="admin-status verified"><i class="ph ph-check"></i> Activo</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Editar"><i class="ph ph-pencil-simple"></i></button>
+                          <button class="table-action-btn" title="Destacar" onclick="adminAction('feature', 'Kit Ferramentas Bosch')"><i class="ph ph-star"></i></button>
+                          <button class="table-action-btn danger" title="Remover" onclick="adminAction('remove', 'Kit Ferramentas Bosch')"><i class="ph ph-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="admin-pagination">
+                <button class="admin-page-btn" disabled><i class="ph ph-caret-left"></i></button>
+                <button class="admin-page-btn active">1</button>
+                <button class="admin-page-btn">2</button>
+                <button class="admin-page-btn">3</button>
+                <button class="admin-page-btn">...</button>
+                <button class="admin-page-btn">36</button>
+                <button class="admin-page-btn"><i class="ph ph-caret-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ========== ADD PRODUCT MODAL ========== -->
+    <div class="modal-backdrop" id="addProductModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 class="modal-title">Adicionar Produto</h3>
+          <button class="modal-close" onclick="closeModal('addProductModal')"><i class="ph ph-x"></i></button>
+        </div>
+        <form class="auth-form" onsubmit="event.preventDefault(); closeModal('addProductModal'); adminAction('feature', 'Novo Produto')">
+          <div class="form-group">
+            <label class="form-label">Nome do Produto</label>
+            <input type="text" class="form-input" placeholder="Ex: iPhone 15 Pro Max 256GB" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Categoria</label>
+            <select class="form-input" required>
+              <option value="" disabled selected>Selecciona uma categoria</option>
+              <option value="smartphones">Smartphones</option>
+              <option value="laptops">Laptops</option>
+              <option value="televisoes">Televisões</option>
+              <option value="electrodomesticos">Electrodomésticos</option>
+              <option value="pecas-auto">Peças Auto</option>
+              <option value="construcao">Construção</option>
+              <option value="moda">Moda</option>
+              <option value="gaming">Gaming</option>
+            </select>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm)">
+            <div class="form-group">
+              <label class="form-label">Preço Mínimo (Kz)</label>
+              <input type="number" class="form-input" placeholder="Ex: 145000" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Preço Máximo (Kz)</label>
+              <input type="number" class="form-input" placeholder="Ex: 185000" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Marca</label>
+            <input type="text" class="form-input" placeholder="Ex: Apple, Samsung, LG..." />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Descrição</label>
+            <textarea class="form-input" rows="3" placeholder="Descrição breve do produto..." style="resize: vertical"></textarea>
+          </div>
+          <div class="form-group" style="flex-direction: row; align-items: center; gap: var(--space-sm)">
+            <input type="checkbox" id="featured" style="width: 18px; height: 18px; accent-color: var(--accent)" />
+            <label for="featured" class="form-label" style="margin: 0; cursor: pointer">Marcar como produto em destaque</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: var(--space-sm)">
+            <i class="ph ph-plus-circle"></i> Adicionar Produto
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+      <div class="bottom-nav-inner">
+        <a href="/pages/admin/dashboard.html" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-chart-pie"></i></span><span class="nav-label">Painel</span></a>
+        <a href="/pages/admin/users.html" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-users"></i></span><span class="nav-label">Utilizadores</span></a>
+        <a href="/pages/admin/orders.html" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-package"></i></span><span class="nav-label">Encomendas</span></a>
+        <a href="/pages/admin/suppliers.html" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-storefront"></i></span><span class="nav-label">Fornecedores</span></a>
+        <a href="/pages/admin/products.html" class="bottom-nav-item active"><span class="nav-icon"><i class="ph ph-tag"></i></span><span class="nav-label">Produtos</span></a>
+      </div>
+    </nav>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>

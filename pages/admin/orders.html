@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestão de Encomendas — Karibu Admin</title>
+    <meta name="description" content="Gere e monitoriza todas as encomendas na plataforma Karibu." />
+    <meta name="theme-color" content="#0B1219" />
+    <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/pages/dashboard.css" />
+    <link rel="stylesheet" href="/css/pages/admin.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+      <div class="header-inner">
+        <a href="/pages/admin/dashboard.html" class="header-logo">
+          <span class="header-logo-text">Karibu</span>
+          <span class="header-logo-tag admin-tag">Admin</span>
+        </a>
+        <nav class="header-nav">
+          <a href="/pages/admin/dashboard.html">Painel</a>
+          <a href="/pages/admin/users.html">Utilizadores</a>
+          <a href="/pages/admin/suppliers.html">Fornecedores</a>
+          <a href="/pages/admin/orders.html" class="active">Encomendas</a>
+        </nav>
+        <div class="header-actions">
+          <button class="header-icon-btn" aria-label="Notificações">
+            <i class="ph ph-bell"></i><span class="notification-dot"></span>
+          </button>
+          <button class="header-icon-btn" aria-label="Perfil"><i class="ph ph-user-gear"></i></button>
+          <button class="header-menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MOBILE MENU ========== -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-panel">
+        <div class="mobile-menu-header">
+          <span class="header-logo-text" style="font-size: 1.3rem">Karibu</span>
+          <button class="mobile-menu-close modal-close"><i class="ph ph-x"></i></button>
+        </div>
+        <nav class="mobile-menu-nav">
+          <a href="/pages/admin/dashboard.html"><i class="ph ph-chart-pie"></i> Painel</a>
+          <a href="/pages/admin/users.html"><i class="ph ph-users"></i> Utilizadores</a>
+          <a href="/pages/admin/suppliers.html"><i class="ph ph-storefront"></i> Fornecedores</a>
+          <a href="/pages/admin/orders.html" class="active"><i class="ph ph-package"></i> Encomendas</a>
+          <a href="/pages/admin/products.html"><i class="ph ph-tag"></i> Produtos</a>
+          <div class="mobile-menu-divider"></div>
+          <a href="/"><i class="ph ph-house"></i> Ir para Marketplace</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ========== MAIN ========== -->
+    <main class="dashboard">
+      <div class="container">
+        <nav class="dash-mobile-nav">
+          <a href="/pages/admin/dashboard.html" class="dash-mobile-nav-item"><i class="ph ph-chart-pie"></i> Visão Geral</a>
+          <a href="/pages/admin/users.html" class="dash-mobile-nav-item"><i class="ph ph-users"></i> Utilizadores</a>
+          <a href="/pages/admin/suppliers.html" class="dash-mobile-nav-item"><i class="ph ph-storefront"></i> Fornecedores</a>
+          <a href="/pages/admin/orders.html" class="dash-mobile-nav-item active"><i class="ph ph-package"></i> Encomendas</a>
+          <a href="/pages/admin/products.html" class="dash-mobile-nav-item"><i class="ph ph-tag"></i> Produtos</a>
+        </nav>
+
+        <div class="dashboard-grid">
+          <!-- ===== SIDEBAR ===== -->
+          <aside class="dash-sidebar">
+            <a href="/pages/admin/dashboard.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-chart-pie"></i></span> Visão Geral
+            </a>
+            <a href="/pages/admin/users.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-users"></i></span> Utilizadores
+            </a>
+            <a href="/pages/admin/suppliers.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-storefront"></i></span> Fornecedores
+              <span class="dash-sidebar-badge">4</span>
+            </a>
+            <a href="/pages/admin/orders.html" class="dash-sidebar-item active">
+              <span class="dash-sidebar-icon"><i class="ph ph-package"></i></span> Encomendas
+            </a>
+            <a href="/pages/admin/products.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-tag"></i></span> Produtos
+            </a>
+            <div class="dash-sidebar-divider"></div>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-shopping-cart"></i></span> Carrinhos
+            </a>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-scales" style="color: var(--danger)"></i></span> Disputas
+              <span class="dash-sidebar-badge">2</span>
+            </a>
+            <div class="dash-sidebar-divider"></div>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-gear"></i></span> Definições
+            </a>
+            <a href="/" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-house"></i></span> Ir para Marketplace
+            </a>
+          </aside>
+
+          <!-- ===== CONTENT ===== -->
+          <div class="dash-content">
+            <div class="dash-header">
+              <div class="dash-greeting">
+                <h1><i class="ph ph-package" style="color: var(--info)"></i> Encomendas</h1>
+                <p>347 encomendas activas · <strong style="color: var(--danger)">2 disputas</strong> abertas</p>
+              </div>
+              <div class="dash-header-actions">
+                <button class="btn btn-secondary btn-sm"><i class="ph ph-download-simple"></i> Exportar</button>
+              </div>
+            </div>
+
+            <!-- KPIs -->
+            <div class="admin-kpi-grid" style="grid-template-columns: repeat(2, 1fr)">
+              <div class="admin-kpi-card">
+                <div class="admin-kpi-icon orders"><i class="ph ph-package"></i></div>
+                <div class="admin-kpi-value">347</div>
+                <div class="admin-kpi-label">Encomendas Activas</div>
+                <div class="admin-kpi-change up"><i class="ph ph-trend-up"></i> +12%</div>
+              </div>
+              <div class="admin-kpi-card">
+                <div class="admin-kpi-icon" style="background: var(--warning-bg); color: var(--warning)"><i class="ph ph-hourglass-high"></i></div>
+                <div class="admin-kpi-value">42</div>
+                <div class="admin-kpi-label">Aguardando Envio</div>
+              </div>
+              <div class="admin-kpi-card">
+                <div class="admin-kpi-icon" style="background: var(--info-bg); color: var(--info)"><i class="ph ph-truck"></i></div>
+                <div class="admin-kpi-value">89</div>
+                <div class="admin-kpi-label">Em Trânsito</div>
+              </div>
+              <div class="admin-kpi-card">
+                <div class="admin-kpi-icon disputes"><i class="ph ph-scales"></i></div>
+                <div class="admin-kpi-value">2</div>
+                <div class="admin-kpi-label">Em Disputa</div>
+                <div class="admin-kpi-change down"><i class="ph ph-warning"></i> Requer acção</div>
+              </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="dash-tabs">
+              <div class="dash-tab active" onclick="filterOrders('all')">Todas</div>
+              <div class="dash-tab" onclick="filterOrders('aguardando')">Aguardando</div>
+              <div class="dash-tab" onclick="filterOrders('em-transito')">Em Trânsito</div>
+              <div class="dash-tab" onclick="filterOrders('no-hub')">No Hub</div>
+              <div class="dash-tab" onclick="filterOrders('concluido')">Concluídas</div>
+              <div class="dash-tab" onclick="filterOrders('disputa')">Disputas</div>
+            </div>
+
+            <!-- Search -->
+            <div class="admin-toolbar">
+              <div class="admin-search">
+                <i class="ph ph-magnifying-glass admin-search-icon"></i>
+                <input type="text" class="admin-search-input" placeholder="Pesquisar por #ID, produto, comprador ou fornecedor..." />
+              </div>
+            </div>
+
+            <!-- Orders Table -->
+            <div class="dash-section">
+              <div class="admin-table-wrapper">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Produto</th>
+                      <th>Comprador</th>
+                      <th>Fornecedor</th>
+                      <th>Valor</th>
+                      <th>Rota</th>
+                      <th>Status</th>
+                      <th>Acções</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ordersTableBody">
+                    <tr data-order-status="em-transito">
+                      <td style="font-weight: var(--weight-semibold); color: var(--text-primary)">#KRB-2847</td>
+                      <td>
+                        <div style="display: flex; align-items: center; gap: var(--space-xs)">
+                          <i class="ph ph-device-mobile"></i> iPhone 14 Pro Max
+                        </div>
+                      </td>
+                      <td>Ana C.</td>
+                      <td>Carlos M.</td>
+                      <td style="font-weight: var(--weight-semibold)">165.000 Kz</td>
+                      <td>
+                        <span style="display: inline-flex; align-items: center; gap: 4px; font-size: var(--font-xs)">
+                          <img src="https://flagcdn.com/w20/na.png" width="14" alt="NA" style="display: inline; vertical-align: middle" />
+                          <i class="ph ph-arrow-right" style="font-size: 10px"></i>
+                          <img src="https://flagcdn.com/w20/ao.png" width="14" alt="AO" style="display: inline; vertical-align: middle" />
+                          Luanda
+                        </span>
+                      </td>
+                      <td><span class="admin-status in-transit"><i class="ph ph-truck"></i> Em Trânsito</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Detalhes"><i class="ph ph-eye"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr data-order-status="aguardando">
+                      <td style="font-weight: var(--weight-semibold); color: var(--text-primary)">#KRB-2839</td>
+                      <td>
+                        <div style="display: flex; align-items: center; gap: var(--space-xs)">
+                          <i class="ph ph-television"></i> LG Smart TV 55" 4K
+                        </div>
+                      </td>
+                      <td>José F.</td>
+                      <td>Maria F.</td>
+                      <td style="font-weight: var(--weight-semibold)">280.000 Kz</td>
+                      <td>
+                        <span style="display: inline-flex; align-items: center; gap: 4px; font-size: var(--font-xs)">
+                          <img src="https://flagcdn.com/w20/na.png" width="14" alt="NA" style="display: inline; vertical-align: middle" />
+                          <i class="ph ph-arrow-right" style="font-size: 10px"></i>
+                          <img src="https://flagcdn.com/w20/ao.png" width="14" alt="AO" style="display: inline; vertical-align: middle" />
+                          Luanda
+                        </span>
+                      </td>
+                      <td><span class="admin-status pending"><i class="ph ph-clock"></i> Aguarda Envio</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Detalhes"><i class="ph ph-eye"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr data-order-status="no-hub">
+                      <td style="font-weight: var(--weight-semibold); color: var(--text-primary)">#KRB-2831</td>
+                      <td>
+                        <div style="display: flex; align-items: center; gap: var(--space-xs)">
+                          <i class="ph ph-laptop"></i> MacBook Air M2
+                        </div>
+                      </td>
+                      <td>Pedro L.</td>
+                      <td>Carlos M.</td>
+                      <td style="font-weight: var(--weight-semibold)">420.000 Kz</td>
+                      <td>
+                        <span style="display: inline-flex; align-items: center; gap: 4px; font-size: var(--font-xs)">
+                          <img src="https://flagcdn.com/w20/na.png" width="14" alt="NA" style="display: inline; vertical-align: middle" />
+                          <i class="ph ph-arrow-right" style="font-size: 10px"></i>
+                          <img src="https://flagcdn.com/w20/ao.png" width="14" alt="AO" style="display: inline; vertical-align: middle" />
+                          Benguela
+                        </span>
+                      </td>
+                      <td><span class="admin-status active"><i class="ph ph-map-pin"></i> No Hub</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Detalhes"><i class="ph ph-eye"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr data-order-status="concluido">
+                      <td style="font-weight: var(--weight-semibold); color: var(--text-primary)">#KRB-2825</td>
+                      <td>
+                        <div style="display: flex; align-items: center; gap: var(--space-xs)">
+                          <i class="ph ph-game-controller"></i> PlayStation 5
+                        </div>
+                      </td>
+                      <td>Marta V.</td>
+                      <td>João N.</td>
+                      <td style="font-weight: var(--weight-semibold)">210.000 Kz</td>
+                      <td>
+                        <span style="display: inline-flex; align-items: center; gap: 4px; font-size: var(--font-xs)">
+                          <img src="https://flagcdn.com/w20/na.png" width="14" alt="NA" style="display: inline; vertical-align: middle" />
+                          <i class="ph ph-arrow-right" style="font-size: 10px"></i>
+                          <img src="https://flagcdn.com/w20/ao.png" width="14" alt="AO" style="display: inline; vertical-align: middle" />
+                          Cabinda
+                        </span>
+                      </td>
+                      <td><span class="admin-status completed"><i class="ph ph-check"></i> Concluído</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Detalhes"><i class="ph ph-eye"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr data-order-status="disputa" style="background: rgba(217,75,75,0.04)">
+                      <td style="font-weight: var(--weight-semibold); color: var(--danger)">#KRB-2820</td>
+                      <td>
+                        <div style="display: flex; align-items: center; gap: var(--space-xs)">
+                          <i class="ph ph-device-mobile" style="color: var(--danger)"></i> Samsung Galaxy S23
+                        </div>
+                      </td>
+                      <td>Ricardo A.</td>
+                      <td>Sara M.</td>
+                      <td style="font-weight: var(--weight-semibold)">195.000 Kz</td>
+                      <td>
+                        <span style="display: inline-flex; align-items: center; gap: 4px; font-size: var(--font-xs)">
+                          <img src="https://flagcdn.com/w20/na.png" width="14" alt="NA" style="display: inline; vertical-align: middle" />
+                          <i class="ph ph-arrow-right" style="font-size: 10px"></i>
+                          <img src="https://flagcdn.com/w20/ao.png" width="14" alt="AO" style="display: inline; vertical-align: middle" />
+                          Luanda
+                        </span>
+                      </td>
+                      <td><span class="admin-status disputed"><i class="ph ph-warning"></i> Disputa</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Detalhes"><i class="ph ph-eye"></i></button>
+                          <button class="table-action-btn success" title="Resolver" onclick="adminAction('resolve', '#KRB-2820')"><i class="ph ph-check-circle"></i></button>
+                          <button class="table-action-btn" title="Reembolsar" onclick="adminAction('refund', '#KRB-2820')" style="color: var(--info)"><i class="ph ph-arrow-counter-clockwise"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr data-order-status="disputa" style="background: rgba(217,75,75,0.04)">
+                      <td style="font-weight: var(--weight-semibold); color: var(--danger)">#KRB-2815</td>
+                      <td>
+                        <div style="display: flex; align-items: center; gap: var(--space-xs)">
+                          <i class="ph ph-hammer" style="color: var(--danger)"></i> Kit Ferramentas Bosch
+                        </div>
+                      </td>
+                      <td>Manuel B.</td>
+                      <td>Alfredo K.</td>
+                      <td style="font-weight: var(--weight-semibold)">85.000 Kz</td>
+                      <td>
+                        <span style="display: inline-flex; align-items: center; gap: 4px; font-size: var(--font-xs)">
+                          <img src="https://flagcdn.com/w20/na.png" width="14" alt="NA" style="display: inline; vertical-align: middle" />
+                          <i class="ph ph-arrow-right" style="font-size: 10px"></i>
+                          <img src="https://flagcdn.com/w20/ao.png" width="14" alt="AO" style="display: inline; vertical-align: middle" />
+                          Lubango
+                        </span>
+                      </td>
+                      <td><span class="admin-status disputed"><i class="ph ph-warning"></i> Disputa</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Detalhes"><i class="ph ph-eye"></i></button>
+                          <button class="table-action-btn success" title="Resolver" onclick="adminAction('resolve', '#KRB-2815')"><i class="ph ph-check-circle"></i></button>
+                          <button class="table-action-btn" title="Reembolsar" onclick="adminAction('refund', '#KRB-2815')" style="color: var(--info)"><i class="ph ph-arrow-counter-clockwise"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr data-order-status="em-transito">
+                      <td style="font-weight: var(--weight-semibold); color: var(--text-primary)">#KRB-2810</td>
+                      <td>
+                        <div style="display: flex; align-items: center; gap: var(--space-xs)">
+                          <i class="ph ph-house"></i> Microondas Samsung
+                        </div>
+                      </td>
+                      <td>Luísa T.</td>
+                      <td>Maria F.</td>
+                      <td style="font-weight: var(--weight-semibold)">75.000 Kz</td>
+                      <td>
+                        <span style="display: inline-flex; align-items: center; gap: 4px; font-size: var(--font-xs)">
+                          <img src="https://flagcdn.com/w20/na.png" width="14" alt="NA" style="display: inline; vertical-align: middle" />
+                          <i class="ph ph-arrow-right" style="font-size: 10px"></i>
+                          <img src="https://flagcdn.com/w20/ao.png" width="14" alt="AO" style="display: inline; vertical-align: middle" />
+                          Huambo
+                        </span>
+                      </td>
+                      <td><span class="admin-status in-transit"><i class="ph ph-truck"></i> Em Trânsito</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Detalhes"><i class="ph ph-eye"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="admin-pagination">
+                <button class="admin-page-btn" disabled><i class="ph ph-caret-left"></i></button>
+                <button class="admin-page-btn active">1</button>
+                <button class="admin-page-btn">2</button>
+                <button class="admin-page-btn">3</button>
+                <button class="admin-page-btn">...</button>
+                <button class="admin-page-btn">50</button>
+                <button class="admin-page-btn"><i class="ph ph-caret-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <nav class="bottom-nav">
+      <div class="bottom-nav-inner">
+        <a href="/pages/admin/dashboard.html" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-chart-pie"></i></span><span class="nav-label">Painel</span></a>
+        <a href="/pages/admin/users.html" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-users"></i></span><span class="nav-label">Utilizadores</span></a>
+        <a href="/pages/admin/orders.html" class="bottom-nav-item active"><span class="nav-icon"><i class="ph ph-package"></i></span><span class="nav-label">Encomendas</span></a>
+        <a href="/pages/admin/suppliers.html" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-storefront"></i></span><span class="nav-label">Fornecedores</span></a>
+        <a href="#" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-gear"></i></span><span class="nav-label">Mais</span></a>
+      </div>
+    </nav>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/admin.js"></script>
+    <script>
+      // Tab filtering for orders
+      function filterOrders(status) {
+        // Update active tab
+        document.querySelectorAll('.dash-tab').forEach(tab => tab.classList.remove('active'));
+        event.target.classList.add('active');
+
+        // Filter rows
+        const rows = document.querySelectorAll('#ordersTableBody tr');
+        rows.forEach(row => {
+          if (status === 'all') {
+            row.style.display = '';
+          } else {
+            const rowStatus = row.dataset.orderStatus;
+            row.style.display = rowStatus === status ? '' : 'none';
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

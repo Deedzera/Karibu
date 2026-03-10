@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestão de Fornecedores — Karibu Admin</title>
+    <meta name="description" content="Gere e aprova fornecedores verificados na plataforma Karibu." />
+    <meta name="theme-color" content="#0B1219" />
+    <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/pages/dashboard.css" />
+    <link rel="stylesheet" href="/css/pages/admin.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+      <div class="header-inner">
+        <a href="/pages/admin/dashboard.html" class="header-logo">
+          <span class="header-logo-text">Karibu</span>
+          <span class="header-logo-tag admin-tag">Admin</span>
+        </a>
+        <nav class="header-nav">
+          <a href="/pages/admin/dashboard.html">Painel</a>
+          <a href="/pages/admin/users.html">Utilizadores</a>
+          <a href="/pages/admin/suppliers.html" class="active">Fornecedores</a>
+          <a href="/pages/admin/orders.html">Encomendas</a>
+        </nav>
+        <div class="header-actions">
+          <button class="header-icon-btn" aria-label="Notificações">
+            <i class="ph ph-bell"></i><span class="notification-dot"></span>
+          </button>
+          <button class="header-icon-btn" aria-label="Perfil"><i class="ph ph-user-gear"></i></button>
+          <button class="header-menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MOBILE MENU ========== -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-panel">
+        <div class="mobile-menu-header">
+          <span class="header-logo-text" style="font-size: 1.3rem">Karibu</span>
+          <button class="mobile-menu-close modal-close"><i class="ph ph-x"></i></button>
+        </div>
+        <nav class="mobile-menu-nav">
+          <a href="/pages/admin/dashboard.html"><i class="ph ph-chart-pie"></i> Painel</a>
+          <a href="/pages/admin/users.html"><i class="ph ph-users"></i> Utilizadores</a>
+          <a href="/pages/admin/suppliers.html" class="active"><i class="ph ph-storefront"></i> Fornecedores</a>
+          <a href="/pages/admin/orders.html"><i class="ph ph-package"></i> Encomendas</a>
+          <a href="/pages/admin/products.html"><i class="ph ph-tag"></i> Produtos</a>
+          <div class="mobile-menu-divider"></div>
+          <a href="/"><i class="ph ph-house"></i> Ir para Marketplace</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ========== MAIN ========== -->
+    <main class="dashboard">
+      <div class="container">
+        <nav class="dash-mobile-nav">
+          <a href="/pages/admin/dashboard.html" class="dash-mobile-nav-item"><i class="ph ph-chart-pie"></i> Visão Geral</a>
+          <a href="/pages/admin/users.html" class="dash-mobile-nav-item"><i class="ph ph-users"></i> Utilizadores</a>
+          <a href="/pages/admin/suppliers.html" class="dash-mobile-nav-item active"><i class="ph ph-storefront"></i> Fornecedores</a>
+          <a href="/pages/admin/orders.html" class="dash-mobile-nav-item"><i class="ph ph-package"></i> Encomendas</a>
+          <a href="/pages/admin/products.html" class="dash-mobile-nav-item"><i class="ph ph-tag"></i> Produtos</a>
+        </nav>
+
+        <div class="dashboard-grid">
+          <!-- ===== SIDEBAR ===== -->
+          <aside class="dash-sidebar">
+            <a href="/pages/admin/dashboard.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-chart-pie"></i></span> Visão Geral
+            </a>
+            <a href="/pages/admin/users.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-users"></i></span> Utilizadores
+            </a>
+            <a href="/pages/admin/suppliers.html" class="dash-sidebar-item active">
+              <span class="dash-sidebar-icon"><i class="ph ph-storefront"></i></span> Fornecedores
+              <span class="dash-sidebar-badge">4</span>
+            </a>
+            <a href="/pages/admin/orders.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-package"></i></span> Encomendas
+            </a>
+            <a href="/pages/admin/products.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-tag"></i></span> Produtos
+            </a>
+            <div class="dash-sidebar-divider"></div>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-shopping-cart"></i></span> Carrinhos
+            </a>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-scales" style="color: var(--danger)"></i></span> Disputas
+              <span class="dash-sidebar-badge">2</span>
+            </a>
+            <div class="dash-sidebar-divider"></div>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-gear"></i></span> Definições
+            </a>
+            <a href="/" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-house"></i></span> Ir para Marketplace
+            </a>
+          </aside>
+
+          <!-- ===== CONTENT ===== -->
+          <div class="dash-content">
+            <div class="dash-header">
+              <div class="dash-greeting">
+                <h1><i class="ph ph-storefront" style="color: var(--success)"></i> Fornecedores</h1>
+                <p>152 fornecedores verificados · <strong style="color: var(--warning)">4 pendentes</strong></p>
+              </div>
+              <div class="dash-header-actions">
+                <button class="btn btn-secondary btn-sm"><i class="ph ph-download-simple"></i> Exportar</button>
+              </div>
+            </div>
+
+            <!-- KPIs -->
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph ph-storefront"></i></div>
+                <div class="kpi-value">152</div>
+                <div class="kpi-label">Verificados</div>
+                <div class="kpi-change up"><i class="ph ph-trend-up"></i> +8 este mês</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph ph-clock" style="color: var(--warning)"></i></div>
+                <div class="kpi-value">4</div>
+                <div class="kpi-label">Pendentes</div>
+                <div class="kpi-change" style="color: var(--accent)"><i class="ph-fill ph-lightning" style="color: var(--warning)"></i> Requer acção</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph-fill ph-star" style="color: var(--warning)"></i></div>
+                <div class="kpi-value">4.7</div>
+                <div class="kpi-label">Rating Médio</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph ph-prohibit" style="color: var(--danger)"></i></div>
+                <div class="kpi-value">3</div>
+                <div class="kpi-label">Suspensos</div>
+              </div>
+            </div>
+
+            <!-- ---- PENDING APPROVALS ---- -->
+            <div class="dash-section">
+              <div class="dash-section-header">
+                <h2 class="dash-section-title">
+                  <i class="ph ph-user-check" style="color: var(--warning)"></i> Aprovações Pendentes
+                </h2>
+              </div>
+              <div class="order-list">
+                <div class="approval-card">
+                  <div class="approval-header">
+                    <div class="approval-supplier">
+                      <div class="approval-avatar" style="background: #1B4D6E">JN</div>
+                      <div>
+                        <div class="approval-name">João Nandez</div>
+                        <div class="approval-meta">Registado há 2 dias · Windhoek</div>
+                      </div>
+                    </div>
+                    <span class="admin-status pending"><i class="ph ph-clock"></i> Pendente</span>
+                  </div>
+                  <div class="approval-details">
+                    <span class="approval-detail"><i class="ph ph-map-pin"></i> Windhoek, Namíbia</span>
+                    <span class="approval-detail"><i class="ph ph-buildings"></i> Electrónica & Gadgets</span>
+                    <span class="approval-detail"><i class="ph ph-phone"></i> +264 81 234 5678</span>
+                  </div>
+                  <div class="approval-docs">
+                    <span class="approval-doc"><i class="ph ph-file-text"></i> Alvará Comercial</span>
+                    <span class="approval-doc"><i class="ph ph-identification-card"></i> Documento ID</span>
+                    <span class="approval-doc"><i class="ph ph-image"></i> Fotos da Loja</span>
+                  </div>
+                  <div class="approval-actions">
+                    <button class="btn btn-success btn-sm" onclick="adminAction('approve', 'João Nandez')"><i class="ph ph-check"></i> Aprovar</button>
+                    <button class="btn btn-ghost btn-sm" onclick="adminAction('reject', 'João Nandez')"><i class="ph ph-x"></i> Rejeitar</button>
+                    <button class="btn btn-ghost btn-sm"><i class="ph ph-eye"></i> Ver Docs</button>
+                  </div>
+                </div>
+                <div class="approval-card">
+                  <div class="approval-header">
+                    <div class="approval-supplier">
+                      <div class="approval-avatar" style="background: #2D9B5B">SM</div>
+                      <div>
+                        <div class="approval-name">Sara Mbanza</div>
+                        <div class="approval-meta">Registada há 3 dias · Oshakati</div>
+                      </div>
+                    </div>
+                    <span class="admin-status pending"><i class="ph ph-clock"></i> Pendente</span>
+                  </div>
+                  <div class="approval-details">
+                    <span class="approval-detail"><i class="ph ph-map-pin"></i> Oshakati, Namíbia</span>
+                    <span class="approval-detail"><i class="ph ph-buildings"></i> Peças Auto</span>
+                  </div>
+                  <div class="approval-docs">
+                    <span class="approval-doc"><i class="ph ph-file-text"></i> Alvará Comercial</span>
+                    <span class="approval-doc"><i class="ph ph-identification-card"></i> Documento ID</span>
+                  </div>
+                  <div class="approval-actions">
+                    <button class="btn btn-success btn-sm" onclick="adminAction('approve', 'Sara Mbanza')"><i class="ph ph-check"></i> Aprovar</button>
+                    <button class="btn btn-ghost btn-sm" onclick="adminAction('reject', 'Sara Mbanza')"><i class="ph ph-x"></i> Rejeitar</button>
+                    <button class="btn btn-ghost btn-sm"><i class="ph ph-eye"></i> Ver Docs</button>
+                  </div>
+                </div>
+                <div class="approval-card">
+                  <div class="approval-header">
+                    <div class="approval-supplier">
+                      <div class="approval-avatar" style="background: #E8913A">TK</div>
+                      <div>
+                        <div class="approval-name">Thomas Kapenda</div>
+                        <div class="approval-meta">Registado há 4 dias · Walvis Bay</div>
+                      </div>
+                    </div>
+                    <span class="admin-status pending"><i class="ph ph-clock"></i> Pendente</span>
+                  </div>
+                  <div class="approval-details">
+                    <span class="approval-detail"><i class="ph ph-map-pin"></i> Walvis Bay, Namíbia</span>
+                    <span class="approval-detail"><i class="ph ph-buildings"></i> Electrodomésticos</span>
+                  </div>
+                  <div class="approval-docs">
+                    <span class="approval-doc"><i class="ph ph-file-text"></i> Alvará Comercial</span>
+                    <span class="approval-doc"><i class="ph ph-identification-card"></i> Documento ID</span>
+                    <span class="approval-doc"><i class="ph ph-image"></i> Fotos da Loja</span>
+                    <span class="approval-doc"><i class="ph ph-certificate"></i> Certificado</span>
+                  </div>
+                  <div class="approval-actions">
+                    <button class="btn btn-success btn-sm" onclick="adminAction('approve', 'Thomas Kapenda')"><i class="ph ph-check"></i> Aprovar</button>
+                    <button class="btn btn-ghost btn-sm" onclick="adminAction('reject', 'Thomas Kapenda')"><i class="ph ph-x"></i> Rejeitar</button>
+                    <button class="btn btn-ghost btn-sm"><i class="ph ph-eye"></i> Ver Docs</button>
+                  </div>
+                </div>
+                <div class="approval-card">
+                  <div class="approval-header">
+                    <div class="approval-supplier">
+                      <div class="approval-avatar" style="background: #3B8ECF">LH</div>
+                      <div>
+                        <div class="approval-name">Lena Hamutenya</div>
+                        <div class="approval-meta">Registada há 5 dias · Walvis Bay</div>
+                      </div>
+                    </div>
+                    <span class="admin-status pending"><i class="ph ph-clock"></i> Pendente</span>
+                  </div>
+                  <div class="approval-details">
+                    <span class="approval-detail"><i class="ph ph-map-pin"></i> Walvis Bay, Namíbia</span>
+                    <span class="approval-detail"><i class="ph ph-buildings"></i> Moda & Acessórios</span>
+                  </div>
+                  <div class="approval-docs">
+                    <span class="approval-doc"><i class="ph ph-file-text"></i> Alvará Comercial</span>
+                    <span class="approval-doc"><i class="ph ph-identification-card"></i> Documento ID</span>
+                  </div>
+                  <div class="approval-actions">
+                    <button class="btn btn-success btn-sm" onclick="adminAction('approve', 'Lena Hamutenya')"><i class="ph ph-check"></i> Aprovar</button>
+                    <button class="btn btn-ghost btn-sm" onclick="adminAction('reject', 'Lena Hamutenya')"><i class="ph ph-x"></i> Rejeitar</button>
+                    <button class="btn btn-ghost btn-sm"><i class="ph ph-eye"></i> Ver Docs</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ---- VERIFIED SUPPLIERS TABLE ---- -->
+            <div class="dash-section">
+              <div class="dash-section-header">
+                <h2 class="dash-section-title">
+                  <i class="ph ph-check-circle" style="color: var(--success)"></i> Fornecedores Verificados
+                </h2>
+              </div>
+
+              <div class="admin-toolbar" style="margin-bottom: var(--space-md)">
+                <div class="admin-search">
+                  <i class="ph ph-magnifying-glass admin-search-icon"></i>
+                  <input type="text" class="admin-search-input" placeholder="Pesquisar fornecedor..." />
+                </div>
+                <div class="admin-filters">
+                  <select class="admin-filter-select" data-filter="status">
+                    <option value="all">Todos</option>
+                    <option value="verificado">Verificado</option>
+                    <option value="suspenso">Suspenso</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="admin-table-wrapper">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Fornecedor</th>
+                      <th>Localização</th>
+                      <th>Categoria</th>
+                      <th>Rating</th>
+                      <th>Vendas</th>
+                      <th>Status</th>
+                      <th>Acções</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="table-user">
+                          <div class="table-avatar" style="background: #1B4D6E">CM</div>
+                          <div class="table-user-info">
+                            <div class="table-user-name">Carlos Mondlane</div>
+                            <div class="table-user-email">carlos.m@windsupply.na</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>Windhoek</td>
+                      <td>Electrónica</td>
+                      <td>
+                        <i class="ph-fill ph-star" style="color: var(--warning)"></i> 4.9
+                      </td>
+                      <td>87</td>
+                      <td data-status="verificado"><span class="admin-status verified"><i class="ph ph-check"></i> Verificado</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Ver perfil"><i class="ph ph-eye"></i></button>
+                          <button class="table-action-btn" title="Suspender" onclick="adminAction('suspend', 'Carlos Mondlane')"><i class="ph ph-prohibit"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="table-user">
+                          <div class="table-avatar" style="background: #2D9B5B">MF</div>
+                          <div class="table-user-info">
+                            <div class="table-user-name">Maria Fonseca</div>
+                            <div class="table-user-email">maria.f@techpoint.na</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>Windhoek</td>
+                      <td>Electrónica</td>
+                      <td>
+                        <i class="ph-fill ph-star" style="color: var(--warning)"></i> 4.7
+                      </td>
+                      <td>214</td>
+                      <td data-status="verificado"><span class="admin-status verified"><i class="ph ph-check"></i> Verificado</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Ver perfil"><i class="ph ph-eye"></i></button>
+                          <button class="table-action-btn" title="Suspender" onclick="adminAction('suspend', 'Maria Fonseca')"><i class="ph ph-prohibit"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="table-user">
+                          <div class="table-avatar" style="background: #E8913A">AK</div>
+                          <div class="table-user-info">
+                            <div class="table-user-name">Alfredo Katundu</div>
+                            <div class="table-user-email">alfredo.k@autoparts.na</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>Oshakati</td>
+                      <td>Peças Auto</td>
+                      <td>
+                        <i class="ph-fill ph-star" style="color: var(--warning)"></i> 4.5
+                      </td>
+                      <td>56</td>
+                      <td data-status="verificado"><span class="admin-status verified"><i class="ph ph-check"></i> Verificado</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Ver perfil"><i class="ph ph-eye"></i></button>
+                          <button class="table-action-btn" title="Suspender" onclick="adminAction('suspend', 'Alfredo Katundu')"><i class="ph ph-prohibit"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="table-user">
+                          <div class="table-avatar" style="background: #D94B4B">PN</div>
+                          <div class="table-user-info">
+                            <div class="table-user-name">Paulo Namhindi</div>
+                            <div class="table-user-email">paulo.n@construct.na</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>Walvis Bay</td>
+                      <td>Construção</td>
+                      <td>
+                        <i class="ph-fill ph-star" style="color: var(--warning)"></i> 3.9
+                      </td>
+                      <td>12</td>
+                      <td data-status="suspenso"><span class="admin-status suspended"><i class="ph ph-prohibit"></i> Suspenso</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Ver perfil"><i class="ph ph-eye"></i></button>
+                          <button class="table-action-btn success" title="Reactivar" onclick="adminAction('activate', 'Paulo Namhindi')"><i class="ph ph-check"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="admin-pagination">
+                <button class="admin-page-btn" disabled><i class="ph ph-caret-left"></i></button>
+                <button class="admin-page-btn active">1</button>
+                <button class="admin-page-btn">2</button>
+                <button class="admin-page-btn">3</button>
+                <button class="admin-page-btn">...</button>
+                <button class="admin-page-btn">23</button>
+                <button class="admin-page-btn"><i class="ph ph-caret-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <nav class="bottom-nav">
+      <div class="bottom-nav-inner">
+        <a href="/pages/admin/dashboard.html" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-chart-pie"></i></span><span class="nav-label">Painel</span></a>
+        <a href="/pages/admin/users.html" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-users"></i></span><span class="nav-label">Utilizadores</span></a>
+        <a href="/pages/admin/orders.html" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-package"></i></span><span class="nav-label">Encomendas</span></a>
+        <a href="/pages/admin/suppliers.html" class="bottom-nav-item active"><span class="nav-icon"><i class="ph ph-storefront"></i></span><span class="nav-label">Fornecedores</span></a>
+        <a href="#" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-gear"></i></span><span class="nav-label">Mais</span></a>
+      </div>
+    </nav>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>

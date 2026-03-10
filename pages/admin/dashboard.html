@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Painel de Administração — Karibu</title>
+    <title>Painel Admin — Karibu</title>
     <meta
       name="description"
-      content="Administração global da plataforma Karibu."
+      content="Painel de administração da plataforma Karibu. Gere utilizadores, fornecedores, encomendas e configurações."
     />
     <meta name="theme-color" content="#0B1219" />
     <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
@@ -21,23 +21,22 @@
     <!-- ========== HEADER ========== -->
     <header class="header">
       <div class="header-inner">
-        <a href="/" class="header-logo">
+        <a href="/pages/admin/dashboard.html" class="header-logo">
           <span class="header-logo-text">Karibu</span>
-          <span class="admin-tag">Administrador</span>
+          <span class="header-logo-tag admin-tag">Admin</span>
         </a>
         <nav class="header-nav">
-          <a href="/admin/dashboard" class="active">Visão Geral</a>
-          <a href="#">Utilizadores</a>
-          <a href="#">Transacções</a>
-          <a href="#">Catálogo</a>
-          <a href="#">Suporte</a>
+          <a href="/pages/admin/dashboard.html" class="active">Painel</a>
+          <a href="/pages/admin/users.html">Utilizadores</a>
+          <a href="/pages/admin/suppliers.html">Fornecedores</a>
+          <a href="/pages/admin/orders.html">Encomendas</a>
         </nav>
         <div class="header-actions">
           <button class="header-icon-btn" aria-label="Notificações">
             <i class="ph ph-bell"></i><span class="notification-dot"></span>
           </button>
           <button class="header-icon-btn" aria-label="Perfil">
-            <i class="ph ph-user"></i>
+            <i class="ph ph-user-gear"></i>
           </button>
           <button class="header-menu-toggle" aria-label="Menu">
             <span></span><span></span><span></span>
@@ -50,25 +49,22 @@
     <div class="mobile-menu" id="mobileMenu">
       <div class="mobile-menu-panel">
         <div class="mobile-menu-header">
-          <span class="header-logo-text" style="font-size: 1.3rem"
-            >Karibu
-            <span class="admin-tag" style="margin-left: 8px">Admin</span></span
-          >
+          <span class="header-logo-text" style="font-size: 1.3rem">Karibu</span>
           <button class="mobile-menu-close modal-close">
             <i class="ph ph-x"></i>
           </button>
         </div>
         <nav class="mobile-menu-nav">
-          <a href="/admin/dashboard" class="active"
-            ><i class="ph ph-chart-pie-slice"></i> Visão Geral</a
+          <a href="/pages/admin/dashboard.html" class="active"
+            ><i class="ph ph-chart-pie"></i> Painel</a
           >
-          <a href="#"><i class="ph ph-users"></i> Utilizadores</a>
-          <a href="#"><i class="ph ph-arrows-left-right"></i> Transacções</a>
-          <a href="#"><i class="ph ph-shopping-bag"></i> Catálogo Global</a>
-          <a href="#"><i class="ph ph-headset"></i> Disputas/Suporte</a>
+          <a href="/pages/admin/users.html"><i class="ph ph-users"></i> Utilizadores</a>
+          <a href="/pages/admin/suppliers.html"><i class="ph ph-storefront"></i> Fornecedores</a>
+          <a href="/pages/admin/orders.html"><i class="ph ph-package"></i> Encomendas</a>
+          <a href="/pages/admin/products.html"><i class="ph ph-tag"></i> Produtos</a>
           <div class="mobile-menu-divider"></div>
-          <a href="#"><i class="ph ph-gear"></i> Definições de Sistema</a>
-          <a href="/login"><i class="ph ph-sign-out"></i> Sair</a>
+          <a href="/"><i class="ph ph-house"></i> Ir para Marketplace</a>
+          <a href="/pages/login.html"><i class="ph ph-sign-out"></i> Sair</a>
         </nav>
       </div>
     </div>
@@ -78,799 +74,560 @@
       <div class="container">
         <!-- Mobile Nav -->
         <nav class="dash-mobile-nav">
-          <a href="#" class="dash-mobile-nav-item active"
-            ><i class="ph ph-chart-pie-slice"></i> Geral</a
+          <a href="/pages/admin/dashboard.html" class="dash-mobile-nav-item active"
+            ><i class="ph ph-chart-pie"></i> Visão Geral</a
           >
-          <a href="#" class="dash-mobile-nav-item"
-            ><i class="ph ph-users"></i> Users
-            <span class="dash-sidebar-badge">5</span></a
+          <a href="/pages/admin/users.html" class="dash-mobile-nav-item"
+            ><i class="ph ph-users"></i> Utilizadores</a
           >
-          <a href="#" class="dash-mobile-nav-item"
-            ><i class="ph ph-arrows-left-right"></i> Transacções</a
+          <a href="/pages/admin/suppliers.html" class="dash-mobile-nav-item"
+            ><i class="ph ph-storefront"></i> Fornecedores
+            <span class="dash-sidebar-badge">4</span></a
           >
-          <a href="#" class="dash-mobile-nav-item"
-            ><i class="ph ph-headset"></i> Suporte</a
+          <a href="/pages/admin/orders.html" class="dash-mobile-nav-item"
+            ><i class="ph ph-package"></i> Encomendas</a
+          >
+          <a href="/pages/admin/products.html" class="dash-mobile-nav-item"
+            ><i class="ph ph-tag"></i> Produtos</a
           >
         </nav>
 
         <div class="dashboard-grid">
           <!-- ===== SIDEBAR (Desktop) ===== -->
           <aside class="dash-sidebar">
-            <a href="#" class="dash-sidebar-item active">
-              <span class="dash-sidebar-icon"
-                ><i class="ph ph-chart-pie-slice"></i
-              ></span>
+            <a href="/pages/admin/dashboard.html" class="dash-sidebar-item active">
+              <span class="dash-sidebar-icon"><i class="ph ph-chart-pie"></i></span>
               Visão Geral
             </a>
-            <a href="#" class="dash-sidebar-item">
+            <a href="/pages/admin/users.html" class="dash-sidebar-item">
               <span class="dash-sidebar-icon"><i class="ph ph-users"></i></span>
-              Gestão de Utilizadores
-              <span class="dash-sidebar-badge">5</span>
+              Utilizadores
             </a>
-            <a href="#" class="dash-sidebar-item">
-              <span class="dash-sidebar-icon"
-                ><i class="ph ph-arrows-left-right"></i
-              ></span>
-              Transacções (Escrow)
+            <a href="/pages/admin/suppliers.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-storefront"></i></span>
+              Fornecedores
+              <span class="dash-sidebar-badge">4</span>
             </a>
-            <a href="#" class="dash-sidebar-item">
-              <span class="dash-sidebar-icon"
-                ><i class="ph ph-shopping-bag"></i
-              ></span>
-              Catálogo Global
-              <span
-                class="dash-sidebar-badge"
-                style="background: var(--warning); color: #000"
-                >12</span
-              >
+            <a href="/pages/admin/orders.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-package"></i></span>
+              Encomendas
             </a>
-            <a href="#" class="dash-sidebar-item">
-              <span class="dash-sidebar-icon"
-                ><i class="ph ph-headset"></i
-              ></span>
-              Disputas & Suporte
-              <span
-                class="dash-sidebar-badge"
-                style="background: var(--danger); color: #fff"
-                >2</span
-              >
+            <a href="/pages/admin/products.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-tag"></i></span>
+              Produtos
             </a>
             <div class="dash-sidebar-divider"></div>
             <a href="#" class="dash-sidebar-item">
-              <span class="dash-sidebar-icon"
-                ><i class="ph ph-percent"></i
-              ></span>
-              Taxas & Comissões
+              <span class="dash-sidebar-icon"><i class="ph ph-shopping-cart"></i></span>
+              Carrinhos
             </a>
             <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"
+                ><i class="ph ph-scales" style="color: var(--danger)"></i
+              ></span>
+              Disputas
+              <span class="dash-sidebar-badge">2</span>
+            </a>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-money"></i></span>
+              Escrow / Finanças
+            </a>
+            <div class="dash-sidebar-divider"></div>
+            <a href="#" class="dash-sidebar-item">
               <span class="dash-sidebar-icon"><i class="ph ph-gear"></i></span>
-              Definições Platarfoma
+              Definições
+            </a>
+            <a href="/" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-house"></i></span>
+              Ir para Marketplace
             </a>
           </aside>
 
           <!-- ===== CONTENT ===== -->
           <div class="dash-content">
-            <!-- ===== 1. DASHBOARD HEADER ===== -->
+            <!-- Greeting -->
             <div class="dash-header">
               <div class="dash-greeting">
-                <h1>Admin Control Panel</h1>
+                <h1>
+                  Painel Admin
+                  <i class="ph-fill ph-shield-check" style="color: var(--danger-light)"></i>
+                </h1>
                 <p>
-                  Overview of platform performance and marketplace activity. Há
-                  <strong style="color: var(--accent)"
-                    >5 novos fornecedores</strong
-                  >
-                  aguardando verificação.
+                  Tens
+                  <strong style="color: var(--warning)">4 fornecedores</strong>
+                  aguardando aprovação e
+                  <strong style="color: var(--danger)">2 disputas</strong>
+                  abertas.
                 </p>
               </div>
               <div class="dash-header-actions">
-                <div class="dash-header-badges">
-                  <span class="kpi-badge">
-                    <span class="badge-icon">👤</span>
-                    <span class="badge-value">124</span> Users Hoje
-                  </span>
-                  <span class="kpi-badge">
-                    <span class="badge-icon">💳</span>
-                    <span class="badge-value">38</span> Transacções
-                  </span>
-                  <span
-                    class="kpi-badge"
-                    style="border-color: rgba(217, 75, 75, 0.3)"
-                  >
-                    <span class="badge-icon">⚠️</span>
-                    <span class="badge-value" style="color: var(--danger-light)"
-                      >2</span
-                    >
-                    Alertas
-                  </span>
-                </div>
                 <button class="btn btn-secondary btn-sm">
-                  <i class="ph ph-download-simple"></i> Exportar Relatório
+                  <i class="ph ph-download-simple"></i> Exportar
+                </button>
+                <button class="btn btn-primary btn-sm">
+                  <i class="ph ph-chart-bar"></i> Relatório
                 </button>
               </div>
             </div>
 
-            <!-- ===== 2. KPI CARDS (Enhanced) ===== -->
-            <div class="kpi-grid">
-              <!-- Total Users -->
-              <div class="kpi-card">
-                <div
-                  class="kpi-icon"
-                  style="
-                    color: #a78bfa;
-                    background: rgba(167, 139, 250, 0.1);
-                    border-color: rgba(167, 139, 250, 0.2);
-                  "
-                >
-                  <i class="ph ph-users"></i>
+            <!-- KPIs -->
+            <div class="admin-kpi-grid">
+              <div class="admin-kpi-card">
+                <div class="admin-kpi-icon revenue">
+                  <i class="ph ph-currency-circle-dollar"></i>
                 </div>
-                <div class="kpi-value">1.284</div>
-                <div class="kpi-label">Utilizadores Totais</div>
-                <div class="kpi-change up">
-                  <span class="kpi-trend-badge up"
-                    ><i class="ph ph-trend-up"></i> +3.4%</span
-                  >
-                  +42 esta semana
+                <div class="admin-kpi-value">
+                  18.4M <small style="font-size: var(--font-xs); font-weight: 400">Kz</small>
                 </div>
-                <div class="kpi-sparkline" id="sparkline-users"></div>
+                <div class="admin-kpi-label">Receita Total (Mês)</div>
+                <div class="admin-kpi-change up">
+                  <i class="ph ph-trend-up"></i> +24% vs mês anterior
+                </div>
               </div>
-
-              <!-- Monthly Volume -->
-              <div class="kpi-card">
-                <div class="kpi-icon"><i class="ph ph-money"></i></div>
-                <div class="kpi-value">
-                  45.2M
-                  <small style="font-size: var(--font-xs); font-weight: 400"
-                    >Kz</small
-                  >
+              <div class="admin-kpi-card">
+                <div class="admin-kpi-icon orders"><i class="ph ph-package"></i></div>
+                <div class="admin-kpi-value">347</div>
+                <div class="admin-kpi-label">Encomendas Activas</div>
+                <div class="admin-kpi-change up">
+                  <i class="ph ph-trend-up"></i> +12% vs mês anterior
                 </div>
-                <div class="kpi-label">Volume Transaccionado (Mês)</div>
-                <div class="kpi-change up">
-                  <span class="kpi-trend-badge up"
-                    ><i class="ph ph-trend-up"></i> +12%</span
-                  >
-                  vs mês anterior
-                </div>
-                <div class="kpi-sparkline" id="sparkline-volume"></div>
               </div>
-
-              <!-- Monthly Revenue -->
-              <div class="kpi-card">
-                <div class="kpi-icon"><i class="ph ph-percent"></i></div>
-                <div class="kpi-value">
-                  2.8M
-                  <small style="font-size: var(--font-xs); font-weight: 400"
-                    >Kz</small
-                  >
+              <div class="admin-kpi-card">
+                <div class="admin-kpi-icon users"><i class="ph ph-users"></i></div>
+                <div class="admin-kpi-value">2.841</div>
+                <div class="admin-kpi-label">Utilizadores Registados</div>
+                <div class="admin-kpi-change up">
+                  <i class="ph ph-trend-up"></i> +186 este mês
                 </div>
-                <div class="kpi-label">Receita Karibu (Mês)</div>
-                <div class="kpi-change up">
-                  <span class="kpi-trend-badge up"
-                    ><i class="ph ph-trend-up"></i> +14%</span
-                  >
-                  vs mês anterior
-                </div>
-                <div class="kpi-sparkline" id="sparkline-revenue"></div>
               </div>
-
-              <!-- Active Disputes -->
-              <div class="kpi-card">
-                <div
-                  class="kpi-icon"
-                  style="
-                    color: var(--warning);
-                    background: rgba(232, 145, 58, 0.1);
-                    border-color: rgba(232, 145, 58, 0.2);
-                  "
-                >
-                  <i class="ph ph-warning-circle"></i>
+              <div class="admin-kpi-card">
+                <div class="admin-kpi-icon suppliers"><i class="ph ph-storefront"></i></div>
+                <div class="admin-kpi-value">152</div>
+                <div class="admin-kpi-label">Fornecedores Verificados</div>
+                <div class="admin-kpi-change neutral">
+                  <i class="ph ph-clock"></i> 4 pendentes
                 </div>
-                <div class="kpi-value">2</div>
-                <div class="kpi-label">Disputas Activas</div>
-                <div class="kpi-change" style="color: var(--danger)">
-                  <span class="kpi-trend-badge down"
-                    ><i class="ph-fill ph-fire"></i> −60%</span
-                  >
-                  Requer atenção
+              </div>
+              <div class="admin-kpi-card">
+                <div class="admin-kpi-icon conversion"><i class="ph ph-chart-line-up"></i></div>
+                <div class="admin-kpi-value">68%</div>
+                <div class="admin-kpi-label">Taxa de Conversão</div>
+                <div class="admin-kpi-change up">
+                  <i class="ph ph-trend-up"></i> +5% vs mês anterior
                 </div>
-                <div class="kpi-sparkline" id="sparkline-disputes"></div>
+              </div>
+              <div class="admin-kpi-card">
+                <div class="admin-kpi-icon escrow"><i class="ph ph-vault"></i></div>
+                <div class="admin-kpi-value">
+                  6.2M <small style="font-size: var(--font-xs); font-weight: 400">Kz</small>
+                </div>
+                <div class="admin-kpi-label">Em Escrow</div>
+                <div class="admin-kpi-change neutral">
+                  <i class="ph ph-lock-simple"></i> Fundos retidos
+                </div>
+              </div>
+              <div class="admin-kpi-card">
+                <div class="admin-kpi-icon disputes"><i class="ph ph-scales"></i></div>
+                <div class="admin-kpi-value">2</div>
+                <div class="admin-kpi-label">Disputas Abertas</div>
+                <div class="admin-kpi-change down">
+                  <i class="ph ph-warning"></i> Requer acção
+                </div>
+              </div>
+              <div class="admin-kpi-card">
+                <div class="admin-kpi-icon satisfaction"><i class="ph ph-smiley"></i></div>
+                <div class="admin-kpi-value">4.8</div>
+                <div class="admin-kpi-label">Satisfação Média</div>
+                <div class="admin-kpi-change up">
+                  <i class="ph-fill ph-star" style="color: var(--warning)"></i> Excelente
+                </div>
               </div>
             </div>
 
-            <!-- ===== 3. ANALYTICS CHARTS ===== -->
-            <div class="charts-section admin-section-animate">
+            <!-- ---- SUPPLIER APPROVALS ---- -->
+            <div class="dash-section">
               <div class="dash-section-header">
                 <h2 class="dash-section-title">
-                  <i class="ph ph-chart-line-up"></i> Analytics
+                  <i class="ph ph-user-check" style="color: var(--warning)"></i> Aprovações Pendentes
                 </h2>
+                <a href="/pages/admin/suppliers.html" class="dash-section-action"
+                  >Ver todos <i class="ph ph-arrow-right"></i
+                ></a>
               </div>
-              <div class="charts-grid">
-                <!-- Chart A: Transaction Volume -->
-                <div class="chart-card">
-                  <div class="chart-card-header">
-                    <span class="chart-card-title">
-                      <i class="ph ph-arrows-left-right"></i> Volume de
-                      Transacções
-                    </span>
-                    <span class="chart-card-period">Últimos 30 dias</span>
+
+              <div class="order-list">
+                <!-- Approval 1 -->
+                <div class="approval-card">
+                  <div class="approval-header">
+                    <div class="approval-supplier">
+                      <div class="approval-avatar" style="background: #1B4D6E">JN</div>
+                      <div>
+                        <div class="approval-name">João Nandez</div>
+                        <div class="approval-meta">Registado há 2 dias · Windhoek</div>
+                      </div>
+                    </div>
+                    <span class="admin-status pending"
+                      ><i class="ph ph-clock"></i> Pendente</span
+                    >
                   </div>
-                  <div class="chart-canvas-wrap">
-                    <canvas id="chartTransactionVolume"></canvas>
+                  <div class="approval-details">
+                    <span class="approval-detail"
+                      ><i class="ph ph-map-pin"></i> Windhoek, Namíbia</span
+                    >
+                    <span class="approval-detail"
+                      ><i class="ph ph-buildings"></i> Electrónica & Gadgets</span
+                    >
+                    <span class="approval-detail"
+                      ><i class="ph ph-phone"></i> +264 81 234 5678</span
+                    >
+                  </div>
+                  <div class="approval-docs">
+                    <span class="approval-doc"
+                      ><i class="ph ph-file-text"></i> Alvará Comercial</span
+                    >
+                    <span class="approval-doc"
+                      ><i class="ph ph-identification-card"></i> Documento ID</span
+                    >
+                    <span class="approval-doc"
+                      ><i class="ph ph-image"></i> Fotos da Loja</span
+                    >
+                  </div>
+                  <div class="approval-actions">
+                    <button class="btn btn-success btn-sm" onclick="adminAction('approve', 'João Nandez')">
+                      <i class="ph ph-check"></i> Aprovar
+                    </button>
+                    <button class="btn btn-ghost btn-sm" onclick="adminAction('reject', 'João Nandez')">
+                      <i class="ph ph-x"></i> Rejeitar
+                    </button>
+                    <button class="btn btn-ghost btn-sm">
+                      <i class="ph ph-eye"></i> Ver Docs
+                    </button>
                   </div>
                 </div>
 
-                <!-- Chart B: Revenue Trend -->
-                <div class="chart-card">
-                  <div class="chart-card-header">
-                    <span class="chart-card-title">
-                      <i class="ph ph-currency-circle-dollar"></i> Tendência de
-                      Receita
-                    </span>
-                    <span class="chart-card-period">Últimos 30 dias</span>
+                <!-- Approval 2 -->
+                <div class="approval-card">
+                  <div class="approval-header">
+                    <div class="approval-supplier">
+                      <div class="approval-avatar" style="background: #2D9B5B">SM</div>
+                      <div>
+                        <div class="approval-name">Sara Mbanza</div>
+                        <div class="approval-meta">Registada há 3 dias · Oshakati</div>
+                      </div>
+                    </div>
+                    <span class="admin-status pending"
+                      ><i class="ph ph-clock"></i> Pendente</span
+                    >
                   </div>
-                  <div class="chart-canvas-wrap">
-                    <canvas id="chartRevenueTrend"></canvas>
+                  <div class="approval-details">
+                    <span class="approval-detail"
+                      ><i class="ph ph-map-pin"></i> Oshakati, Namíbia</span
+                    >
+                    <span class="approval-detail"
+                      ><i class="ph ph-buildings"></i> Peças Auto</span
+                    >
+                    <span class="approval-detail"
+                      ><i class="ph ph-phone"></i> +264 65 432 1098</span
+                    >
                   </div>
-                </div>
-
-                <!-- Chart C: Marketplace Activity -->
-                <div class="chart-card">
-                  <div class="chart-card-header">
-                    <span class="chart-card-title">
-                      <i class="ph ph-users-three"></i> Actividade do
-                      Marketplace
-                    </span>
-                    <span class="chart-card-period">Este Mês (Semanal)</span>
+                  <div class="approval-docs">
+                    <span class="approval-doc"
+                      ><i class="ph ph-file-text"></i> Alvará Comercial</span
+                    >
+                    <span class="approval-doc"
+                      ><i class="ph ph-identification-card"></i> Documento ID</span
+                    >
                   </div>
-                  <div class="chart-canvas-wrap">
-                    <canvas id="chartMarketplaceActivity"></canvas>
+                  <div class="approval-actions">
+                    <button class="btn btn-success btn-sm" onclick="adminAction('approve', 'Sara Mbanza')">
+                      <i class="ph ph-check"></i> Aprovar
+                    </button>
+                    <button class="btn btn-ghost btn-sm" onclick="adminAction('reject', 'Sara Mbanza')">
+                      <i class="ph ph-x"></i> Rejeitar
+                    </button>
+                    <button class="btn btn-ghost btn-sm">
+                      <i class="ph ph-eye"></i> Ver Docs
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- ===== 4. MARKETPLACE HEALTH WIDGETS ===== -->
-            <div class="health-widgets-grid admin-section-animate">
-              <div class="health-widget">
-                <div class="health-widget-value">186</div>
-                <div class="health-widget-label">Fornecedores Activos</div>
-                <span class="health-widget-trend up">
-                  <i class="ph ph-trend-up"></i> +8 este mês
-                </span>
-              </div>
-              <div class="health-widget">
-                <div class="health-widget-value">
-                  142K
-                  <small style="font-size: var(--font-xs); font-weight: 400"
-                    >Kz</small
-                  >
-                </div>
-                <div class="health-widget-label">Valor Médio por Pedido</div>
-                <span class="health-widget-trend up">
-                  <i class="ph ph-trend-up"></i> +5.2%
-                </span>
-              </div>
-              <div class="health-widget">
-                <div class="health-widget-value">12.4%</div>
-                <div class="health-widget-label">Taxa de Conversão</div>
-                <span class="health-widget-trend up">
-                  <i class="ph ph-trend-up"></i> +1.8%
-                </span>
-              </div>
-              <div class="health-widget">
-                <div class="health-widget-value">23</div>
-                <div class="health-widget-label">Escrow Activos</div>
-                <span class="health-widget-trend down">
-                  <i class="ph ph-trend-down"></i> −3 esta semana
-                </span>
-              </div>
-              <div class="health-widget">
-                <div class="health-widget-value">
-                  2.8M
-                  <small style="font-size: var(--font-xs); font-weight: 400"
-                    >Kz</small
-                  >
-                </div>
-                <div class="health-widget-label">Taxas Plataforma (Mês)</div>
-                <span class="health-widget-trend up">
-                  <i class="ph ph-trend-up"></i> +14%
-                </span>
-              </div>
-            </div>
-
-            <div class="admin-card-grid">
-              <!-- ===== 5. PENDING APPROVALS (Suppliers) ===== -->
-              <div class="dash-section admin-section-animate">
+            <!-- ---- TWO COLUMN: Recent Orders + Alerts ---- -->
+            <div class="admin-two-col">
+              <!-- Recent Orders -->
+              <div class="dash-section" style="margin-bottom: 0">
                 <div class="dash-section-header">
                   <h2 class="dash-section-title">
-                    <i class="ph ph-user-circle-plus"></i> Aprovações Pendentes
+                    <i class="ph ph-package"></i> Encomendas Recentes
                   </h2>
-                  <span class="dash-section-action"
+                  <a href="/pages/admin/orders.html" class="dash-section-action"
                     >Ver todas <i class="ph ph-arrow-right"></i
-                  ></span>
-                </div>
-
-                <div
-                  class="admin-table-wrap"
-                  style="
-                    background: var(--bg-elevated);
-                    border: 1px solid var(--border);
-                    border-radius: var(--radius-lg);
-                  "
-                >
-                  <table class="admin-table" style="margin-top: 0">
-                    <thead>
-                      <tr>
-                        <th>Fornecedor</th>
-                        <th>Localização</th>
-                        <th>Data</th>
-                        <th>Status</th>
-                        <th>Acções</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="user-profile-cell">
-                            <div
-                              class="user-avatar"
-                              style="background: #1b4d6e"
-                            >
-                              TG
-                            </div>
-                            <div class="user-details">
-                              <span class="user-name">Tech Global Ltd.</span>
-                              <span class="user-type">Empresa</span>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <span
-                            style="
-                              color: var(--text-secondary);
-                              font-size: var(--font-sm);
-                            "
-                          >
-                            <i class="ph ph-map-pin" style="opacity: 0.5"></i>
-                            Windhoek, NAM
-                          </span>
-                        </td>
-                        <td>
-                          <span style="color: var(--text-tertiary)"
-                            >Hoje, 09:40</span
-                          >
-                        </td>
-                        <td>
-                          <span class="status-badge pending"
-                            ><i class="ph-fill ph-circle"></i> Análise</span
-                          >
-                        </td>
-                        <td>
-                          <div class="table-actions">
-                            <button class="action-btn approve" title="Aprovar">
-                              <i class="ph ph-check"></i>
-                            </button>
-                            <button class="action-btn reject" title="Rejeitar">
-                              <i class="ph ph-x"></i>
-                            </button>
-                            <button
-                              class="action-btn view-profile"
-                              title="Ver Perfil"
-                            >
-                              <i class="ph ph-eye"></i> Perfil
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="user-profile-cell">
-                            <div
-                              class="user-avatar"
-                              style="background: #2d9b5b"
-                            >
-                              MA
-                            </div>
-                            <div class="user-details">
-                              <span class="user-name"
-                                >Miguel A. (Individual)</span
-                              >
-                              <span class="user-type">Individual</span>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <span
-                            style="
-                              color: var(--text-secondary);
-                              font-size: var(--font-sm);
-                            "
-                          >
-                            <i class="ph ph-map-pin" style="opacity: 0.5"></i>
-                            Luanda, AO
-                          </span>
-                        </td>
-                        <td>
-                          <span style="color: var(--text-tertiary)"
-                            >Ontem, 14:20</span
-                          >
-                        </td>
-                        <td>
-                          <span class="status-badge pending"
-                            ><i class="ph-fill ph-circle"></i> Análise</span
-                          >
-                        </td>
-                        <td>
-                          <div class="table-actions">
-                            <button class="action-btn approve" title="Aprovar">
-                              <i class="ph ph-check"></i>
-                            </button>
-                            <button class="action-btn reject" title="Rejeitar">
-                              <i class="ph ph-x"></i>
-                            </button>
-                            <button
-                              class="action-btn view-profile"
-                              title="Ver Perfil"
-                            >
-                              <i class="ph ph-eye"></i> Perfil
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="user-profile-cell">
-                            <div
-                              class="user-avatar"
-                              style="background: #3b8ecf"
-                            >
-                              SF
-                            </div>
-                            <div class="user-details">
-                              <span class="user-name">Solar Farms Namibia</span>
-                              <span class="user-type">Empresa</span>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <span
-                            style="
-                              color: var(--text-secondary);
-                              font-size: var(--font-sm);
-                            "
-                          >
-                            <i class="ph ph-map-pin" style="opacity: 0.5"></i>
-                            Walvis Bay, NAM
-                          </span>
-                        </td>
-                        <td>
-                          <span style="color: var(--text-tertiary)"
-                            >08 Mar, 11:05</span
-                          >
-                        </td>
-                        <td>
-                          <span class="status-badge pending"
-                            ><i class="ph-fill ph-circle"></i> Em Revisão</span
-                          >
-                        </td>
-                        <td>
-                          <div class="table-actions">
-                            <button class="action-btn approve" title="Aprovar">
-                              <i class="ph ph-check"></i>
-                            </button>
-                            <button class="action-btn reject" title="Rejeitar">
-                              <i class="ph ph-x"></i>
-                            </button>
-                            <button
-                              class="action-btn view-profile"
-                              title="Ver Perfil"
-                            >
-                              <i class="ph ph-eye"></i> Perfil
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              <!-- ===== 6. RECENT TRANSACTIONS (Color-coded) ===== -->
-              <div class="dash-section admin-section-animate">
-                <div class="dash-section-header">
-                  <h2 class="dash-section-title">
-                    <i class="ph ph-arrows-left-right"></i> Transacções Recentes
-                  </h2>
+                  ></a>
                 </div>
 
                 <div class="order-list">
                   <div class="order-row">
-                    <div
-                      class="order-icon"
-                      style="
-                        background: rgba(59, 142, 207, 0.1);
-                        color: #3b8ecf;
-                        border-color: rgba(59, 142, 207, 0.2);
-                      "
-                    >
-                      <i class="ph ph-lock-key"></i>
-                    </div>
+                    <div class="order-icon"><i class="ph ph-device-mobile"></i></div>
                     <div class="order-info">
-                      <div class="order-title">Escrow Retido — #KRB-2847</div>
+                      <div class="order-title">iPhone 14 Pro — #KRB-2847</div>
                       <div class="order-meta">
-                        <span>Comprador: José F.</span>
-                        <span>Fornecedor: Carlos M.</span>
+                        <span><i class="ph ph-user"></i> Ana C. → Carlos M.</span>
                         <span><i class="ph ph-money"></i> 165.000 Kz</span>
                       </div>
                     </div>
-                    <span class="order-status escrow">Escrow Retido</span>
+                    <span class="order-status active">Em Trânsito</span>
                   </div>
-
                   <div class="order-row">
-                    <div
-                      class="order-icon"
-                      style="
-                        background: var(--success-bg);
-                        color: var(--success-light);
-                        border-color: var(--success-border);
-                      "
-                    >
-                      <i class="ph ph-check-circle"></i>
-                    </div>
+                    <div class="order-icon"><i class="ph ph-television"></i></div>
                     <div class="order-info">
-                      <div class="order-title">
-                        Pagamento Liberado — #KRB-2820
-                      </div>
+                      <div class="order-title">LG Smart TV 55" 4K — #KRB-2839</div>
                       <div class="order-meta">
-                        <span>Comprador: Ana C.</span>
-                        <span>Fornecedor: Maria F.</span>
+                        <span><i class="ph ph-user"></i> José F. → Maria F.</span>
                         <span><i class="ph ph-money"></i> 280.000 Kz</span>
+                      </div>
+                    </div>
+                    <span class="order-status pending">Aguarda Envio</span>
+                  </div>
+                  <div class="order-row">
+                    <div class="order-icon"><i class="ph ph-laptop"></i></div>
+                    <div class="order-info">
+                      <div class="order-title">MacBook Air M2 — #KRB-2831</div>
+                      <div class="order-meta">
+                        <span><i class="ph ph-user"></i> Pedro L. → Carlos M.</span>
+                        <span><i class="ph ph-money"></i> 420.000 Kz</span>
+                      </div>
+                    </div>
+                    <span class="order-status active">No Hub</span>
+                  </div>
+                  <div class="order-row">
+                    <div class="order-icon"><i class="ph ph-game-controller"></i></div>
+                    <div class="order-info">
+                      <div class="order-title">PlayStation 5 — #KRB-2825</div>
+                      <div class="order-meta">
+                        <span><i class="ph ph-user"></i> Marta V. → João N.</span>
+                        <span><i class="ph ph-money"></i> 210.000 Kz</span>
                       </div>
                     </div>
                     <span class="order-status completed">Concluído</span>
                   </div>
-
-                  <div class="order-row content-flagged">
-                    <div
-                      class="order-icon"
-                      style="
-                        background: rgba(217, 75, 75, 0.1);
-                        color: var(--danger-light);
-                        border-color: rgba(217, 75, 75, 0.2);
-                      "
-                    >
-                      <i class="ph ph-warning"></i>
-                    </div>
-                    <div class="order-info">
-                      <div class="order-title">Disputa Aberta — #KRB-2815</div>
-                      <div class="order-meta">
-                        <span>Comprador: Pedro L.</span>
-                        <span>Problema: "Item com defeito"</span>
-                      </div>
-                    </div>
-                    <span class="order-status dispute">Disputa Aberta</span>
-                  </div>
-
                   <div class="order-row">
-                    <div
-                      class="order-icon"
-                      style="
-                        background: rgba(229, 168, 50, 0.1);
-                        color: var(--warning);
-                        border-color: rgba(229, 168, 50, 0.2);
-                      "
-                    >
-                      <i class="ph ph-hourglass-medium"></i>
-                    </div>
+                    <div class="order-icon"
+                      ><i class="ph ph-scales" style="color: var(--danger)"></i
+                    ></div>
                     <div class="order-info">
-                      <div class="order-title">
-                        Pagamento Pendente — #KRB-2810
-                      </div>
+                      <div class="order-title">Samsung Galaxy S23 — #KRB-2820</div>
                       <div class="order-meta">
-                        <span>Comprador: Luísa R.</span>
-                        <span>Fornecedor: Tech Global Ltd.</span>
-                        <span><i class="ph ph-money"></i> 95.000 Kz</span>
+                        <span><i class="ph ph-user"></i> Ricardo A. → Sara M.</span>
+                        <span><i class="ph ph-money"></i> 195.000 Kz</span>
                       </div>
                     </div>
-                    <span class="order-status pending">Pendente</span>
+                    <span class="order-status urgent"
+                      ><i class="ph ph-warning"></i> Disputa</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Platform Alerts -->
+              <div class="dash-section" style="margin-bottom: 0">
+                <div class="dash-section-header">
+                  <h2 class="dash-section-title">
+                    <i class="ph ph-bell-ringing" style="color: var(--warning)"></i> Alertas da Plataforma
+                  </h2>
+                </div>
+
+                <div class="order-list">
+                  <div class="alert-card alert-danger">
+                    <div class="alert-icon"><i class="ph ph-scales"></i></div>
+                    <div class="alert-content">
+                      <div class="alert-title">Disputa aberta — #KRB-2820</div>
+                      <div class="alert-text">
+                        Ricardo A. reportou produto com defeito. Fornecedor Sara M. tem 48h para responder.
+                      </div>
+                    </div>
+                    <span class="alert-time">há 3h</span>
+                  </div>
+
+                  <div class="alert-card alert-danger">
+                    <div class="alert-icon"><i class="ph ph-scales"></i></div>
+                    <div class="alert-content">
+                      <div class="alert-title">Disputa aberta — #KRB-2815</div>
+                      <div class="alert-text">
+                        Cliente não recebeu encomenda no prazo. Aguarda mediação admin.
+                      </div>
+                    </div>
+                    <span class="alert-time">há 1d</span>
+                  </div>
+
+                  <div class="alert-card alert-warning">
+                    <div class="alert-icon"><i class="ph ph-clock"></i></div>
+                    <div class="alert-content">
+                      <div class="alert-title">3 encomendas com atraso</div>
+                      <div class="alert-text">
+                        Prazo de entrega excedido em 48h. Considerar notificar fornecedores.
+                      </div>
+                    </div>
+                    <span class="alert-time">há 5h</span>
+                  </div>
+
+                  <div class="alert-card alert-warning">
+                    <div class="alert-icon"><i class="ph ph-user-check"></i></div>
+                    <div class="alert-content">
+                      <div class="alert-title">4 fornecedores aguardando aprovação</div>
+                      <div class="alert-text">
+                        Incluindo 2 novos de Walvis Bay com boa documentação.
+                      </div>
+                    </div>
+                    <span class="alert-time">há 2d</span>
+                  </div>
+
+                  <div class="alert-card alert-info">
+                    <div class="alert-icon"><i class="ph ph-chart-line-up"></i></div>
+                    <div class="alert-content">
+                      <div class="alert-title">Recorde de registos mensais</div>
+                      <div class="alert-text">
+                        186 novos utilizadores este mês — crescimento 24% acima da meta.
+                      </div>
+                    </div>
+                    <span class="alert-time">há 1d</span>
+                  </div>
+
+                  <div class="alert-card alert-success">
+                    <div class="alert-icon"><i class="ph ph-check-circle"></i></div>
+                    <div class="alert-content">
+                      <div class="alert-title">Backup automático concluído</div>
+                      <div class="alert-text">
+                        Base de dados e ficheiros do marketplace copiados com sucesso.
+                      </div>
+                    </div>
+                    <span class="alert-time">há 6h</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- ===== 7. PLATFORM ALERTS ===== -->
-            <div class="dash-section admin-section-animate">
+            <!-- ---- QUICK ACTIONS ---- -->
+            <div class="dash-section" style="margin-top: var(--space-lg)">
               <div class="dash-section-header">
                 <h2 class="dash-section-title">
-                  <i class="ph ph-bell-ringing"></i> Alertas da Plataforma
-                </h2>
-                <span class="dash-section-action"
-                  >Ver todos <i class="ph ph-arrow-right"></i
-                ></span>
-              </div>
-
-              <div class="alerts-list">
-                <div class="alert-item">
-                  <span class="alert-dot critical"></span>
-                  <div class="alert-content">
-                    <div class="alert-message">
-                      <strong>Nova disputa aberta</strong> — Pedido #KRB-2815.
-                      Comprador reportou "Item com defeito". Ação necessária.
-                    </div>
-                    <div class="alert-time">Há 25 minutos</div>
-                  </div>
-                </div>
-                <div class="alert-item">
-                  <span class="alert-dot warning"></span>
-                  <div class="alert-content">
-                    <div class="alert-message">
-                      <strong>Transacção de alto valor</strong> — #KRB-2847
-                      (165.000 Kz) sinalizada para revisão de conformidade.
-                    </div>
-                    <div class="alert-time">Há 1 hora</div>
-                  </div>
-                </div>
-                <div class="alert-item">
-                  <span class="alert-dot info"></span>
-                  <div class="alert-content">
-                    <div class="alert-message">
-                      <strong>Verificação pendente</strong> — 5 fornecedores
-                      aguardam aprovação de documentos.
-                    </div>
-                    <div class="alert-time">Há 3 horas</div>
-                  </div>
-                </div>
-                <div class="alert-item">
-                  <span class="alert-dot system"></span>
-                  <div class="alert-content">
-                    <div class="alert-message">
-                      <strong>Manutenção agendada</strong> — Atualização do
-                      sistema de pagamentos prevista para 12 Mar, 02:00.
-                    </div>
-                    <div class="alert-time">Há 5 horas</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- ===== 8. QUICK ACTIONS ===== -->
-            <div class="dash-section admin-section-animate">
-              <div class="dash-section-header">
-                <h2 class="dash-section-title">
-                  <i class="ph ph-lightning"></i> Acções Rápidas
+                  <i class="ph ph-lightning" style="color: var(--accent)"></i> Acções Rápidas
                 </h2>
               </div>
-
-              <div class="quick-actions-grid">
-                <button class="quick-action-card">
-                  <span class="quick-action-icon"
-                    ><i class="ph ph-user-plus"></i
-                  ></span>
-                  <span class="quick-action-label">Adicionar Fornecedor</span>
+              <div class="quick-actions">
+                <button class="quick-action-btn" onclick="window.location.href='/pages/admin/suppliers.html'">
+                  <span class="quick-action-icon"><i class="ph ph-user-check"></i></span>
+                  Aprovar Fornecedores
                 </button>
-                <button class="quick-action-card">
-                  <span class="quick-action-icon"
-                    ><i class="ph ph-package"></i
-                  ></span>
-                  <span class="quick-action-label">Criar Listagem</span>
+                <button class="quick-action-btn" onclick="window.location.href='/pages/admin/orders.html'">
+                  <span class="quick-action-icon"><i class="ph ph-scales"></i></span>
+                  Resolver Disputas
                 </button>
-                <button class="quick-action-card">
-                  <span class="quick-action-icon"
-                    ><i class="ph ph-gear-six"></i
-                  ></span>
-                  <span class="quick-action-label">Ajustar Taxas</span>
+                <button class="quick-action-btn" onclick="window.location.href='/pages/admin/products.html'">
+                  <span class="quick-action-icon"><i class="ph ph-plus-circle"></i></span>
+                  Adicionar Produto
                 </button>
-                <button class="quick-action-card">
-                  <span class="quick-action-icon"
-                    ><i class="ph ph-scales"></i
-                  ></span>
-                  <span class="quick-action-label">Rever Disputas</span>
+                <button class="quick-action-btn">
+                  <span class="quick-action-icon"><i class="ph ph-shopping-cart"></i></span>
+                  Criar Carrinho
+                </button>
+                <button class="quick-action-btn" onclick="window.location.href='/pages/admin/users.html'">
+                  <span class="quick-action-icon"><i class="ph ph-users"></i></span>
+                  Gerir Utilizadores
+                </button>
+                <button class="quick-action-btn">
+                  <span class="quick-action-icon"><i class="ph ph-money"></i></span>
+                  Ver Escrow
+                </button>
+                <button class="quick-action-btn">
+                  <span class="quick-action-icon"><i class="ph ph-chart-bar"></i></span>
+                  Gerar Relatório
+                </button>
+                <button class="quick-action-btn">
+                  <span class="quick-action-icon"><i class="ph ph-gear"></i></span>
+                  Definições
                 </button>
               </div>
             </div>
 
-            <!-- ===== FLAGGED PRODUCTS ===== -->
-            <div class="dash-section admin-section-animate">
+            <!-- ---- ACTIVITY FEED ---- -->
+            <div class="dash-section" style="margin-top: var(--space-lg)">
               <div class="dash-section-header">
                 <h2 class="dash-section-title">
-                  <i class="ph ph-shopping-bag"></i> Produtos
-                  Denunciados/Suspeitos
+                  <i class="ph ph-clipboard-text"></i> Actividade Recente
                 </h2>
               </div>
-
-              <div
-                class="admin-table-wrap"
-                style="
-                  background: var(--bg-elevated);
-                  border: 1px solid var(--border);
-                  border-radius: var(--radius-lg);
-                "
-              >
-                <table class="admin-table" style="margin-top: 0">
-                  <thead>
-                    <tr>
-                      <th>ID Produto</th>
-                      <th>Título / Fornecedor</th>
-                      <th>Motivo</th>
-                      <th>Status</th>
-                      <th>Acções</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <span
-                          style="
-                            color: var(--text-tertiary);
-                            font-family: monospace;
-                          "
-                          >#PRD-9982</span
-                        >
-                      </td>
-                      <td>
-                        <div class="user-details">
-                          <span class="user-name"
-                            >iPhone 15 Pro Max 1TB (Muito barato)</span
-                          >
-                          <span class="user-type">Por: LojaXPT_Online</span>
-                        </div>
-                      </td>
-                      <td>Preço muito abaixo do mercado (possível fraude)</td>
-                      <td>
-                        <span class="status-badge suspended"
-                          ><i class="ph-fill ph-prohibit"></i> Oculto</span
-                        >
-                      </td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="action-btn" title="Ver Detalhes">
-                            <i class="ph ph-eye"></i>
-                          </button>
-                          <button
-                            class="action-btn reject"
-                            title="Remover e Banir"
-                          >
-                            <i class="ph ph-trash"></i>
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span
-                          style="
-                            color: var(--text-tertiary);
-                            font-family: monospace;
-                          "
-                          >#PRD-9810</span
-                        >
-                      </td>
-                      <td>
-                        <div class="user-details">
-                          <span class="user-name"
-                            >Creme Clareador Fast (Sem Registos)</span
-                          >
-                          <span class="user-type">Por: BeautyMZ</span>
-                        </div>
-                      </td>
-                      <td>Produto não autorizado / sem certificação</td>
-                      <td>
-                        <span class="status-badge pending"
-                          ><i class="ph-fill ph-circle"></i> Em Revisão</span
-                        >
-                      </td>
-                      <td>
-                        <div class="table-actions">
-                          <button class="action-btn" title="Ver Detalhes">
-                            <i class="ph ph-eye"></i>
-                          </button>
-                          <button class="action-btn reject" title="Remover">
-                            <i class="ph ph-trash"></i>
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="activity-list">
+                <div class="activity-item">
+                  <span class="activity-dot sale"></span>
+                  <div>
+                    <div class="activity-text">
+                      <strong>Encomenda concluída:</strong> PlayStation 5 — #KRB-2825. Comprador Marta V. confirmou entrega.
+                    </div>
+                    <div class="activity-time">há 1 hora</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <span class="activity-dot quote"></span>
+                  <div>
+                    <div class="activity-text">
+                      <strong>Novo fornecedor registado:</strong> João Nandez (Windhoek) — aguarda aprovação.
+                    </div>
+                    <div class="activity-time">há 2 horas</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <span class="activity-dot system"></span>
+                  <div>
+                    <div class="activity-text">
+                      <strong>Disputa aberta:</strong> Ricardo A. reportou defeito na encomenda #KRB-2820 (Samsung Galaxy S23).
+                    </div>
+                    <div class="activity-time">há 3 horas</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <span class="activity-dot sale"></span>
+                  <div>
+                    <div class="activity-text">
+                      <strong>Pagamento Escrow liberado:</strong> 420.000 Kz para fornecedor Carlos M. (MacBook Air M2).
+                    </div>
+                    <div class="activity-time">há 5 horas</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <span class="activity-dot review"></span>
+                  <div>
+                    <div class="activity-text">
+                      <strong>Nova avaliação
+                        <i class="ph-fill ph-star" style="color: var(--warning)"></i
+                        ><i class="ph-fill ph-star" style="color: var(--warning)"></i
+                        ><i class="ph-fill ph-star" style="color: var(--warning)"></i
+                        ><i class="ph-fill ph-star" style="color: var(--warning)"></i
+                        ><i class="ph-fill ph-star" style="color: var(--warning)"></i>:</strong
+                      >
+                      "Serviço excelente" — por Ana C. para Carlos M.
+                    </div>
+                    <div class="activity-time">há 6 horas</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <span class="activity-dot quote"></span>
+                  <div>
+                    <div class="activity-text">
+                      <strong>Carrinho fechado:</strong> Windhoek → Luanda encerrou com 15 pedidos consolidados.
+                    </div>
+                    <div class="activity-time">há 8 horas</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <span class="activity-dot system"></span>
+                  <div>
+                    <div class="activity-text">
+                      <strong>Sistema:</strong> Novo carrinho Windhoek → Benguela aberto automaticamente.
+                    </div>
+                    <div class="activity-time">há 10 horas</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -883,27 +640,31 @@
     <!-- ========== MOBILE BOTTOM NAV ========== -->
     <nav class="bottom-nav">
       <div class="bottom-nav-inner">
-        <a href="/admin/dashboard" class="bottom-nav-item active"
-          ><span class="nav-icon"><i class="ph ph-chart-pie-slice"></i></span
-          ><span class="nav-label">Geral</span></a
+        <a href="/pages/admin/dashboard.html" class="bottom-nav-item active"
+          ><span class="nav-icon"><i class="ph ph-chart-pie"></i></span
+          ><span class="nav-label">Painel</span></a
         >
-        <a href="#" class="bottom-nav-item"
+        <a href="/pages/admin/users.html" class="bottom-nav-item"
           ><span class="nav-icon"><i class="ph ph-users"></i></span
-          ><span class="nav-label">Users</span></a
+          ><span class="nav-label">Utilizadores</span></a
         >
-        <a href="#" class="bottom-nav-item"
-          ><span class="nav-icon"><i class="ph ph-arrows-left-right"></i></span
-          ><span class="nav-label">Transacções</span></a
+        <a href="/pages/admin/orders.html" class="bottom-nav-item"
+          ><span class="nav-icon"><i class="ph ph-package"></i></span
+          ><span class="nav-label">Encomendas</span></a
+        >
+        <a href="/pages/admin/suppliers.html" class="bottom-nav-item"
+          ><span class="nav-icon"><i class="ph ph-storefront"></i></span
+          ><span class="nav-label">Fornecedores</span
+          ><span class="nav-badge">4</span></a
         >
         <a href="#" class="bottom-nav-item"
           ><span class="nav-icon"><i class="ph ph-gear"></i></span
-          ><span class="nav-label">Sistema</span></a
+          ><span class="nav-label">Mais</span></a
         >
       </div>
     </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
     <script src="/js/app.js"></script>
-    <script src="/js/admin-dashboard.js"></script>
+    <script src="/js/admin.js"></script>
   </body>
 </html>

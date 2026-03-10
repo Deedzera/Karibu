@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestão de Utilizadores — Karibu Admin</title>
+    <meta name="description" content="Gere os utilizadores (compradores) registados na plataforma Karibu." />
+    <meta name="theme-color" content="#0B1219" />
+    <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/pages/dashboard.css" />
+    <link rel="stylesheet" href="/css/pages/admin.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+      <div class="header-inner">
+        <a href="/pages/admin/dashboard.html" class="header-logo">
+          <span class="header-logo-text">Karibu</span>
+          <span class="header-logo-tag admin-tag">Admin</span>
+        </a>
+        <nav class="header-nav">
+          <a href="/pages/admin/dashboard.html">Painel</a>
+          <a href="/pages/admin/users.html" class="active">Utilizadores</a>
+          <a href="/pages/admin/suppliers.html">Fornecedores</a>
+          <a href="/pages/admin/orders.html">Encomendas</a>
+        </nav>
+        <div class="header-actions">
+          <button class="header-icon-btn" aria-label="Notificações">
+            <i class="ph ph-bell"></i><span class="notification-dot"></span>
+          </button>
+          <button class="header-icon-btn" aria-label="Perfil"><i class="ph ph-user-gear"></i></button>
+          <button class="header-menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MOBILE MENU ========== -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-panel">
+        <div class="mobile-menu-header">
+          <span class="header-logo-text" style="font-size: 1.3rem">Karibu</span>
+          <button class="mobile-menu-close modal-close"><i class="ph ph-x"></i></button>
+        </div>
+        <nav class="mobile-menu-nav">
+          <a href="/pages/admin/dashboard.html"><i class="ph ph-chart-pie"></i> Painel</a>
+          <a href="/pages/admin/users.html" class="active"><i class="ph ph-users"></i> Utilizadores</a>
+          <a href="/pages/admin/suppliers.html"><i class="ph ph-storefront"></i> Fornecedores</a>
+          <a href="/pages/admin/orders.html"><i class="ph ph-package"></i> Encomendas</a>
+          <a href="/pages/admin/products.html"><i class="ph ph-tag"></i> Produtos</a>
+          <div class="mobile-menu-divider"></div>
+          <a href="/"><i class="ph ph-house"></i> Ir para Marketplace</a>
+          <a href="/pages/login.html"><i class="ph ph-sign-out"></i> Sair</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ========== MAIN ========== -->
+    <main class="dashboard">
+      <div class="container">
+        <!-- Mobile Nav -->
+        <nav class="dash-mobile-nav">
+          <a href="/pages/admin/dashboard.html" class="dash-mobile-nav-item"><i class="ph ph-chart-pie"></i> Visão Geral</a>
+          <a href="/pages/admin/users.html" class="dash-mobile-nav-item active"><i class="ph ph-users"></i> Utilizadores</a>
+          <a href="/pages/admin/suppliers.html" class="dash-mobile-nav-item"><i class="ph ph-storefront"></i> Fornecedores</a>
+          <a href="/pages/admin/orders.html" class="dash-mobile-nav-item"><i class="ph ph-package"></i> Encomendas</a>
+          <a href="/pages/admin/products.html" class="dash-mobile-nav-item"><i class="ph ph-tag"></i> Produtos</a>
+        </nav>
+
+        <div class="dashboard-grid">
+          <!-- ===== SIDEBAR ===== -->
+          <aside class="dash-sidebar">
+            <a href="/pages/admin/dashboard.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-chart-pie"></i></span> Visão Geral
+            </a>
+            <a href="/pages/admin/users.html" class="dash-sidebar-item active">
+              <span class="dash-sidebar-icon"><i class="ph ph-users"></i></span> Utilizadores
+            </a>
+            <a href="/pages/admin/suppliers.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-storefront"></i></span> Fornecedores
+              <span class="dash-sidebar-badge">4</span>
+            </a>
+            <a href="/pages/admin/orders.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-package"></i></span> Encomendas
+            </a>
+            <a href="/pages/admin/products.html" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-tag"></i></span> Produtos
+            </a>
+            <div class="dash-sidebar-divider"></div>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-shopping-cart"></i></span> Carrinhos
+            </a>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-scales" style="color: var(--danger)"></i></span> Disputas
+              <span class="dash-sidebar-badge">2</span>
+            </a>
+            <div class="dash-sidebar-divider"></div>
+            <a href="#" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-gear"></i></span> Definições
+            </a>
+            <a href="/" class="dash-sidebar-item">
+              <span class="dash-sidebar-icon"><i class="ph ph-house"></i></span> Ir para Marketplace
+            </a>
+          </aside>
+
+          <!-- ===== CONTENT ===== -->
+          <div class="dash-content">
+            <div class="dash-header">
+              <div class="dash-greeting">
+                <h1><i class="ph ph-users" style="color: var(--primary-light)"></i> Utilizadores</h1>
+                <p>2.841 utilizadores registados na plataforma</p>
+              </div>
+              <div class="dash-header-actions">
+                <button class="btn btn-secondary btn-sm"><i class="ph ph-download-simple"></i> Exportar</button>
+              </div>
+            </div>
+
+            <!-- KPIs -->
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph ph-users"></i></div>
+                <div class="kpi-value">2.841</div>
+                <div class="kpi-label">Total de Utilizadores</div>
+                <div class="kpi-change up"><i class="ph ph-trend-up"></i> +186 este mês</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph-fill ph-check-circle" style="color: var(--success)"></i></div>
+                <div class="kpi-value">2.690</div>
+                <div class="kpi-label">Activos</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph ph-clock" style="color: var(--warning)"></i></div>
+                <div class="kpi-value">127</div>
+                <div class="kpi-label">Inactivos (+30 dias)</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="ph ph-prohibit" style="color: var(--danger)"></i></div>
+                <div class="kpi-value">24</div>
+                <div class="kpi-label">Suspensos</div>
+              </div>
+            </div>
+
+            <!-- Search & Filters -->
+            <div class="admin-toolbar">
+              <div class="admin-search">
+                <i class="ph ph-magnifying-glass admin-search-icon"></i>
+                <input type="text" class="admin-search-input" placeholder="Pesquisar por nome, email ou província..." />
+              </div>
+              <div class="admin-filters">
+                <select class="admin-filter-select" data-filter="status">
+                  <option value="all">Todos os Status</option>
+                  <option value="activo">Activo</option>
+                  <option value="inactivo">Inactivo</option>
+                  <option value="suspenso">Suspenso</option>
+                </select>
+                <select class="admin-filter-select" data-filter="province">
+                  <option value="all">Todas as Províncias</option>
+                  <option value="luanda">Luanda</option>
+                  <option value="lubango">Lubango</option>
+                  <option value="benguela">Benguela</option>
+                  <option value="huambo">Huambo</option>
+                  <option value="cabinda">Cabinda</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Users Table -->
+            <div class="dash-section">
+              <div class="admin-table-wrapper">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Utilizador</th>
+                      <th>Província</th>
+                      <th>Pedidos</th>
+                      <th>Gasto Total</th>
+                      <th>Registo</th>
+                      <th>Status</th>
+                      <th>Acções</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="table-user">
+                          <div class="table-avatar" style="background: #1B4D6E">AC</div>
+                          <div class="table-user-info">
+                            <div class="table-user-name">Ana Correia</div>
+                            <div class="table-user-email">ana.correia@email.ao</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-province="luanda">Luanda</td>
+                      <td>12</td>
+                      <td>1.850.000 Kz</td>
+                      <td>15 Jan 2026</td>
+                      <td data-status="activo"><span class="admin-status active">Activo</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Ver perfil" onclick="openModal('userDetailModal')"><i class="ph ph-eye"></i></button>
+                          <button class="table-action-btn" title="Suspender" onclick="adminAction('suspend', 'Ana Correia')"><i class="ph ph-prohibit"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="table-user">
+                          <div class="table-avatar" style="background: #2D9B5B">PL</div>
+                          <div class="table-user-info">
+                            <div class="table-user-name">Pedro Lourenço</div>
+                            <div class="table-user-email">pedro.l@email.ao</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-province="lubango">Lubango</td>
+                      <td>8</td>
+                      <td>920.000 Kz</td>
+                      <td>22 Jan 2026</td>
+                      <td data-status="activo"><span class="admin-status active">Activo</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Ver perfil"><i class="ph ph-eye"></i></button>
+                          <button class="table-action-btn" title="Suspender" onclick="adminAction('suspend', 'Pedro Lourenço')"><i class="ph ph-prohibit"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="table-user">
+                          <div class="table-avatar" style="background: #E8913A">MF</div>
+                          <div class="table-user-info">
+                            <div class="table-user-name">Maria Fernandes</div>
+                            <div class="table-user-email">maria.f@email.ao</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-province="huambo">Huambo</td>
+                      <td>5</td>
+                      <td>645.000 Kz</td>
+                      <td>3 Fev 2026</td>
+                      <td data-status="activo"><span class="admin-status active">Activo</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Ver perfil"><i class="ph ph-eye"></i></button>
+                          <button class="table-action-btn" title="Suspender" onclick="adminAction('suspend', 'Maria Fernandes')"><i class="ph ph-prohibit"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="table-user">
+                          <div class="table-avatar" style="background: #3B8ECF">CR</div>
+                          <div class="table-user-info">
+                            <div class="table-user-name">Carlos Reis</div>
+                            <div class="table-user-email">carlos.r@email.ao</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-province="benguela">Benguela</td>
+                      <td>15</td>
+                      <td>2.340.000 Kz</td>
+                      <td>8 Dez 2025</td>
+                      <td data-status="activo"><span class="admin-status active">Activo</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Ver perfil"><i class="ph ph-eye"></i></button>
+                          <button class="table-action-btn" title="Suspender" onclick="adminAction('suspend', 'Carlos Reis')"><i class="ph ph-prohibit"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="table-user">
+                          <div class="table-avatar" style="background: #D94B4B">RA</div>
+                          <div class="table-user-info">
+                            <div class="table-user-name">Ricardo Almeida</div>
+                            <div class="table-user-email">ricardo.a@email.ao</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-province="luanda">Luanda</td>
+                      <td>3</td>
+                      <td>385.000 Kz</td>
+                      <td>18 Fev 2026</td>
+                      <td data-status="suspenso"><span class="admin-status suspended">Suspenso</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Ver perfil"><i class="ph ph-eye"></i></button>
+                          <button class="table-action-btn success" title="Activar" onclick="adminAction('activate', 'Ricardo Almeida')"><i class="ph ph-check"></i></button>
+                          <button class="table-action-btn danger" title="Eliminar" onclick="adminAction('delete', 'Ricardo Almeida')"><i class="ph ph-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="table-user">
+                          <div class="table-avatar" style="background: #E5A832">MV</div>
+                          <div class="table-user-info">
+                            <div class="table-user-name">Marta Vieira</div>
+                            <div class="table-user-email">marta.v@email.ao</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-province="cabinda">Cabinda</td>
+                      <td>7</td>
+                      <td>980.000 Kz</td>
+                      <td>10 Jan 2026</td>
+                      <td data-status="activo"><span class="admin-status active">Activo</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Ver perfil"><i class="ph ph-eye"></i></button>
+                          <button class="table-action-btn" title="Suspender" onclick="adminAction('suspend', 'Marta Vieira')"><i class="ph ph-prohibit"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="table-user">
+                          <div class="table-avatar" style="background: #5A7A90">JF</div>
+                          <div class="table-user-info">
+                            <div class="table-user-name">José Fernandes</div>
+                            <div class="table-user-email">jose.f@email.ao</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-province="lubango">Lubango</td>
+                      <td>0</td>
+                      <td>0 Kz</td>
+                      <td>5 Mar 2026</td>
+                      <td data-status="inactivo"><span class="admin-status pending">Inactivo</span></td>
+                      <td>
+                        <div class="table-actions">
+                          <button class="table-action-btn" title="Ver perfil"><i class="ph ph-eye"></i></button>
+                          <button class="table-action-btn danger" title="Eliminar" onclick="adminAction('delete', 'José Fernandes')"><i class="ph ph-trash"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Pagination -->
+              <div class="admin-pagination">
+                <button class="admin-page-btn" disabled><i class="ph ph-caret-left"></i></button>
+                <button class="admin-page-btn active">1</button>
+                <button class="admin-page-btn">2</button>
+                <button class="admin-page-btn">3</button>
+                <button class="admin-page-btn">...</button>
+                <button class="admin-page-btn">42</button>
+                <button class="admin-page-btn"><i class="ph ph-caret-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ========== USER DETAIL MODAL ========== -->
+    <div class="modal-backdrop" id="userDetailModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 class="modal-title">Detalhes do Utilizador</h3>
+          <button class="modal-close" onclick="closeModal('userDetailModal')"><i class="ph ph-x"></i></button>
+        </div>
+        <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg)">
+          <div class="table-avatar" style="background: #1B4D6E; width: 56px; height: 56px; font-size: var(--font-lg)">AC</div>
+          <div>
+            <div style="font-weight: var(--weight-bold); font-size: var(--font-lg)">Ana Correia</div>
+            <div style="font-size: var(--font-sm); color: var(--text-tertiary)">ana.correia@email.ao</div>
+          </div>
+        </div>
+        <div class="detail-grid">
+          <div class="detail-item">
+            <span class="detail-label">Província</span>
+            <span class="detail-value">Luanda</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Data de Registo</span>
+            <span class="detail-value">15 Jan 2026</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Total de Pedidos</span>
+            <span class="detail-value">12</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Gasto Total</span>
+            <span class="detail-value">1.850.000 Kz</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Último Acesso</span>
+            <span class="detail-value">há 2 horas</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Status</span>
+            <span class="detail-value"><span class="admin-status active">Activo</span></span>
+          </div>
+        </div>
+        <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-md)">
+          <button class="btn btn-ghost btn-sm btn-block" onclick="adminAction('suspend', 'Ana Correia'); closeModal('userDetailModal')">
+            <i class="ph ph-prohibit"></i> Suspender
+          </button>
+          <button class="btn btn-danger btn-sm btn-block" onclick="adminAction('delete', 'Ana Correia'); closeModal('userDetailModal')">
+            <i class="ph ph-trash"></i> Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== MOBILE BOTTOM NAV ========== -->
+    <nav class="bottom-nav">
+      <div class="bottom-nav-inner">
+        <a href="/pages/admin/dashboard.html" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-chart-pie"></i></span><span class="nav-label">Painel</span></a>
+        <a href="/pages/admin/users.html" class="bottom-nav-item active"><span class="nav-icon"><i class="ph ph-users"></i></span><span class="nav-label">Utilizadores</span></a>
+        <a href="/pages/admin/orders.html" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-package"></i></span><span class="nav-label">Encomendas</span></a>
+        <a href="/pages/admin/suppliers.html" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-storefront"></i></span><span class="nav-label">Fornecedores</span></a>
+        <a href="#" class="bottom-nav-item"><span class="nav-icon"><i class="ph ph-gear"></i></span><span class="nav-label">Mais</span></a>
+      </div>
+    </nav>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>
