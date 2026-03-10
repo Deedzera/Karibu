@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrinhos de Importação — Karibu</title>
+    <meta
+      name="description"
+      content="Explora todos os carrinhos de importação activos. Encontra a rota perfeita para o teu pedido e aproveita as melhores oportunidades."
+    />
+    <meta name="theme-color" content="#0B1219" />
+    <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/design-system.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/pages/carts.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+      <div class="header-inner">
+        <a href="/" class="header-logo">
+          <span class="header-logo-text">Karibu</span>
+          <span class="header-logo-tag">Importação Colaborativa</span>
+        </a>
+
+        <nav class="header-nav" id="desktopNav">
+          <a href="/">Início</a>
+          <a href="/pages/catalogue.html">Catálogo</a>
+          <a href="/index.html#como-funciona">Como Funciona</a>
+          <a href="/pages/carts.html" class="active">Carrinhos</a>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            class="header-icon-btn"
+            id="notificationsBtn"
+            aria-label="Notificações"
+          >
+            <i class="ph ph-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+          <a href="/pages/welcome.html" class="btn btn-primary btn-sm">Entrar</a>
+          <button class="header-menu-toggle" id="menuToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MOBILE MENU ========== -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-panel">
+        <div class="mobile-menu-header">
+          <span class="header-logo-text" style="font-size: 1.3rem">Karibu</span>
+          <button class="mobile-menu-close modal-close" id="menuClose">
+            ✕
+          </button>
+        </div>
+        <nav class="mobile-menu-nav">
+          <a href="/"><i class="ph ph-house"></i> Início</a>
+          <a href="/pages/catalogue.html"
+            ><i class="ph ph-shopping-bag"></i> Catálogo</a
+          >
+          <a href="#como-funciona"><i class="ph ph-gear"></i> Como Funciona</a>
+          <a href="/pages/carts.html" class="active"
+            ><i class="ph ph-shopping-cart"></i> Carrinhos</a
+          >
+          <div class="mobile-menu-divider"></div>
+          <a href="/pages/welcome.html"
+            ><i class="ph ph-key"></i> Iniciar Sessão</a
+          >
+          <a href="/pages/register.html"
+            ><i class="ph ph-notebook"></i> Criar Conta</a
+          >
+        </nav>
+      </div>
+    </div>
+
+    <!-- ========== MAIN ========== -->
+    <main class="page">
+      <!-- Page Header -->
+      <section class="carts-page-header section">
+        <div class="container">
+          <h1><i class="ph ph-shopping-cart"></i> Carrinhos de Importação</h1>
+          <p>
+            Explora todas as rotas activas. Quando um carrinho fecha,
+            os fornecedores competem para te oferecer o melhor preço.
+          </p>
+
+          <!-- Stats -->
+          <div class="carts-stats anim-on-scroll">
+            <div class="carts-stat">
+              <div class="carts-stat-value">6</div>
+              <div class="carts-stat-label">Carrinhos Activos</div>
+            </div>
+            <div class="carts-stat">
+              <div class="carts-stat-value">47</div>
+              <div class="carts-stat-label">Pedidos Totais</div>
+            </div>
+            <div class="carts-stat">
+              <div class="carts-stat-value">23</div>
+              <div class="carts-stat-label">Fornecedores</div>
+            </div>
+            <div class="carts-stat">
+              <div class="carts-stat-value">5</div>
+              <div class="carts-stat-label">Províncias</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filters + Cards -->
+      <section class="section">
+        <div class="container">
+          <!-- Filter Bar -->
+          <div class="carts-filters anim-on-scroll">
+            <div class="carts-search">
+              <i class="ph ph-magnifying-glass"></i>
+              <input
+                type="text"
+                id="cartsSearch"
+                placeholder="Pesquisar por rota ou produto…"
+              />
+            </div>
+            <select class="carts-filter-select" id="filterRoute">
+              <option value="all">Todas as Rotas</option>
+              <option value="windhoek-luanda">Windhoek → Luanda</option>
+              <option value="windhoek-lubango">Windhoek → Lubango</option>
+              <option value="windhoek-benguela">Windhoek → Benguela</option>
+              <option value="windhoek-huambo">Windhoek → Huambo</option>
+              <option value="windhoek-namibe">Windhoek → Namibe</option>
+            </select>
+            <select class="carts-filter-select" id="filterStatus">
+              <option value="all">Todos os Estados</option>
+              <option value="open">Aberto</option>
+              <option value="closing">A Fechar</option>
+              <option value="closed">Fechado</option>
+            </select>
+            <select class="carts-filter-select" id="filterSort">
+              <option value="deadline">Prazo (mais próximo)</option>
+              <option value="popularity">Popularidade</option>
+              <option value="orders">Nº de Pedidos</option>
+            </select>
+          </div>
+
+          <!-- Cart Cards Grid -->
+          <div class="carts-grid" id="cartsGrid">
+
+            <!-- Cart Card 1 — Windhoek → Luanda -->
+            <div class="cart-card-v2 anim-on-scroll" data-route="windhoek-luanda" data-status="open">
+              <div class="cart-v2-header">
+                <div class="cart-v2-route">
+                  <span class="cart-v2-city">
+                    <img src="https://flagcdn.com/w20/na.png" width="20" alt="Namíbia" />
+                    <span class="cart-v2-city-name">Windhoek</span>
+                  </span>
+                  <span class="cart-v2-arrow"><i class="ph ph-arrow-right"></i></span>
+                  <span class="cart-v2-city">
+                    <img src="https://flagcdn.com/w20/ao.png" width="20" alt="Angola" />
+                    <span class="cart-v2-city-name">Luanda</span>
+                  </span>
+                </div>
+                <span class="cart-v2-status open">Aberto</span>
+              </div>
+
+              <div class="cart-v2-countdown">
+                <div class="countdown-wrapper">
+                  <div class="countdown-route">Fecha em:</div>
+                  <div class="countdown" data-countdown="2026-03-15T18:00:00">
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-days>00</span>
+                      <span class="countdown-label">Dias</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-hours>00</span>
+                      <span class="countdown-label">Hrs</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-minutes>00</span>
+                      <span class="countdown-label">Min</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-seconds>00</span>
+                      <span class="countdown-label">Seg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cart-v2-progress">
+                <div class="cart-v2-progress-bar">
+                  <div class="cart-v2-progress-fill" style="width: 75%"></div>
+                </div>
+                <div class="cart-v2-progress-info">
+                  <span>75% preenchido</span>
+                  <span>12/16 pedidos</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-meta">
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-package"></i></span>
+                  <span class="cart-v2-meta-value">12</span>
+                  <span class="cart-v2-meta-label">Pedidos</span>
+                </div>
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-users"></i></span>
+                  <span class="cart-v2-meta-value">8</span>
+                  <span class="cart-v2-meta-label">Fornecedores</span>
+                </div>
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-star"></i></span>
+                  <span class="cart-v2-meta-value">4.8</span>
+                  <span class="cart-v2-meta-label">Rating</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-products">
+                <div class="cart-v2-products-title">Produtos em procura</div>
+                <div class="cart-v2-product-list">
+                  <span class="cart-v2-product-tag">Smartphones</span>
+                  <span class="cart-v2-product-tag">Laptops</span>
+                  <span class="cart-v2-product-tag">TVs</span>
+                  <span class="cart-v2-product-tag">+5</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-footer">
+                <a href="/pages/catalogue.html?cart=windhoek-luanda" class="cart-v2-cta">
+                  Fazer Pedido <i class="ph ph-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Cart Card 2 — Windhoek → Lubango -->
+            <div class="cart-card-v2 anim-on-scroll" data-route="windhoek-lubango" data-status="open">
+              <div class="cart-v2-header">
+                <div class="cart-v2-route">
+                  <span class="cart-v2-city">
+                    <img src="https://flagcdn.com/w20/na.png" width="20" alt="Namíbia" />
+                    <span class="cart-v2-city-name">Windhoek</span>
+                  </span>
+                  <span class="cart-v2-arrow"><i class="ph ph-arrow-right"></i></span>
+                  <span class="cart-v2-city">
+                    <img src="https://flagcdn.com/w20/ao.png" width="20" alt="Angola" />
+                    <span class="cart-v2-city-name">Lubango</span>
+                  </span>
+                </div>
+                <span class="cart-v2-status open">Aberto</span>
+              </div>
+
+              <div class="cart-v2-countdown">
+                <div class="countdown-wrapper">
+                  <div class="countdown-route">Fecha em:</div>
+                  <div class="countdown" data-countdown="2026-03-18T12:00:00">
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-days>00</span>
+                      <span class="countdown-label">Dias</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-hours>00</span>
+                      <span class="countdown-label">Hrs</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-minutes>00</span>
+                      <span class="countdown-label">Min</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-seconds>00</span>
+                      <span class="countdown-label">Seg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cart-v2-progress">
+                <div class="cart-v2-progress-bar">
+                  <div class="cart-v2-progress-fill" style="width: 44%"></div>
+                </div>
+                <div class="cart-v2-progress-info">
+                  <span>44% preenchido</span>
+                  <span>7/16 pedidos</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-meta">
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-package"></i></span>
+                  <span class="cart-v2-meta-value">7</span>
+                  <span class="cart-v2-meta-label">Pedidos</span>
+                </div>
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-users"></i></span>
+                  <span class="cart-v2-meta-value">5</span>
+                  <span class="cart-v2-meta-label">Fornecedores</span>
+                </div>
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-star"></i></span>
+                  <span class="cart-v2-meta-value">4.6</span>
+                  <span class="cart-v2-meta-label">Rating</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-products">
+                <div class="cart-v2-products-title">Produtos em procura</div>
+                <div class="cart-v2-product-list">
+                  <span class="cart-v2-product-tag">Electrodomésticos</span>
+                  <span class="cart-v2-product-tag">Peças Auto</span>
+                  <span class="cart-v2-product-tag">+3</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-footer">
+                <a href="/pages/catalogue.html?cart=windhoek-lubango" class="cart-v2-cta">
+                  Fazer Pedido <i class="ph ph-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Cart Card 3 — Windhoek → Benguela -->
+            <div class="cart-card-v2 anim-on-scroll" data-route="windhoek-benguela" data-status="closing">
+              <div class="cart-v2-header">
+                <div class="cart-v2-route">
+                  <span class="cart-v2-city">
+                    <img src="https://flagcdn.com/w20/na.png" width="20" alt="Namíbia" />
+                    <span class="cart-v2-city-name">Windhoek</span>
+                  </span>
+                  <span class="cart-v2-arrow"><i class="ph ph-arrow-right"></i></span>
+                  <span class="cart-v2-city">
+                    <img src="https://flagcdn.com/w20/ao.png" width="20" alt="Angola" />
+                    <span class="cart-v2-city-name">Benguela</span>
+                  </span>
+                </div>
+                <span class="cart-v2-status closing">A Fechar</span>
+              </div>
+
+              <div class="cart-v2-countdown">
+                <div class="countdown-wrapper">
+                  <div class="countdown-route">Fecha em:</div>
+                  <div class="countdown" data-countdown="2026-03-11T20:00:00">
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-days>00</span>
+                      <span class="countdown-label">Dias</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-hours>00</span>
+                      <span class="countdown-label">Hrs</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-minutes>00</span>
+                      <span class="countdown-label">Min</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-seconds>00</span>
+                      <span class="countdown-label">Seg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cart-v2-progress">
+                <div class="cart-v2-progress-bar">
+                  <div class="cart-v2-progress-fill" style="width: 90%"></div>
+                </div>
+                <div class="cart-v2-progress-info">
+                  <span>90% preenchido</span>
+                  <span>18/20 pedidos</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-meta">
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-package"></i></span>
+                  <span class="cart-v2-meta-value">18</span>
+                  <span class="cart-v2-meta-label">Pedidos</span>
+                </div>
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-users"></i></span>
+                  <span class="cart-v2-meta-value">11</span>
+                  <span class="cart-v2-meta-label">Fornecedores</span>
+                </div>
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-star"></i></span>
+                  <span class="cart-v2-meta-value">4.9</span>
+                  <span class="cart-v2-meta-label">Rating</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-products">
+                <div class="cart-v2-products-title">Produtos em procura</div>
+                <div class="cart-v2-product-list">
+                  <span class="cart-v2-product-tag">Material de Construção</span>
+                  <span class="cart-v2-product-tag">Ferramentas</span>
+                  <span class="cart-v2-product-tag">+4</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-footer">
+                <a href="/pages/catalogue.html?cart=windhoek-benguela" class="cart-v2-cta">
+                  Fazer Pedido <i class="ph ph-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Cart Card 4 — Windhoek → Huambo -->
+            <div class="cart-card-v2 anim-on-scroll" data-route="windhoek-huambo" data-status="open">
+              <div class="cart-v2-header">
+                <div class="cart-v2-route">
+                  <span class="cart-v2-city">
+                    <img src="https://flagcdn.com/w20/na.png" width="20" alt="Namíbia" />
+                    <span class="cart-v2-city-name">Windhoek</span>
+                  </span>
+                  <span class="cart-v2-arrow"><i class="ph ph-arrow-right"></i></span>
+                  <span class="cart-v2-city">
+                    <img src="https://flagcdn.com/w20/ao.png" width="20" alt="Angola" />
+                    <span class="cart-v2-city-name">Huambo</span>
+                  </span>
+                </div>
+                <span class="cart-v2-status open">Aberto</span>
+              </div>
+
+              <div class="cart-v2-countdown">
+                <div class="countdown-wrapper">
+                  <div class="countdown-route">Fecha em:</div>
+                  <div class="countdown" data-countdown="2026-03-20T10:00:00">
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-days>00</span>
+                      <span class="countdown-label">Dias</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-hours>00</span>
+                      <span class="countdown-label">Hrs</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-minutes>00</span>
+                      <span class="countdown-label">Min</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-seconds>00</span>
+                      <span class="countdown-label">Seg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cart-v2-progress">
+                <div class="cart-v2-progress-bar">
+                  <div class="cart-v2-progress-fill" style="width: 25%"></div>
+                </div>
+                <div class="cart-v2-progress-info">
+                  <span>25% preenchido</span>
+                  <span>4/16 pedidos</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-meta">
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-package"></i></span>
+                  <span class="cart-v2-meta-value">4</span>
+                  <span class="cart-v2-meta-label">Pedidos</span>
+                </div>
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-users"></i></span>
+                  <span class="cart-v2-meta-value">3</span>
+                  <span class="cart-v2-meta-label">Fornecedores</span>
+                </div>
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-star"></i></span>
+                  <span class="cart-v2-meta-value">4.5</span>
+                  <span class="cart-v2-meta-label">Rating</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-products">
+                <div class="cart-v2-products-title">Produtos em procura</div>
+                <div class="cart-v2-product-list">
+                  <span class="cart-v2-product-tag">Consolas</span>
+                  <span class="cart-v2-product-tag">Tablets</span>
+                  <span class="cart-v2-product-tag">Acessórios</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-footer">
+                <a href="/pages/catalogue.html?cart=windhoek-huambo" class="cart-v2-cta">
+                  Fazer Pedido <i class="ph ph-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Cart Card 5 — Windhoek → Namibe -->
+            <div class="cart-card-v2 anim-on-scroll" data-route="windhoek-namibe" data-status="open">
+              <div class="cart-v2-header">
+                <div class="cart-v2-route">
+                  <span class="cart-v2-city">
+                    <img src="https://flagcdn.com/w20/na.png" width="20" alt="Namíbia" />
+                    <span class="cart-v2-city-name">Windhoek</span>
+                  </span>
+                  <span class="cart-v2-arrow"><i class="ph ph-arrow-right"></i></span>
+                  <span class="cart-v2-city">
+                    <img src="https://flagcdn.com/w20/ao.png" width="20" alt="Angola" />
+                    <span class="cart-v2-city-name">Namibe</span>
+                  </span>
+                </div>
+                <span class="cart-v2-status open">Aberto</span>
+              </div>
+
+              <div class="cart-v2-countdown">
+                <div class="countdown-wrapper">
+                  <div class="countdown-route">Fecha em:</div>
+                  <div class="countdown" data-countdown="2026-03-22T16:00:00">
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-days>00</span>
+                      <span class="countdown-label">Dias</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-hours>00</span>
+                      <span class="countdown-label">Hrs</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-minutes>00</span>
+                      <span class="countdown-label">Min</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-seconds>00</span>
+                      <span class="countdown-label">Seg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cart-v2-progress">
+                <div class="cart-v2-progress-bar">
+                  <div class="cart-v2-progress-fill" style="width: 56%"></div>
+                </div>
+                <div class="cart-v2-progress-info">
+                  <span>56% preenchido</span>
+                  <span>9/16 pedidos</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-meta">
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-package"></i></span>
+                  <span class="cart-v2-meta-value">9</span>
+                  <span class="cart-v2-meta-label">Pedidos</span>
+                </div>
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-users"></i></span>
+                  <span class="cart-v2-meta-value">6</span>
+                  <span class="cart-v2-meta-label">Fornecedores</span>
+                </div>
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-star"></i></span>
+                  <span class="cart-v2-meta-value">4.7</span>
+                  <span class="cart-v2-meta-label">Rating</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-products">
+                <div class="cart-v2-products-title">Produtos em procura</div>
+                <div class="cart-v2-product-list">
+                  <span class="cart-v2-product-tag">Moda</span>
+                  <span class="cart-v2-product-tag">Cosméticos</span>
+                  <span class="cart-v2-product-tag">Sapatos</span>
+                  <span class="cart-v2-product-tag">+2</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-footer">
+                <a href="/pages/catalogue.html?cart=windhoek-namibe" class="cart-v2-cta">
+                  Fazer Pedido <i class="ph ph-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Cart Card 6 — Windhoek → Luanda (Fechado) -->
+            <div class="cart-card-v2 anim-on-scroll" data-route="windhoek-luanda" data-status="closed">
+              <div class="cart-v2-header">
+                <div class="cart-v2-route">
+                  <span class="cart-v2-city">
+                    <img src="https://flagcdn.com/w20/na.png" width="20" alt="Namíbia" />
+                    <span class="cart-v2-city-name">Windhoek</span>
+                  </span>
+                  <span class="cart-v2-arrow"><i class="ph ph-arrow-right"></i></span>
+                  <span class="cart-v2-city">
+                    <img src="https://flagcdn.com/w20/ao.png" width="20" alt="Angola" />
+                    <span class="cart-v2-city-name">Luanda</span>
+                  </span>
+                </div>
+                <span class="cart-v2-status closed">Fechado</span>
+              </div>
+
+              <div class="cart-v2-countdown">
+                <div class="countdown-wrapper">
+                  <div class="countdown-route">Encerrado</div>
+                  <div class="countdown" data-countdown="2026-03-08T18:00:00">
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-days>00</span>
+                      <span class="countdown-label">Dias</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-hours>00</span>
+                      <span class="countdown-label">Hrs</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-minutes>00</span>
+                      <span class="countdown-label">Min</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                      <span class="countdown-number" data-seconds>00</span>
+                      <span class="countdown-label">Seg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cart-v2-progress">
+                <div class="cart-v2-progress-bar">
+                  <div class="cart-v2-progress-fill" style="width: 100%"></div>
+                </div>
+                <div class="cart-v2-progress-info">
+                  <span>100% preenchido</span>
+                  <span>20/20 pedidos</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-meta">
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-package"></i></span>
+                  <span class="cart-v2-meta-value">20</span>
+                  <span class="cart-v2-meta-label">Pedidos</span>
+                </div>
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-users"></i></span>
+                  <span class="cart-v2-meta-value">14</span>
+                  <span class="cart-v2-meta-label">Fornecedores</span>
+                </div>
+                <div class="cart-v2-meta-item">
+                  <span class="cart-v2-meta-icon"><i class="ph ph-star"></i></span>
+                  <span class="cart-v2-meta-value">4.9</span>
+                  <span class="cart-v2-meta-label">Rating</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-products">
+                <div class="cart-v2-products-title">Produtos deste carrinho</div>
+                <div class="cart-v2-product-list">
+                  <span class="cart-v2-product-tag">Smartphones</span>
+                  <span class="cart-v2-product-tag">Gaming</span>
+                  <span class="cart-v2-product-tag">TVs</span>
+                  <span class="cart-v2-product-tag">+7</span>
+                </div>
+              </div>
+
+              <div class="cart-v2-footer">
+                <a href="#" class="cart-v2-cta" style="opacity: 0.5; pointer-events: none; background: var(--bg-elevated);">
+                  Carrinho Encerrado <i class="ph ph-lock"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-brand-name">Karibu</div>
+            <p>
+              Marketplace de importação colaborativa que profissionaliza a rota
+              comercial Namíbia <i class="ph ph-arrow-right"></i> Angola com
+              segurança, transparência e preços competitivos.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h5>Plataforma</h5>
+            <ul>
+              <li><a href="/pages/catalogue.html">Catálogo</a></li>
+              <li><a href="/pages/carts.html">Carrinhos</a></li>
+              <li><a href="/#como-funciona">Como Funciona</a></li>
+              <li><a href="/fornecedor/registar">Ser Fornecedor</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Suporte</h5>
+            <ul>
+              <li><a href="#">Central de Ajuda</a></li>
+              <li><a href="#">Disputas e Reclamações</a></li>
+              <li><a href="#">Contactar Suporte</a></li>
+              <li><a href="#">Regras da Plataforma</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Empresa</h5>
+            <ul>
+              <li><a href="#">Sobre o Karibu</a></li>
+              <li><a href="#">Termos de Serviço</a></li>
+              <li><a href="#">Política de Privacidade</a></li>
+              <li><a href="#">Parceiros e Hubs</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Karibu. Todos os direitos reservados. Luanda, Angola.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="WhatsApp"
+              ><i class="ph ph-chat-circle-text"></i
+            ></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="ph ph-instagram-logo"></i
+            ></a>
+            <a href="#" aria-label="Facebook"
+              ><i class="ph ph-facebook-logo"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========== MOBILE BOTTOM NAV ========== -->
+    <nav class="bottom-nav" id="bottomNav">
+      <div class="bottom-nav-inner">
+        <a href="/" class="bottom-nav-item">
+          <span class="nav-icon"><i class="ph ph-house"></i></span>
+          <span class="nav-label">Início</span>
+        </a>
+        <a href="/pages/catalogue.html" class="bottom-nav-item">
+          <span class="nav-icon"><i class="ph ph-magnifying-glass"></i></span>
+          <span class="nav-label">Catálogo</span>
+        </a>
+        <a href="/pages/carts.html" class="bottom-nav-item active">
+          <span class="nav-icon"><i class="ph ph-shopping-cart"></i></span>
+          <span class="nav-label">Carrinhos</span>
+          <span class="nav-badge">6</span>
+        </a>
+        <a href="/comprador/painel" class="bottom-nav-item">
+          <span class="nav-icon"><i class="ph ph-clipboard-text"></i></span>
+          <span class="nav-label">Pedidos</span>
+        </a>
+        <a href="/login" class="bottom-nav-item">
+          <span class="nav-icon"><i class="ph ph-user"></i></span>
+          <span class="nav-label">Conta</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="/js/components/countdown.js"></script>
+    <script src="/js/app.js"></script>
+    <script>
+      // Simple client-side filtering
+      document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('cartsSearch');
+        const filterRoute = document.getElementById('filterRoute');
+        const filterStatus = document.getElementById('filterStatus');
+        const cards = document.querySelectorAll('.cart-card-v2');
+
+        function applyFilters() {
+          const searchTerm = searchInput.value.toLowerCase();
+          const routeValue = filterRoute.value;
+          const statusValue = filterStatus.value;
+
+          cards.forEach(card => {
+            const route = card.dataset.route || '';
+            const status = card.dataset.status || '';
+            const text = card.textContent.toLowerCase();
+
+            const matchesSearch = !searchTerm || text.includes(searchTerm);
+            const matchesRoute = routeValue === 'all' || route === routeValue;
+            const matchesStatus = statusValue === 'all' || status === statusValue;
+
+            card.style.display = (matchesSearch && matchesRoute && matchesStatus) ? '' : 'none';
+          });
+        }
+
+        searchInput.addEventListener('input', applyFilters);
+        filterRoute.addEventListener('change', applyFilters);
+        filterStatus.addEventListener('change', applyFilters);
+      });
+    </script>
+  </body>
+</html>

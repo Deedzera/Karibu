@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/css/components.css" />
     <link rel="stylesheet" href="/css/layout.css" />
     <link rel="stylesheet" href="/css/pages/home.css" />
+    <link rel="stylesheet" href="/css/pages/carts.css" />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
   </head>
   <body>
@@ -34,7 +35,7 @@
           <a href="/" class="active">Início</a>
           <a href="/pages/catalogue.html">Catálogo</a>
           <a href="#como-funciona">Como Funciona</a>
-          <a href="#carrinhos">Carrinhos Activos</a>
+          <a href="/pages/carts.html">Carrinhos</a>
         </nav>
 
         <div class="header-actions">
@@ -70,9 +71,9 @@
           <a href="/pages/catalogue.html"
             ><i class="ph ph-shopping-bag"></i> Catálogo</a
           >
-          <a href="#como-funciona"><i class="ph ph-gear"></i> Como Funciona</a>
-          <a href="#carrinhos"
-            ><i class="ph ph-shopping-cart"></i> Carrinhos Activos</a
+          <a href="/index.html#como-funciona"><i class="ph ph-gear"></i> Como Funciona</a>
+          <a href="/pages/carts.html"
+            ><i class="ph ph-shopping-cart"></i> Carrinhos</a
           >
           <div class="mobile-menu-divider"></div>
           <a href="/pages/welcome.html"
@@ -104,7 +105,7 @@
               Pagamento protegido em Escrow. Entrega rastreada via hubs físicos.
             </p>
             <div class="hero-actions">
-              <a href="#carrinhos" class="btn btn-primary btn-lg btn-pulse">
+              <a href="/pages/carts.html" class="btn btn-primary btn-lg btn-pulse">
                 <i class="ph ph-shopping-cart"></i> Ver Carrinhos Activos
               </a>
               <a href="#como-funciona" class="btn btn-secondary btn-lg">
@@ -129,194 +130,43 @@
         </div>
       </section>
 
-      <!-- ---- ACTIVE CARTS ---- -->
-      <section class="active-carts section" id="carrinhos">
+      <!-- ---- CARTS CTA BANNER ---- -->
+      <section class="carts-banner" id="carrinhos">
         <div class="container">
-          <div class="section-title anim-on-scroll">
-            <h2><i class="ph ph-shopping-cart"></i> Carrinhos Activos</h2>
-            <p>
-              Aproveita as janelas de importação abertas. Quando o cronómetro
-              chega a zero, os fornecedores começam a competir pelas tuas
-              cotações.
-            </p>
-          </div>
-
-          <div class="cart-cards">
-            <!-- Cart Card 1 -->
-            <div class="cart-card anim-on-scroll">
-              <div class="cart-card-header">
-                <div class="cart-card-route">
-                  <span class="cart-card-route-from"
-                    ><img
-                      src="https://flagcdn.com/w20/na.png"
-                      width="20"
-                      alt="Namíbia"
-                      style="display: inline-block; vertical-align: middle"
-                    />
-                    Windhoek</span
-                  >
-                  <span class="cart-card-route-arrow"
-                    ><i class="ph ph-arrow-right"></i
-                  ></span>
-                  <span class="cart-card-route-to"
-                    ><img
-                      src="https://flagcdn.com/w20/ao.png"
-                      width="20"
-                      alt="Angola"
-                      style="display: inline-block; vertical-align: middle"
-                    />
-                    Luanda</span
-                  >
+          <div class="carts-banner-inner anim-on-scroll">
+            <div class="carts-banner-content">
+              <span class="carts-banner-badge">
+                <i class="ph ph-shopping-cart"></i> 6 Carrinhos Activos
+              </span>
+              <h2 class="carts-banner-title">
+                Janelas de importação<br />
+                abertas agora
+              </h2>
+              <p class="carts-banner-desc">
+                Explora todas as rotas activas, filtra por destino e encontra o
+                carrinho perfeito para o teu pedido. Quando fecha, os fornecedores
+                começam a competir.
+              </p>
+              <div class="carts-banner-stats">
+                <div class="carts-banner-stat">
+                  <div class="carts-banner-stat-value">47</div>
+                  <div class="carts-banner-stat-label">Pedidos Activos</div>
                 </div>
-                <span class="cart-card-status">Aberto</span>
-              </div>
-
-              <div class="cart-card-countdown">
-                <div class="countdown-wrapper">
-                  <div class="countdown-route">Fecha em:</div>
-                  <div class="countdown" data-countdown="2026-03-15T18:00:00">
-                    <div class="countdown-block">
-                      <span class="countdown-number" data-days>00</span>
-                      <span class="countdown-label">Dias</span>
-                    </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-block">
-                      <span class="countdown-number" data-hours>00</span>
-                      <span class="countdown-label">Hrs</span>
-                    </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-block">
-                      <span class="countdown-number" data-minutes>00</span>
-                      <span class="countdown-label">Min</span>
-                    </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-block">
-                      <span class="countdown-number" data-seconds>00</span>
-                      <span class="countdown-label">Seg</span>
-                    </div>
-                  </div>
+                <div class="carts-banner-stat">
+                  <div class="carts-banner-stat-value">23</div>
+                  <div class="carts-banner-stat-label">Fornecedores</div>
+                </div>
+                <div class="carts-banner-stat">
+                  <div class="carts-banner-stat-value">5</div>
+                  <div class="carts-banner-stat-label">Províncias</div>
                 </div>
               </div>
-
-              <div class="cart-card-meta">
-                <span class="cart-card-meta-item">
-                  <span class="cart-card-meta-icon"
-                    ><i class="ph ph-package"></i
-                  ></span>
-                  12 pedidos
-                </span>
-                <span class="cart-card-meta-item">
-                  <span class="cart-card-meta-icon"
-                    ><i class="ph ph-users"></i
-                  ></span>
-                  8 fornecedores
-                </span>
-              </div>
-
-              <div class="cart-card-products">
-                <div class="cart-card-products-title">Produtos em procura</div>
-                <div class="cart-card-product-list">
-                  <span class="cart-card-product-tag">Smartphones</span>
-                  <span class="cart-card-product-tag">Laptops</span>
-                  <span class="cart-card-product-tag">TVs</span>
-                  <span class="cart-card-product-tag">+5</span>
-                </div>
-              </div>
-
-              <a
-                href="/categoria/todos?cart=windhoek-luanda"
-                class="btn btn-primary btn-block"
-              >
-                Fazer Pedido Neste Carrinho
+              <a href="/pages/carts.html" class="btn btn-primary btn-lg btn-pulse">
+                <i class="ph ph-shopping-cart"></i> Ver Todos os Carrinhos
               </a>
             </div>
-
-            <!-- Cart Card 2 -->
-            <div class="cart-card anim-on-scroll">
-              <div class="cart-card-header">
-                <div class="cart-card-route">
-                  <span class="cart-card-route-from"
-                    ><img
-                      src="https://flagcdn.com/w20/na.png"
-                      width="20"
-                      alt="Namíbia"
-                      style="display: inline-block; vertical-align: middle"
-                    />
-                    Windhoek</span
-                  >
-                  <span class="cart-card-route-arrow"
-                    ><i class="ph ph-arrow-right"></i
-                  ></span>
-                  <span class="cart-card-route-to"
-                    ><img
-                      src="https://flagcdn.com/w20/ao.png"
-                      width="20"
-                      alt="Angola"
-                      style="display: inline-block; vertical-align: middle"
-                    />
-                    Lubango</span
-                  >
-                </div>
-                <span class="cart-card-status">Aberto</span>
-              </div>
-
-              <div class="cart-card-countdown">
-                <div class="countdown-wrapper">
-                  <div class="countdown-route">Fecha em:</div>
-                  <div class="countdown" data-countdown="2026-03-18T12:00:00">
-                    <div class="countdown-block">
-                      <span class="countdown-number" data-days>00</span>
-                      <span class="countdown-label">Dias</span>
-                    </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-block">
-                      <span class="countdown-number" data-hours>00</span>
-                      <span class="countdown-label">Hrs</span>
-                    </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-block">
-                      <span class="countdown-number" data-minutes>00</span>
-                      <span class="countdown-label">Min</span>
-                    </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-block">
-                      <span class="countdown-number" data-seconds>00</span>
-                      <span class="countdown-label">Seg</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="cart-card-meta">
-                <span class="cart-card-meta-item">
-                  <span class="cart-card-meta-icon"
-                    ><i class="ph ph-package"></i
-                  ></span>
-                  7 pedidos
-                </span>
-                <span class="cart-card-meta-item">
-                  <span class="cart-card-meta-icon"
-                    ><i class="ph ph-users"></i
-                  ></span>
-                  5 fornecedores
-                </span>
-              </div>
-
-              <div class="cart-card-products">
-                <div class="cart-card-products-title">Produtos em procura</div>
-                <div class="cart-card-product-list">
-                  <span class="cart-card-product-tag">Electrodomésticos</span>
-                  <span class="cart-card-product-tag">Peças Auto</span>
-                  <span class="cart-card-product-tag">+3</span>
-                </div>
-              </div>
-
-              <a
-                href="/categoria/todos?cart=windhoek-lubango"
-                class="btn btn-primary btn-block"
-              >
-                Fazer Pedido Neste Carrinho
-              </a>
+            <div class="carts-banner-visual">
+              <i class="ph ph-shopping-cart"></i>
             </div>
           </div>
         </div>
@@ -964,7 +814,7 @@
             <h5>Plataforma</h5>
             <ul>
               <li><a href="/categoria/todos">Catálogo</a></li>
-              <li><a href="#carrinhos">Carrinhos Activos</a></li>
+              <li><a href="/pages/carts.html">Carrinhos</a></li>
               <li><a href="#como-funciona">Como Funciona</a></li>
               <li>
                 <a href="/fornecedor/registar">Ser Fornecedor</a>
@@ -1018,10 +868,10 @@
           <span class="nav-icon"><i class="ph ph-magnifying-glass"></i></span>
           <span class="nav-label">Catálogo</span>
         </a>
-        <a href="#carrinhos" class="bottom-nav-item">
+        <a href="/pages/carts.html" class="bottom-nav-item">
           <span class="nav-icon"><i class="ph ph-shopping-cart"></i></span>
           <span class="nav-label">Carrinhos</span>
-          <span class="nav-badge">2</span>
+          <span class="nav-badge">6</span>
         </a>
         <a href="/comprador/painel" class="bottom-nav-item">
           <span class="nav-icon"><i class="ph ph-clipboard-text"></i></span>

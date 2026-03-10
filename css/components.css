@@ -568,21 +568,23 @@ select.form-input {
 }
 
 /* ============================================
-   8. MODAL
+   8. MODAL — Glassmorphism
    ============================================ */
 
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: var(--bg-overlay);
+  background: rgba(4, 10, 16, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: var(--z-modal);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-md);
+  padding: var(--space-lg);
   opacity: 0;
   visibility: hidden;
-  transition: all var(--duration-normal) var(--ease-out);
+  transition: opacity 0.35s ease, visibility 0.35s ease, backdrop-filter 0.35s ease;
 }
 
 .modal-backdrop.active {
@@ -591,21 +593,76 @@ select.form-input {
 }
 
 .modal {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  padding: var(--space-xl);
-  max-width: 500px;
+  position: relative;
+  background: rgba(16, 28, 40, 0.72);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: var(--space-xl) var(--space-lg);
+  max-width: 460px;
   width: 100%;
   max-height: 85vh;
   overflow-y: auto;
-  transform: scale(0.95) translateY(10px);
-  transition: transform var(--duration-normal) var(--ease-bounce);
-  box-shadow: var(--shadow-xl);
+  transform: scale(0.92) translateY(24px);
+  opacity: 0;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s ease;
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.45),
+    0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+/* Accent glow line at the top */
+.modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 3px;
+  background: var(--accent-gradient);
+  border-radius: 0 0 4px 4px;
+  opacity: 0.85;
+}
+
+/* Subtle radial glow behind modal */
+.modal::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 80px;
+  background: radial-gradient(ellipse, rgba(232, 145, 58, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .modal-backdrop.active .modal {
   transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Custom scrollbar for modal content */
+.modal::-webkit-scrollbar {
+  width: 5px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .modal-header {
@@ -613,11 +670,15 @@ select.form-input {
   align-items: center;
   justify-content: space-between;
   margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .modal-title {
   font-size: var(--font-lg);
   font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .modal-close {
@@ -627,14 +688,59 @@ select.form-input {
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text-secondary);
-  transition: all var(--duration-fast);
-  font-size: 1.25rem;
+  cursor: pointer;
+  font-size: 1.15rem;
+  transition: all 0.25s ease;
 }
 
 .modal-close:hover {
-  background: var(--bg-card);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.15);
   color: var(--text-primary);
+  transform: rotate(90deg);
+}
+
+/* ---- Mobile bottom-sheet style (≤ 480px) ---- */
+@media (max-width: 480px) {
+  .modal-backdrop {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal {
+    max-width: 100%;
+    max-height: 92vh;
+    border-radius: 20px 20px 0 0;
+    padding: var(--space-lg) var(--space-md);
+    transform: translateY(100%);
+    opacity: 1;
+  }
+
+  .modal::before {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    top: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+
+  .modal::after {
+    display: none;
+  }
+
+  .modal-backdrop.active .modal {
+    transform: translateY(0);
+  }
+
+  .modal-header {
+    padding-top: var(--space-sm);
+  }
 }
 
 /* ============================================
