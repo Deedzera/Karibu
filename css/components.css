@@ -488,6 +488,10 @@ select.form-input {
   animation: slideInRight var(--duration-normal) var(--ease-out);
 }
 
+.toast.fade-out {
+  animation: slideOutRight var(--duration-normal) var(--ease-in) forwards;
+}
+
 .toast-success { border-left: 3px solid var(--success); }
 .toast-error   { border-left: 3px solid var(--danger); }
 .toast-warning { border-left: 3px solid var(--warning); }

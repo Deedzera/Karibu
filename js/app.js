@@ -248,22 +248,29 @@ function showToast(type, title, message, duration = 4000) {
     success: '<i class="ph-fill ph-check-circle" style="color: var(--success)"></i>',
     error: '<i class="ph-fill ph-x-circle" style="color: var(--danger)"></i>',
     warning: '<i class="ph-fill ph-warning" style="color: var(--warning)"></i>',
-    info: '<i class="ph-fill ph-info"></i>'
+    info: '<i class="ph-fill ph-info" style="color: var(--info)"></i>'
   };
 
   const toast = document.createElement('div');
   toast.className = `toast toast-${type}`;
   toast.innerHTML = `
-    <span class="toast-icon">${icons[type] || '<i class="ph-fill ph-info"></i>'}</span>
+    <span class="toast-icon">${icons[type] || icons.info}</span>
     <div class="toast-body">
       <div class="toast-title">${title}</div>
       <div class="toast-message">${message}</div>
     </div>
-    <button class="toast-close" onclick="this.closest('.toast').remove()"><i class="ph ph-x"></i></button>
+    <button class="toast-close" onclick="const t = this.closest('.toast'); t.classList.add('fade-out'); setTimeout(() => t.remove(), 300);"><i class="ph ph-x"></i></button>
   `;
 
   container.appendChild(toast);
-  setTimeout(() => toast.remove(), duration);
+  
+  // Auto remove with fade
+  setTimeout(() => {
+    if (toast.parentElement) {
+      toast.classList.add('fade-out');
+      setTimeout(() => toast.remove(), 300);
+    }
+  }, duration);
 }
 
 // Init all

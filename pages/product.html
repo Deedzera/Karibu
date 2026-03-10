@@ -101,10 +101,25 @@
                   Alta Procura</span
                 >
                 <div class="gallery-actions">
-                  <button class="gallery-action-btn" title="Guardar">♡</button>
+                  <button
+                    class="gallery-action-btn"
+                    title="Guardar"
+                    onclick="
+                      if (typeof showToast === 'function')
+                        showToast(
+                          'info',
+                          'Guardado nos Favoritos',
+                          'Este produto foi guardado na tua conta.',
+                          3000,
+                        );
+                    "
+                  >
+                    ♡
+                  </button>
                   <button
                     class="gallery-action-btn whatsapp-share-btn"
                     title="Partilhar no WhatsApp"
+                    onclick="shareWhatsApp()"
                   >
                     <i class="ph ph-chat-circle-text"></i>
                   </button>

@@ -10,7 +10,8 @@
     { "source": "/comprador/painel", "destination": "/pages/buyer/dashboard.html" },
     { "source": "/categoria/:slug", "destination": "/pages/catalogue.html" },
     { "source": "/perfil", "destination": "/pages/profile.html" },
-    { "source": "/fornecedor/:slug", "destination": "/pages/supplier/profile.html" }
+    { "source": "/fornecedor/:slug", "destination": "/pages/supplier/profile.html" },
+    { "source": "/admin/dashboard", "destination": "/pages/admin/dashboard.html" }
   ],
   "headers": [
     {
