@@ -527,7 +527,7 @@
   box-shadow: var(--shadow-sm);
 }
 
-/* ---- Mobile Dashboard Nav (horizontal scroll) ---- */
+/* ---- Mobile Dashboard Nav (horizontal scroll) ya ---- */
 .dash-mobile-nav {
   display: flex;
   gap: 8px;
