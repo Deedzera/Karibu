@@ -264,7 +264,7 @@
 }
 
 .countdown-number {
-  font-size: var(--font-2xl);
+  font-size: var(--font-xl);
   font-weight: var(--weight-extrabold);
   color: var(--text-primary);
   font-variant-numeric: tabular-nums;
@@ -273,8 +273,15 @@
   background: var(--bg-elevated);
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
-  min-width: 56px;
+  min-width: 48px;
   text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .countdown-number {
+    font-size: var(--font-2xl);
+    min-width: 56px;
+  }
 }
 
 .countdown-label {
@@ -611,8 +618,14 @@ select.form-input {
   display: flex;
   align-items: center;
   gap: var(--space-md);
-  font-size: var(--font-xl);
+  font-size: var(--font-lg);
   font-weight: var(--weight-extrabold);
+}
+
+@media (min-width: 1024px) {
+  .price-anchor-range {
+    font-size: var(--font-xl);
+  }
 }
 
 .price-anchor-min,
@@ -660,10 +673,16 @@ select.form-input {
 }
 
 .metric-value {
-  font-size: var(--font-2xl);
+  font-size: var(--font-xl);
   font-weight: var(--weight-extrabold);
   color: var(--text-primary);
   margin-bottom: var(--space-2xs);
+}
+
+@media (min-width: 1024px) {
+  .metric-value {
+    font-size: var(--font-2xl);
+  }
 }
 
 .metric-label {
