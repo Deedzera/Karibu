@@ -19,38 +19,38 @@
       .supplier-hero-badge {
         display: inline-flex;
         align-items: center;
-        gap: var(--space-xs);
-        padding: 6px 16px;
+        gap: var(--space-2xs);
+        padding: 4px 12px;
         background: rgba(45, 155, 91, 0.1);
         border: 1px solid rgba(45, 155, 91, 0.25);
         border-radius: var(--radius-full);
-        font-size: var(--font-xs);
+        font-size: 0.7rem;
         font-weight: var(--weight-semibold);
         color: var(--success-light);
-        margin-bottom: var(--space-md);
+        margin-bottom: var(--space-xs);
         letter-spacing: 0.5px;
       }
 
       .supplier-benefits {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: var(--space-sm);
-        margin-top: var(--space-lg);
+        gap: var(--space-xs);
+        margin-top: var(--space-md);
       }
       .supplier-benefit {
         display: flex;
         align-items: flex-start;
-        gap: var(--space-xs);
-        padding: var(--space-sm);
+        gap: var(--space-2xs);
+        padding: var(--space-xs);
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid rgba(255, 255, 255, 0.06);
         border-radius: var(--radius-md);
-        font-size: var(--font-xs);
+        font-size: 0.7rem;
         color: rgba(255, 255, 255, 0.7);
         line-height: var(--leading-relaxed);
       }
       .supplier-benefit-icon {
-        font-size: 1.2rem;
+        font-size: 1rem;
         flex-shrink: 0;
         margin-top: 1px;
         color: var(--success-light);
@@ -59,7 +59,7 @@
       .form-row {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: var(--space-md);
+        gap: var(--space-sm);
       }
       @media (max-width: 480px) {
         .form-row {
@@ -75,8 +75,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: var(--space-sm);
-        padding: var(--space-lg);
+        gap: 2px;
+        padding: var(--space-xs) var(--space-sm);
         background: var(--bg-input);
         border: 2px dashed var(--border);
         border-radius: var(--radius-md);
@@ -89,15 +89,15 @@
         background: rgba(232, 145, 58, 0.04);
       }
       .file-upload-icon {
-        font-size: 2rem;
+        font-size: 1.1rem;
         opacity: 0.6;
       }
       .file-upload-text {
-        font-size: var(--font-sm);
+        font-size: var(--font-xs);
         color: var(--text-secondary);
       }
       .file-upload-hint {
-        font-size: var(--font-xs);
+        font-size: 0.65rem;
         color: var(--text-tertiary);
       }
       .file-upload input[type="file"] {
@@ -107,23 +107,123 @@
       .verification-notice {
         display: flex;
         align-items: flex-start;
-        gap: var(--space-sm);
-        padding: var(--space-md);
+        gap: var(--space-2xs);
+        padding: var(--space-xs) var(--space-sm);
         background: rgba(59, 142, 207, 0.08);
         border: 1px solid rgba(59, 142, 207, 0.2);
         border-radius: var(--radius-md);
-        font-size: var(--font-sm);
+        font-size: 0.7rem;
         color: var(--text-secondary);
-        line-height: var(--leading-relaxed);
-        margin-bottom: var(--space-md);
+        line-height: 1.4;
+        margin-bottom: var(--space-2xs);
       }
       .verification-notice strong {
         color: var(--text-primary);
       }
 
-      /* Make wizard body taller for more fields */
-      .wizard-body {
-        min-height: 320px;
+      /* ---- Compact overrides for viewport fit ---- */
+      .auth-form-panel.dense-layout {
+        padding: 2px var(--space-md);
+      }
+      .dense-layout .auth-container {
+        transform: scale(0.78);
+        transform-origin: center center;
+      }
+      .dense-layout .auth-header {
+        margin-bottom: 4px;
+      }
+      .dense-layout .auth-title {
+        font-size: var(--font-base);
+        margin-bottom: 2px;
+      }
+      .dense-layout .auth-subtitle {
+        font-size: var(--font-xs);
+      }
+      .dense-layout .auth-card {
+        padding: var(--space-sm);
+      }
+      .dense-layout .wizard-progress {
+        margin-bottom: var(--space-xs);
+      }
+      .dense-layout .wizard-progress-bar-wrapper {
+        margin-bottom: var(--space-xs);
+      }
+      .dense-layout .wizard-step-circle {
+        width: 28px;
+        height: 28px;
+        font-size: 0.65rem;
+      }
+      .dense-layout .wizard-step-label {
+        font-size: 0.6rem;
+      }
+      .dense-layout .wizard-step-heading {
+        margin-bottom: var(--space-xs);
+      }
+      .dense-layout .wizard-step-heading h3 {
+        font-size: var(--font-sm);
+      }
+      .dense-layout .wizard-step-heading p {
+        font-size: 0.7rem;
+      }
+      .dense-layout .auth-form {
+        gap: var(--space-2xs);
+      }
+      .dense-layout .form-label {
+        font-size: var(--font-xs);
+        margin-bottom: 2px;
+      }
+      .dense-layout .form-input {
+        padding: 7px 12px;
+        font-size: var(--font-xs);
+        min-height: unset;
+      }
+      .dense-layout .input-icon-wrapper .form-input {
+        padding-left: 34px;
+      }
+      .dense-layout .input-icon {
+        left: 10px;
+        font-size: 0.85rem;
+      }
+      .dense-layout .wizard-nav {
+        margin-top: var(--space-xs);
+      }
+      .dense-layout .btn-back {
+        padding: var(--space-2xs) var(--space-sm);
+        font-size: var(--font-xs);
+        min-height: 32px;
+      }
+      .dense-layout .btn-next {
+        padding: var(--space-2xs) var(--space-md);
+        font-size: var(--font-sm);
+        min-height: 34px;
+      }
+      .dense-layout .wizard-body {
+        min-height: auto;
+      }
+      .dense-layout .auth-footer {
+        margin-top: var(--space-xs);
+        font-size: 0.7rem;
+      }
+      .dense-layout .auth-trust-bar {
+        margin-top: var(--space-2xs);
+        font-size: 0.6rem;
+      }
+      .dense-layout .checkbox-wrapper {
+        gap: var(--space-xs);
+      }
+      .dense-layout .checkbox-label {
+        font-size: 0.7rem;
+        line-height: 1.3;
+      }
+      .dense-layout .checkbox-wrapper input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+      }
+      .dense-layout .password-strength {
+        margin-top: 2px;
+      }
+      .dense-layout .form-hint {
+        font-size: 0.6rem;
       }
     </style>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
