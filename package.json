@@ -1,23 +1,14 @@
 {
   "name": "karibu-marketplace",
   "version": "1.0.0",
-  "description": "Karibu — Marketplace de Importação Colaborativa Namíbia → Angola",
   "scripts": {
-    "dev": "concurrently \"npx serve . --listen 3000\" \"nodemon server.js\"",
-    "start": "npx serve . & node server.js"
+    "dev": "npx serve .",
+    "start": "npx serve ."
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.45.0",
-    "cors": "^2.8.6",
-    "dotenv": "^17.3.1",
-    "express": "^5.2.1",
-    "pg": "^8.20.0"
+    "@supabase/supabase-js": "^2.45.0"
   },
   "engines": {
     "node": ">=18.0.0"
-  },
-  "devDependencies": {
-    "concurrently": "^9.2.1",
-    "nodemon": "^3.1.14"
   }
 }
